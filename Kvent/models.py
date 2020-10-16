@@ -7,7 +7,7 @@ class Info(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     email = models.EmailField('E-mail', max_length=254)
-    address = models.CharField("Address", max_length=125)
+    address = models.CharField("Address", max_length=125, default="NOT SET")
 
 
     def get_name(self):

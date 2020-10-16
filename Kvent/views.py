@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Info
 
 
 def index(request):
@@ -7,7 +8,6 @@ def index(request):
 
 def profile(request):
     """User's profile"""
-    user = request.user
-    info = request.user.info
-    context = {'user':user, 'info':info}
-    return render(request, 'BetterTogetherApp/profile.html', context)
+    user = Info.objects.all()
+    context = {user:'user'}
+    return render(request, 'kvent/profile.html', context)

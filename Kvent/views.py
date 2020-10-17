@@ -17,7 +17,7 @@ import datetime
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
-def user_login(request):
+def login(request):
     """
     If the user is not authenticated, get user's request and execute login.
     """
@@ -32,4 +32,4 @@ def user_login(request):
     #         messages.error(request, 'Wrong username or password try again!')
     #         return render(request, 'registration/login.html')
     # else:
-    return render(request, 'Kvent/login.html')
+    return render(request, 'kvent/login.html')

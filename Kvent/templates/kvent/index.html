@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title> Kvent </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}">Kvent</a></li>
+            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        </ul>
+    </nav>
+
+    <div class="row">
+        <div id="info"> </div>
+        <div id="event">
+            <label> Event </label>
+            <span>
+                <input id="search" type="search">
+                <button id="submit" type="submit"> </button>
+            </span>
+        </div>
+        <hr class="line">
+        <div id="no-event">
+            {% if not event %}
+            <label> No Events </label>
+            <button id="create-event" type="submit" href="{% url 'create-event' %}"> CREATE EVENT </button>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

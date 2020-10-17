@@ -15,7 +15,7 @@ ul {
     right: 0%;
     top: 0%;
     bottom: 0%;
-    height: 116.03px;
+    height: 80.03px;
     background: #003366;
     mix-blend-mode: multiply;
 }
@@ -24,10 +24,10 @@ ul {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 35px 16px;
+    padding: 25px 16px;
     padding-left: 3rem;
     text-decoration: none;
-    font-size: 45px;
+    font-size: 25px;
 }
 
 .nav-bar a:hover {

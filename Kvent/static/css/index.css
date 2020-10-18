@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: auto;
     font-family: Arial;
 }
 
@@ -43,7 +43,7 @@ ul {
     background: rgba(196, 196, 196, 0.35);
 }
 
-#event {
+#event-title {
     position: absolute;
     width: 206px;
     height: 94px;
@@ -113,5 +113,52 @@ ul {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 180px;
     font-size: 20px;
+}
 
+#create-more-event {
+    position: absolute;
+    width: 197px;
+    height: 65px;
+    left: 500px;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    font-size: 20px;
+}
+
+#event {
+    position: absolute;
+    width: 410px;
+    height: 55px;
+    left: 120px;
+    top: 590px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 60px;
+    letter-spacing: 0.03em;
+    color: #000000;
+} 
+
+#event-name {
+    margin-top: 70px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+#event-description {
+    width: 800px;
+    left: 165px;
+    font-size: 20px;
+    color: gray;
+    line-height: 50px;
+
+}
+
+.line-break {
+    position: absolute;
+    width: 1200px;
+    margin-bottom: ;
+    /* line-height: 100px; */
+    border: 1px solid rgba(19, 18, 18, 0.26);
 }

@@ -33,3 +33,102 @@ ul {
 .nav-bar a:hover {
     color: red;
 }
+
+#create {
+    position: absolute;
+    height: 80px;
+    width: 408px;
+    left: 97px;
+    top: 150px;
+
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 47px;
+    letter-spacing: 0.03em;
+
+    color: #000000;
+
+}
+
+.line {
+    position: absolute;
+    width: 1257px;
+    top: 60px;
+    border: 1px solid rgba(19, 18, 18, 0.26);
+}
+
+#content {
+    position: absolute;
+    /* width: 580px; */
+    /* height: 51px; */
+    left: 129px;
+    top: 270px;
+
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    line-height: 50px;
+    color: #000000;
+
+}
+
+#name-input {
+    position: absolute;
+    width: 890px;
+    top: 80px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 0.03em;
+
+    /* padding: 12px 20px; */
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color: white;
+}
+
+#description-input {
+    position: absolute;
+    width: 890px;
+    top: 230px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 0.03em;
+
+    /* padding: 12px 20px; */
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color: white;
+}
+
+#location-input {
+    position: absolute;
+    width: 890px;
+    top: 380px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 0.03em;
+
+    /* padding: 12px 20px; */
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color: white;
+}
+
+#submit-button {
+    position: absolute;
+    width: 81px;
+    height: 49px;
+    left: 628px;
+    top: 500px;
+    margin-bottom: 80px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}

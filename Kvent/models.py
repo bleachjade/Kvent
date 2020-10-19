@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Info(models.Model):
     """User's model"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, default=None)
     phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     email = models.EmailField('E-mail', max_length=254)
     address = models.CharField("Address", max_length=125, default="NOT SET")

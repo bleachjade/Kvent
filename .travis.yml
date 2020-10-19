@@ -7,11 +7,7 @@ git:
   
 install:
   - pip install -r requirements.txt
-  - pip install codecov
 
 script:
-  - coverage run manage.py test Kvent/tests
+  - python manage.py test Kvent/tests
   
-
-after_success:
-  - codecov

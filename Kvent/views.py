@@ -18,18 +18,7 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def login(request):
-    """
-    If the user is not authenticated, get user's request and execute login.
-    """
-    # if request.method == "POST":
-    #     username = request.POST.get('username')
-    #     password = request.POST.get('password')
-    #     user = authenticate(username=username, password=password)
-    #     if user is not None:
-    #         login(request, user)
-    #         return HttpResponseRedirect(reverse('myform:event'))
-    #     else:
-    #         messages.error(request, 'Wrong username or password try again!')
-    #         return render(request, 'registration/login.html')
-    # else:
     return render(request, 'kvent/login.html')
+
+def createaccount(request):
+    return render(request, 'kvent/createaccount.html')

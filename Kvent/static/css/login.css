@@ -1,16 +1,14 @@
 body{
-    background: linear-gradient(to right, #002f5e, #053d75,#204870);
+    background: linear-gradient(to right, #012a53, #144b83,#325a81);
     font-family: 'Ubuntu', sans-serif;
 }
 
-.main {
-    background-color:  #144575;
-    width: 400px;
+.main { 
+    width: 300px;
     height: 400px;
-    margin-left: 65%;
+    margin-left: 68%;
     margin-top: 170;
-    border-radius: 1.5em;
-   
+
 }
 
 .sign {
@@ -19,10 +17,41 @@ body{
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
+    
+}
+
+
+h1 {
+    overflow: hidden;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+h1:before,
+h1:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+h1:after {
+    left: 0.5em;
+    margin-right: -50%;
 }
 
 .un {
-width: 76%;
+width: 70%;
+height: 30;
 color: rgb(38, 50, 56);
 font-weight: 700;
 font-size: 14px;
@@ -34,10 +63,9 @@ border-radius: 20px;
 outline: none;
 box-sizing: border-box;
 border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
+margin-bottom: 18px;
 margin-left: 46px;
 text-align: center;
-margin-bottom: 27px;
 font-family: 'Ubuntu', sans-serif;
 }
 
@@ -46,7 +74,8 @@ form.form1 {
 }
 
 .pass {
-width: 76%;
+width: 70%;
+height: 30;
 color: rgb(38, 50, 56);
 font-weight: 700;
 font-size: 14px;
@@ -61,10 +90,9 @@ border: 2px solid rgba(0, 0, 0, 0.02);
 margin-bottom: 50px;
 margin-left: 46px;
 text-align: center;
-margin-bottom: 27px;
+margin-bottom: 26px;
 font-family: 'Ubuntu', sans-serif;
 }
-
 
 .un:focus, .pass:focus {
     border: 2px solid rgba(0, 0, 0, 0.18) !important;
@@ -72,46 +100,112 @@ font-family: 'Ubuntu', sans-serif;
 }
 
 .submit {
-  cursor: pointer;
+    cursor: pointer;
     border-radius: 5em;
     color: #fff;
     background: #002f5e;
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     font-family: 'Ubuntu', sans-serif;
-    margin-left: 35%;
+    margin-left: 31%;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    
 }
 
-.forgot {
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
-    padding-top: 15px;
-}
-
-a {
+.facebook{
+    border-radius: 5em;
+    background: #2476c9;
+    border: none;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 40px;
+    margin-top: 10px;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: white;
     text-decoration: none;
     font-family:'sans-serif';
     font-size :13px;
-    margin-top: 20;
+
+}
+.google{
+    border-radius: 5em;
+    background: #cf3f35;
+    border: none;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px ;
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: white;
+    text-decoration: none;
+    font-family:'sans-serif';
+    font-size :13px;
+
+
 }
 
+
+.forgot {
+    float: left;
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    padding-top: 100px;
+    padding-left: 55px;
+}
+
+.forgot1 {
+    float: right;
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    padding-right:60px;
+    padding-top: 100px;
+}
+
+a{
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: white;
+    text-decoration: none;
+    font-family:'sans-serif';
+    font-size :13px;
+}
+/* 
 b {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: white;
     text-decoration: none;
     font-family:'Ubuntu';
     font-size :100%;
-}
 
-@media (max-width: 600px) {
+} */
+
+
+b {
+    color: #ffffff;
+    font-family: 'Rouge Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+    /* line-height: 100px; */
+    /* margin: 0 0 50px; */
+    /* text-align: center; */
+    /* text-shadow: 1px 1px 2px #082b34; */
+    margin-block-end: 100px;
+
+}
+/* @media (max-width: 600px) {
     .main {
         border-radius: 0px;
     }
-}
+} */

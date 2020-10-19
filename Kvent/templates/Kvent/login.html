@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
     {% endblock %}
-
 </head>
 
 <html>
@@ -19,21 +18,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Sign in</title>
+  {% comment %} <b>Kvent</b> {% endcomment %}
 </head>
 
 <body>
-  <b>Kvent</b>
+  
   <div class="main">
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
     <form class="form1">
       <input class="un " type="text" align="center" placeholder="Username">
       <input class="pass" type="password" align="center" placeholder="Password">
       <a class="submit" align="center">LOGIN</a>
+      <h1>or</h1>
+      <p1 class="facebook"href="#">Facebook</p1>
+      <p1 class="google" href="#">Google+</p1>
       <p class="forgot" align="center"><a href="#">Don't have an account?</p>
-      <p class="forgot" align="center"><a href="#">Create one</p>
-            
-                
-    </div>
+      <p class="forgot1" align="center"><a href="#">Create one</p> 
+    </form>        
+  </div>
      
 </body>
 

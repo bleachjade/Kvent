@@ -1,0 +1,17 @@
+language: python
+
+python: "3.6"
+
+git:
+  depth: 1
+  
+install:
+  - pip install -r requirements.txt
+  - pip install codecov
+
+script:
+  - coverage run manage.py test Kvent/tests
+  
+
+after_success:
+  - codecov

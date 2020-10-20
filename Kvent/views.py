@@ -1,11 +1,15 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from .models import Info
-
+from django.shortcuts import render, redirect
+from .models import Event, Info
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+   event = Event.objects.all()
+   context = {'all_event': event}
+   return render(request, 'kvent/index.html', context)
 
+def create(request):
+    return render(request, 'kvent/create-event-page.html')
+  
 def profile(request):
     """User's profile"""
     user = Info.objects.all()

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title> Kvent </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}">Kvent</a></li>
+            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        </ul>
+    </nav>
+
+    <div class="row">
+        <div id="info"> </div>
+        <div id="event-title">
+            <label> Event </label>
+            <span>
+                <input id="search" type="search">
+                <button id="submit" type="submit"> </button>
+            </span>
+        </div>
+        <hr class="line">
+        <div id="no-event">
+
+            {% if not all_event %}
+            <label> No Events </label>
+            <a href="{% url 'create-event' %}"><button id="create-event" type="submit"> CREATE EVENT </button></a>
+
+            {% endif %}
+        </div>
+        <div id="event">
+            {% if all_event %}
+            {% for event in all_event %}
+            <h4 id="event-name"> {{ event.get_event_name }} </h4>
+            <h3 id="event-description">
+                {{ event.get_short_description }} <br>
+                At {{ event.get_location }} <br>
+                Capacity : {{ event.get_number_people}}
+            </h3>
+            <hr class="line-break">
+            {% endfor %}
+            <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
+
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

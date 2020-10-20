@@ -4,7 +4,6 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 
-
 class Migration(migrations.Migration):
 
     initial = True
@@ -22,6 +21,14 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254, verbose_name='E-mail')),
                 ('address', models.CharField(default='NOT SET', max_length=125, verbose_name='Address')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+            name='Event',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('event_name', models.TextField(default='', max_length=50, verbose_name='Event Name')),
+                ('location', models.TextField(default='', max_length=80, verbose_name='Location')),
+                ('description', models.TextField(default='', max_length=100, verbose_name='Description')),
+                ('number_people', models.IntegerField(default=2, verbose_name='Number of people')),
+                ('date_time', models.TextField(default='2020-10-17 06:27:22', verbose_name='Date and Time')),
             ],
         ),
     ]

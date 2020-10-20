@@ -91,7 +91,7 @@ ul {
     background-color: white;
 }
 
-#description-input {
+#short-description-input {
     position: absolute;
     width: 890px;
     top: 230px;
@@ -106,15 +106,32 @@ ul {
     background-color: white;
 }
 
-#location-input {
+#long-description-input {
     position: absolute;
     width: 890px;
+    height: 100px;
     top: 380px;
     font-style: normal;
     font-size: 18px;
     line-height: 35px;
     letter-spacing: 0.03em;
+    padding: 0 0 20px 0;
+    word-break: break-all;
 
+    /* padding: 12px 20px; */
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color: white;
+}
+
+#location-input {
+    position: absolute;
+    width: 890px;
+    top: 640px;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 0.03em;
     /* padding: 12px 20px; */
     border: none;
     border-bottom: solid 2px #474544;
@@ -126,7 +143,7 @@ ul {
     width: 81px;
     height: 49px;
     left: 628px;
-    top: 500px;
+    top: 740px;
     margin-bottom: 80px;
 
     background: #FFFFFF;

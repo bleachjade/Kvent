@@ -39,7 +39,7 @@
             {% for event in all_event %}
             <h4 id="event-name"> {{ event.get_event_name }} </h4>
             <h3 id="event-description">
-                {{ event.get_description }} <br>
+                {{ event.get_short_description }} <br>
                 At {{ event.get_location }} <br>
                 Capacity : {{ event.get_number_people}}
             </h3>

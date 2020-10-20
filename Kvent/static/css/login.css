@@ -1,24 +1,44 @@
 body{
-    background: linear-gradient(to right, #012a53, #144b83,#325a81);
+    background: linear-gradient(to right, #001224, #083766,#1c5085);
     font-family: 'Ubuntu', sans-serif;
 }
 
+.topic{
+    font-family: "Sofia";
+    font-size: 22px;
+
+}
+
+
+
 .main { 
+    position: relative;
     width: 300px;
     height: 400px;
-    margin: 68%;
-    margin-top: 170;
+    margin-top: 0px;
+    top: 0px;
+    bottom: 0;
+    margin-left:850px;
 
 }
 
 .main1 { 
+    margin-left: 120px;
+    padding-left: 20%;
+    padding-top: 250;
+    position: relative;
+    width: 100px;
+    height: 30px;
+
+}
+
+.main2 { 
     width: 300px;
     height: 400px;
     margin: auto;
     margin-top: 150;
 
 }
-
 .sign {
     padding-top: 40px;
     color: #08437F;
@@ -190,7 +210,7 @@ font-family: 'Ubuntu', sans-serif;
     float: left;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #E1BEE7;
-    padding-top: 100px;
+    padding-top: 40px;
     padding-left: 55px;
 }
 
@@ -199,7 +219,7 @@ font-family: 'Ubuntu', sans-serif;
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #E1BEE7;
     padding-right:60px;
-    padding-top: 100px;
+    padding-top: 40px;
 }
 
 a{

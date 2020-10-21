@@ -30,10 +30,12 @@
   
   <div class="main">
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    <form class="form1">
+    <form class="form1" method="post">
       <input class="un " type="text" align="center" placeholder="Username">
       <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">LOGIN</a>
+      {% csrf_token %}
+      {{ form.as_a }}
+      <a class="submit" type="submit"align="center">LOGIN</a>
       <h1>or</h1>
       <p1 class="facebook"href="#">Facebook</p1>
       <p1 class="google" href="#">Google+</p1>

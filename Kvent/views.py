@@ -21,8 +21,34 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def login(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            user = User.objects.get(username = username)
+            if user.password == password:
+                return HttpResponse("Yess")
+            else:
+                return HttpResponse("pass Nooo")
+        except User.DoesNotExist:
+            return HttpResponse("user Nooo")
+    
+
+def display_login(request):
     return render(request, 'registration/login.html')
 
-def createaccount(request):
+def display_createaccount(request):
     return render(request, 'registration/createaccount.html')
+
+def createaccount(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = User(email = email, username = username, password = password)
+        user.save()
+    return redirect('kvent:display_login')
+    
+
+
 

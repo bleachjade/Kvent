@@ -30,17 +30,16 @@
   
   <div class="main">
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    <form class="form1" method="post">
-      <input class="un " type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      {% csrf_token %}
-      {{ form.as_a }}
-      <a class="submit" type="submit"align="center">LOGIN</a>
+    <form class="form1" method="POST" action="{% url 'kvent:login' %}">
+    {% csrf_token %}
+      <input name="username" class="un " type="text" align="center" placeholder="Username">
+      <input name="password" class="pass" type="password" align="center" placeholder="Password">
+      <input class="submit" type="submit" align="center" value="Log In">      
       <h1>or</h1>
       <p1 class="facebook"href="#">Facebook</p1>
       <p1 class="google" href="#">Google+</p1>
       <p class="forgot" align="center"><a>Don't have any account? </p>
-      <p class="forgot1" align="center"><a href="{% url 'createaccount' %}">  Create one</p> 
+      <p class="forgot1" align="center"><a href="{% url 'kvent:display_createaccount' %}">  Create one</p> 
     </form>        
   </div>
      

@@ -23,13 +23,14 @@
 
 <body>
   
-  <div class="main2">
+  <div class="main2" >
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    <form class="form1">
-      <input class="email " type="text" align="center" placeholder="Email">
-      <input class="un " type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">SIGNUP</a>
+    <form class="form1" method="POST" action="{% url 'kvent:createaccount' %}">
+      {% csrf_token %}
+      <input name="email" class="email " type="text" align="center" placeholder="Email">
+      <input name="username" class="un" type="text" align="center" placeholder="Username">
+      <input name="password" class="pass" type="password" align="center" placeholder="Password">  
+      <input class="submit" type="submit" align="center" value="Sign Up">      
       <h1>or</h1>
       <p1 class="facebook"href="#">Facebook</p1>
       <p1 class="google" href="#">Google+</p1>

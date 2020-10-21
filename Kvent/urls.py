@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('profile', views.profile, name='profile'),
-    path('create',views.create, name='create-event'),
+    path('profile/', views.profile, name='profile'),
+    path('create/',views.create, name='create-event'),
+    path('<int:event_id>/', views.detail, name='event-detail')
 ]
 

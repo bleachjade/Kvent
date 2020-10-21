@@ -32,7 +32,7 @@ class Event(models.Model):
     short_description = models.TextField('Short Description', default="", max_length=100)
     long_description = models.TextField('Long Description', default="", max_length=255)
     number_people = models.IntegerField("Number of people", default=2)
-    # date_time = models.TextField('Date and Time', default=str(formatedDate))
+    #date_time = models.TextField('Date and Time', default=str(formatedDate))
     # participants = models.ManyToManyField()
     full = models.BooleanField(default=False)
 

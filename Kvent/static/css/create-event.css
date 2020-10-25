@@ -76,22 +76,22 @@ ul {
 
 }
 
-#name-input {
+/* #name-input {
     position: absolute;
     width: 890px;
     top: 80px;
     font-style: normal;
     font-size: 18px;
     line-height: 35px;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.03em; */
 
     /* padding: 12px 20px; */
-    border: none;
+    /* border: none;
     border-bottom: solid 2px #474544;
     background-color: white;
-}
+} */
 
-#short-description-input {
+/* #short-description-input {
     position: absolute;
     width: 890px;
     top: 230px;
@@ -101,10 +101,10 @@ ul {
     letter-spacing: 0.03em;
 
     /* padding: 12px 20px; */
-    border: none;
+    /* border: none;
     border-bottom: solid 2px #474544;
-    background-color: white;
-}
+    background-color: white; */
+/* }
 
 #long-description-input {
     position: absolute;
@@ -116,13 +116,13 @@ ul {
     line-height: 35px;
     letter-spacing: 0.03em;
     padding: 0 0 20px 0;
-    word-break: break-all;
+    word-break: break-all; */
 
     /* padding: 12px 20px; */
-    border: none;
+    /* border: none;
     border-bottom: solid 2px #474544;
     background-color: white;
-}
+} */ 
 
 #location-input {
     position: absolute;
@@ -149,3 +149,4 @@ ul {
     background: #FFFFFF;
     border: 1px solid #000000;
 }
+

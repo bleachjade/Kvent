@@ -25,6 +25,7 @@ class Info(models.Model):
       
 myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+
 class Event(models.Model):
     """ Create the event """
     event_name = models.TextField('Event Name', default="", max_length=50)

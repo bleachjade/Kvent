@@ -16,21 +16,25 @@
         </ul>
     </nav>
     <div class="row">
-        <div id="create"> 
-            Create Event 
+        <div id="create">
+            Create Event
             <hr class="line">
         </div>
-        <div id="content"> 
-            Event Name <br>
-            <input id="name-input" type="input" maxlength="50"> <br>
-            <br>Short Description <br>
-            <input id="short-description-input" type="input" maxlength="80"> <br>
-            <br>Long Description <br>
-            <input id="long-description-input" type="input" maxlength="255"> <br><br>
-            <br><br> Location <br>
-            <input id="location-input" type="input" maxlength="80"> <br>
-            <button id="submit-button" type="submit"> SUBMIT </button>
-            
+        <div id="content">
+            <form method="POST">
+                {% csrf_token %}
+                Event Name <br>
+                {{ form.event_name }}
+                <br>Short Description <br>
+                {{ form.short_description}}
+                <br>Long Description <br>
+                {{ form.long_description }}
+                <br><br> Location <br>
+                {{ form.location}}
+                <br><br> Number of people <br>
+                {{ form.number_people }}
+                <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
+            </form>
         </div>
     </div>
 </body>

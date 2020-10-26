@@ -2,6 +2,7 @@ from typing import Optional
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Info(models.Model):
     """User's model"""
@@ -33,8 +34,8 @@ class Event(models.Model):
     short_description = models.TextField('Short Description', default="", max_length=100)
     long_description = models.TextField('Long Description', default="", max_length=255)
     number_people = models.IntegerField("Number of people", default=2)
-    # date_time = models.TextField('Date and Time', default=str(formatedDate))
-    # participants = models.ManyToManyField()
+    date_time = models.DateTimeField('Date and Time', default=timezone.now)
+    participants = models.ManyToManyField(Info)
     full = models.BooleanField(default=False)
 
     def get_event_name(self):

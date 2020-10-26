@@ -1,21 +1,22 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from .models import Event, Info
 from .forms import EventForm
 
 
 def index(request):
-   event = Event.objects.all()
-   context = {'all_event': event}
-   return render(request, 'kvent/index.html', context)
+    event = Event.objects.all()
+    return render(request, 'kvent/index.html', {'all_event': event})
 
 def profile(request):
     """User's profile"""
     user = Info.objects.all()
-    context = {user:'user'}
-    return render(request, 'kvent/profile.html', context)
+    return render(request, 'kvent/profile.html',{user:'user'})
 
+def detail(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    return render(request, 'kvent/event-detail.html', {'event': event})
 
 def create_event(request):
     """ User creates the event """
@@ -33,3 +34,4 @@ def create_event(request):
             event.save()
             return redirect('index')
     return render(request, 'Kvent/create-event-page.html', {'form': form})
+

@@ -45,7 +45,8 @@ ul {
 
 #event-title {
     position: absolute;
-    width: 206px;
+    display: flex;
+    justify-content: center;
     height: 94px;
     left: 100px;
     top: 535px;
@@ -129,7 +130,7 @@ ul {
 
 #event {
     position: absolute;
-    width: 410px;
+    width: 100%;
     height: 55px;
     left: 120px;
     top: 590px;

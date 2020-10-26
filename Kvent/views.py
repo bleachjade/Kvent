@@ -46,3 +46,8 @@ def create_event(request):
             return redirect('index')
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
+def delete_event(request, event_id):
+    event = Event.objects.get( pk=event_id)
+    event.delete()
+    return redirect('index')
+

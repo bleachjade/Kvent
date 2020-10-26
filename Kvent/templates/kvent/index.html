@@ -20,10 +20,10 @@
         <div id="info"> </div>
         <div id="event-title">
             <label> Event </label>
-            <span>
-                <input id="search" type="search">
-                <button id="submit" type="submit"> </button>
-            </span>
+            <form method="GET" action="" id="searchform">
+                <input id="search" name="q" type="search" value="{{ request.GET.q }}" placeholder="Search Event..."/>
+                <button id="submit" type="submit" />
+            </form>
         </div>
         <hr class="line">
         <div id="no-event">

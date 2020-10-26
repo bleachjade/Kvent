@@ -1,14 +1,28 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django import forms
+from django.views import generic
+from django.utils import timezone
 from .models import Event, Info
 from .forms import EventForm
 
 
-def index(request):
-   event = Event.objects.all()
-   context = {'all_event': event}
-   return render(request, 'kvent/index.html', context)
+# def index(request):
+#    event = Event.objects.all()
+#    context = {'all_event': event}
+#    return render(request, 'kvent/index.html', context)
+class IndexView(generic.ListView):
+    """Show index view which is a list of all events."""
+
+    template_name = 'kvent/index.html'
+    context_object_name = 'all_event'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Event.objects.filter(event_name__contains=query)
+        else:
+            return Event.objects.all()
 
 def profile(request):
     """User's profile"""

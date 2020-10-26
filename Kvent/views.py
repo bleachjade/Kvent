@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
         if query:
             return Event.objects.filter(event_name__contains=query)
         else:
-            return Event.objects.all()
+            return Event.objects.all().order_by('-date_time')
 
 def profile(request):
     """User's profile"""

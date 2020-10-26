@@ -18,7 +18,7 @@ class IndexView(generic.ListView):
     context_object_name = 'all_event'
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
+        query = self.request.GET.get('query')
         if query:
             return Event.objects.filter(event_name__contains=query)
         else:

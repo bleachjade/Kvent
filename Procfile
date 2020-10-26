@@ -1,1 +1,1 @@
-web: gunicorn Kvent.wsgig
+web: gunicorn mysite.wsgi:application

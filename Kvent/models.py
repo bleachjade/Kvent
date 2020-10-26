@@ -35,7 +35,7 @@ class Event(models.Model):
     long_description = models.TextField('Long Description', default="", max_length=255)
     number_people = models.IntegerField("Number of people", default=2)
     date_time = models.DateTimeField('Date and Time', default=timezone.now)
-    participants = models.ManyToManyField(Info)
+    # participants = models.ManyToManyField(Info)
     full = models.BooleanField(default=False)
 
     def get_event_name(self):

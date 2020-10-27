@@ -37,11 +37,12 @@
         <div id="event">
             {% if all_event %}
             {% for event in all_event %}
-            <a href= "{%url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
+            <h4 id="event-name"> {{ event.get_event_name }} </h4>
             <h3 id="event-description">
                 {{ event.get_short_description }} <br>
                 At {{ event.get_location }} <br>
                 Capacity : {{ event.get_number_people}}
+                <a href="{% url 'event-detail' event.id %}" class="event-button">See more</a>
             </h3>
             <hr class="line-break">
             {% endfor %}

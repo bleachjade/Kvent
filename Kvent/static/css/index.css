@@ -147,6 +147,14 @@ ul {
     font-size: 30px;
 }
 
+a:link {
+    text-decoration: none;
+}
+a:hover #event-name {
+    color: #003366;
+
+}
+
 #event-description {
     width: 1200px;
     left: 165px;

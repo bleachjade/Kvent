@@ -25,11 +25,12 @@
   
   <div class="main2" >
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    <form class="form1" method="POST" action="{% url 'kvent:createaccount' %}">
+    <form class="form1" method="POST">
       {% csrf_token %}
+      <td colspan="2">
       <input name="email" class="email " type="text" align="center" placeholder="Email">
       <input name="username" class="un" type="text" align="center" placeholder="Username">
-      <input name="password" class="pass" type="password" align="center" placeholder="Password">  
+      <input name="password" class="pass" type="password" align="center" placeholder="Password">   
       <input class="submit" type="submit" align="center" value="Sign Up">      
       <h1>or</h1>
       <p1 class="facebook"href="#">Facebook</p1>

@@ -11,8 +11,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-
-
 # from .forms import UserRegistrationForm, EventForm, AddQuestion
 from .models import *
 import datetime
@@ -27,28 +25,20 @@ def login(request):
         try:
             user = User.objects.get(username = username)
             if user.password == password:
-                return HttpResponse("Yess")
+                return redirect('kvent:index')
             else:
-                return HttpResponse("pass Nooo")
+                return render(request, 'registration/login.html', {'invalid_password':"password not correct"})
         except User.DoesNotExist:
-            return HttpResponse("user Nooo")
-    
-
-def display_login(request):
+            return render(request, 'registration/login.html', {'invalid_username':"username not correct"})
     return render(request, 'registration/login.html')
-
-def display_createaccount(request):
-    return render(request, 'registration/createaccount.html')
-
-def createaccount(request):
+    
+def create_account(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = User(email = email, username = username, password = password)
         user.save()
-    return redirect('kvent:display_login')
+        return redirect('login')
+    return render(request, 'registration/createaccount.html')
     
-
-
-

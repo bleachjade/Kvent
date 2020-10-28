@@ -7,7 +7,8 @@ from django import forms
 
 class User(models.Model):
     """User's model"""
+    email = models.EmailField(max_length=254)
     username = models.CharField(max_length=254)
     password = models.CharField(max_length=254)
-    email = models.EmailField(max_length=254)
+    
 

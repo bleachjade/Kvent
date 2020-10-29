@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title> Kvent </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/create-event.css' %}">
+
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}">Kvent</a></li>
+            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <div id="create">
+            Create Event
+            <hr class="line">
+        </div>
+        <div id="content">
+            <form method="POST">
+                {% csrf_token %}
+                Event Name <br>
+                {{ form.event_name }}
+                <br>Short Description <br>
+                {{ form.short_description}}
+                <br>Long Description <br>
+                {{ form.long_description }}
+                <br><br> Location <br>
+                {{ form.location}}
+                <br><br> Number of people <br>
+                {{ form.number_people }}
+                <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

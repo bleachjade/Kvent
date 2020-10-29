@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% block css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/profile.css' %}">
+    {% endblock %}
+
+</head>
+
+{% block content %}
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}">Kvent</a></li>
+            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        </ul>
+    </nav>
+
+    <div class="row">
+        <div class="column">
+            <ul>
+                <li><img id="profile-img" src="{% static 'images/profile.png' %}"></li>
+            </ul>
+
+        </div>
+        <div class="column" id="info">
+            <ul>
+                <li id="h1">Account Infomation</li>
+                <br>
+                <br>
+                <li id="h2">E-mail Address:</li>
+                <br>
+                <li>{{ user.email }}</li>
+                <br>
+                <br>
+                <li id="h2">Contact Infomation:</li>
+                <br>
+                <li>{{ user.first_name}} {{ user.last_name }}</li>
+                <br>
+                <li>{{ user.phone_num }}</li>
+                <br>
+                <li>{{ user.address }}</li>
+                <br>
+                <br>
+                <li id="h2">Event History:</li>
+                <br>
+            </ul>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}

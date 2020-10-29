@@ -17,7 +17,7 @@ from django.urls import include, path
 from Kvent import views
 
 urlpatterns = [
-    path('kvent/', include('Kvent.urls')),
+    path('', include('Kvent.urls')),
     path('admin/', admin.site.urls),
     # path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', views.create_account , name='signup'),

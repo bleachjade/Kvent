@@ -20,6 +20,4 @@ urlpatterns = [
     path('', include('Kvent.urls')),
     path('admin/', admin.site.urls),
     # path('accounts/', include('django.contrib.auth.urls')),
-    path('signup/', views.create_account , name='signup'),
-    path('login/', views.login, name='login')
 ]

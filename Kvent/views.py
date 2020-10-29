@@ -1,31 +1,17 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, FormView
-from django.contrib.auth.models import User
-from django.views import generic, View
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
 from django.shortcuts import render, redirect, get_object_or_404
-from django import forms
-from django.utils import timezone
-from .models import Event, Info
+from .models import Event, Info, User
 from .forms import EventForm
 
-# from .forms import UserRegistrationForm, EventForm, AddQuestion
-from .models import *
-import datetime
 
 def login(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(username = username)
+            user = User.objects.get(username=username)
             if user.password == password:
-                return redirect('kvent:index')
+                return redirect('index')
             else:
                 return render(request, 'registration/login.html', {'invalid_password':"password not correct"})
         except User.DoesNotExist:

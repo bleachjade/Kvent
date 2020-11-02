@@ -1,32 +1,9 @@
 from django.views import generic
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
 from .models import Event, Info, User
 from .forms import EventForm
-
-
-def login(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        try:
-            user = User.objects.get(username=username)
-            if user.password == password:
-                return redirect('index')
-            else:
-                return render(request, 'registration/login.html', {'invalid_password':"password not correct"})
-        except User.DoesNotExist:
-            return render(request, 'registration/login.html', {'invalid_username':"username not correct"})
-    return render(request, 'registration/login.html')
-    
-def create_account(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = User(email = email, username = username, password = password)
-        user.save()
-        return redirect('login')
-    return render(request, 'registration/createaccount.html')
+from django.contrib.auth.backends import ModelBackend
   
 class IndexView(generic.ListView):
     """Show index view which is a list of all events."""
@@ -66,6 +43,9 @@ def create_event(request):
             event.save()
             return redirect('index')
     return render(request, 'Kvent/create-event-page.html', {'form': form})
+
+def create_account(request):
+    return render(request, 'registration/createaccount.html')
 
 def delete_event(request, event_id):
     event = Event.objects.get( pk=event_id)

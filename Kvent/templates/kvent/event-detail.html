@@ -17,11 +17,16 @@
     </nav>
     <div class="row">
         <hr class="line">
+        <div class="event-image">
+            <img src="{{ event.get_photo.url }}" alt="sad"/ width="300px" height="auto">
+        </div>
+        <div class="event-detail-box">
         <h4 id="event-name"> {{ event.get_event_name }} </h4>
         <h3>{{ event.get_long_description }}</h3>
         <h3>Will be held at {{ event.get_location }} </h3>
         <h3>Capacity : {{ event.get_number_people}} </h3>
         <a class="button-delete" href="{% url 'delete-event' event.id%}" > Delete </button>
+        </div>
 
     </div>
 

@@ -17,7 +17,15 @@
     </nav>
 
     <div class="row">
-        <div id="info"> </div>
+        <div id="slideshow">
+            <div class="slide-wrapper">
+                {% if all_event %}
+                {% for event in all_event %}
+                <div class="slide"><a href= "{% url 'event-detail' event.id %}"><img class="img-arrange" src="{{ event.get_photo.url }}" /></a></div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
         <div id="event-title">
             <label> Event </label>
             <form method="GET">
@@ -37,7 +45,7 @@
         <div id="event">
             {% if all_event %}
             {% for event in all_event %}
-            <a href= "{%url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
+            <a href= "{% url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
             <h3 id="event-description">
                 {{ event.get_short_description }} <br>
                 At {{ event.get_location }} <br>

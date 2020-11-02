@@ -34,15 +34,48 @@ ul {
     color: red;
 }
 
-#info {
-    position: absolute;
-    width: 100%;
+#slideshow {
+    overflow: hidden;
     height: 400px;
-    left: 0px;
-    top: 80px;
-    background: rgba(196, 196, 196, 0.35);
+    width: max-content;
+    margin: 0 auto;
+    background-color: lightgrey;
+}
+/*
+    I use this to fix scroll bar bug on x-axis, 
+    also I try to use overflow-x:hidden; but it didn't work.
+*/
+::-webkit-scrollbar { 
+    display: none; 
 }
 
+.slide-wrapper {
+    width: 100%;
+    -webkit-animation: slide 22s ease infinite;
+}
+
+.slide {
+    text-align: center;
+    float: left;
+    height: 400px;
+    width: 1525px;
+}
+  
+@-webkit-keyframes slide {
+    0%  {margin-left: 0px;}
+    20% {margin-left: 0px;}
+    30% {margin-left: -1525px;}
+    50% {margin-left: -1525px;}
+    60% {margin-left: -3050px;}
+    70% {margin-left: -3050px;}
+}
+
+.img-arrange {
+    width: auto;
+    height: 400px;
+}
+
+  
 #event-title {
     position: absolute;
     display: flex;

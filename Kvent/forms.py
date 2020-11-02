@@ -6,7 +6,7 @@ class EventForm(forms.ModelForm):
     """ Form for inputing a new event """
     class Meta:
         model = Event
-        fields = ['event_name','location', 'short_description', 'long_description', 'number_people']
+        fields = ['event_name','location', 'short_description', 'long_description', 'number_people', 'photo']
         event_name = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'name-input'}
@@ -26,4 +26,5 @@ class EventForm(forms.ModelForm):
         number_people = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'number-people'}
-            )) 
+            ))
+        photo = forms.ImageField()

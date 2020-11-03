@@ -33,48 +33,6 @@ ul {
 .nav-bar a:hover {
     color: red;
 }
-
-#slideshow {
-    overflow: hidden;
-    height: 400px;
-    width: max-content;
-    margin: 0 auto;
-    background-color: lightgrey;
-}
-/*
-    I use this to fix scroll bar bug on x-axis, 
-    also I try to use overflow-x:hidden; but it didn't work.
-*/
-::-webkit-scrollbar { 
-    display: none; 
-}
-
-.slide-wrapper {
-    width: 100%;
-    -webkit-animation: slide 22s ease infinite;
-}
-
-.slide {
-    text-align: center;
-    float: left;
-    height: 400px;
-    width: 1525px;
-}
-  
-@-webkit-keyframes slide {
-    0%  {margin-left: 0px;}
-    20% {margin-left: 0px;}
-    30% {margin-left: -1525px;}
-    50% {margin-left: -1525px;}
-    60% {margin-left: -3050px;}
-    70% {margin-left: -3050px;}
-}
-
-.img-arrange {
-    width: auto;
-    height: 400px;
-}
-
   
 #event-title {
     position: absolute;
@@ -163,7 +121,7 @@ ul {
 
 #event {
     position: absolute;
-    width: 100%;
+    width: auto;
     height: 55px;
     left: 120px;
     top: 590px;
@@ -188,8 +146,25 @@ a:hover #event-name {
 
 }
 
+.event-description-box {
+    display: absolute;
+    text-align: start;
+    padding-left: 100px;
+
+}
+
+.pic-box {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 30px 0px 30px 30px;
+}
+
+.pic-box img {
+    border-radius: 15px;
+    box-shadow: 3px 3px lightgray;
+}
+
 #event-description {
-    width: 1200px;
     left: 165px;
     font-size: 20px;
     color: gray;

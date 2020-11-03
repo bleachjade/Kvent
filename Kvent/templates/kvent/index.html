@@ -17,41 +17,50 @@
     </nav>
 
     <div class="row">
-        <div id="event-title">
-            <label> Event </label>
-            <form method="GET">
-                <input id="search" name="query" type="search" value="{{ request.GET.query }}" placeholder="Search Event..."/>
-                <button id="submit" type="submit">
-            </form>
+        <div class="banner-container">
+            <div class="banner"><img src="{% static '/images/banner.jpg' %}" /></div>
+            <ul class="text-banner">
+                <li><h1>KVENT</h1></li>
+                <li><p>an online booking and appointment web-application.</p></li>
+            </ul>
         </div>
-        <hr class="line">
-        <div id="no-event">
-
-            {% if not all_event %}
-            <label> No Events </label>
-            <a href="{% url 'create-event' %}"><button id="create-event" type="submit"> CREATE EVENT </button></a>
-
-            {% endif %}
-        </div>
-        <div id="event">
-            {% if all_event %}
-            {% for event in all_event %}
-            <div class="pic-box">
-            <img src="{{ event.get_photo.url }}" width="auto" height="300px" />
-            <div class="event-description-box">
-            <a href= "{% url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
-            <h3 id="event-description">
-                {{ event.get_short_description }} <br>
-                At {{ event.get_location }} <br>
-                Capacity : {{ event.get_number_people}}
-            </h3>
+        <div class="event-container">
+            <div id="event-title">
+                <label> Event </label>
+                <form method="GET">
+                    <input id="search" name="query" type="search" value="{{ request.GET.query }}" placeholder="Search Event..."/>
+                    <button id="submit" type="submit">
+                </form>
             </div>
-            </div>
-            <hr class="line-break">
-            {% endfor %}
-            <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
+            <hr class="line">
+            <div id="no-event">
 
-            {% endif %}
+                {% if not all_event %}
+                <label> No Events </label>
+                <a href="{% url 'create-event' %}"><button id="create-event" type="submit"> CREATE EVENT </button></a>
+
+                {% endif %}
+            </div>
+            <div id="event">
+                {% if all_event %}
+                {% for event in all_event %}
+                <div class="pic-box">
+                {% if not event.get_photo.url == '/media/upload/images/no-img.jpg' %}<img src="{{ event.get_photo.url }}" width="auto" height="300px" />{% endif %}
+                <div class="event-description-box">
+                <a href= "{% url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
+                <h3 id="event-description">
+                    {{ event.get_short_description }} <br>
+                    At {{ event.get_location }} <br>
+                    Capacity : {{ event.get_number_people}}
+                </h3>
+                </div>
+                </div>
+                <hr class="line-break">
+                {% endfor %}
+                <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
+
+                {% endif %}
+            </div>
         </div>
     </div>
 </body>

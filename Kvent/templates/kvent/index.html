@@ -10,10 +10,17 @@
 
 <body>
     <nav class="nav-bar">
-        <ul>
-            <li><a href="{% url 'index' %}">Kvent</a></li>
-            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
-        </ul>
+    <ul>
+            <div class="group-nav">
+                <li><a href="{% url 'index' %}">Kvent</a></li>
+                <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+            </div>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
+            {% endif%}
+    </ul>
     </nav>
 
     <div class="row">

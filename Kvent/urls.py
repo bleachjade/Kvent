@@ -12,7 +12,8 @@ urlpatterns = [
     path('create',views.create_event, name='create-event'),
     path('delete/<int:event_id>', views.delete_event, name='delete-event'),
     path('signup/', views.create_account , name='signup'),
-    path('login/', views.login, name='login')
+    path('', include('django.contrib.auth.urls')),
 ] 
 if settings.DEBUG:
      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

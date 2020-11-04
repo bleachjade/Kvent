@@ -72,15 +72,28 @@ ul {
     font-size: 25px;
 }
 
+
 .nav-bar a:hover {
     color: red;
 }
+
 
 .event-container {
     display: flex;
     background-color: white;
     z-index: 10;
 }
+.nav-bar ul {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.group-nav {
+    display: flex;
+    justify-content: flex-start;
+    flex: 0.96;
+}
+
   
 #event-title {
     position: absolute;

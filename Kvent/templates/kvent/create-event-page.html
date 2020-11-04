@@ -21,8 +21,12 @@
             <hr class="line">
         </div>
         <div id="content">
-            <form method="POST">
+            <form method="POST"  enctype="multipart/form-data">
                 {% csrf_token %}
+                <p>
+                Event Photo
+                {{ form.photo }}
+                </p>
                 Event Name <br>
                 {{ form.event_name }}
                 <br>Short Description <br>

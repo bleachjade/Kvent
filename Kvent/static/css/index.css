@@ -1,12 +1,54 @@
 body {
     margin: auto;
     font-family: Arial;
+    background-color: white;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+}
+.banner-container .text-banner {
+    align-items: center;
+    height: 100%;
+}
+.banner {
+    position: absolute;
+    display: block;
+    justify-content: center;
+    width: 100%;
+    left: 0px;
+    top: 80px;
+    z-index: -1;
+    /* background-size: contain; */
+    opacity: 0.8;
+}
+.banner img {
+    z-index: -1;
+    max-width: 100%;
+    height: auto;
+}
+.text-banner {
+    color: white;
+    text-shadow: 4px 3px rgb(0,51,102);
+    font-weight: 100;
+    padding-top: 7em;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    animation: TextUp 0.9s ease;
 }
 
 .nav-bar {
@@ -35,6 +77,12 @@ ul {
     color: red;
 }
 
+
+.event-container {
+    display: flex;
+    background-color: white;
+    z-index: 10;
+}
 .nav-bar ul {
     display: flex;
     /* justify-content: space-around; */
@@ -46,22 +94,14 @@ ul {
     flex: 0.96;
 }
 
-#info {
-    position: absolute;
-    width: 100%;
-    height: 400px;
-    left: 0px;
-    top: 80px;
-    background: rgba(196, 196, 196, 0.35);
-}
-
+  
 #event-title {
     position: absolute;
     display: flex;
     justify-content: center;
     height: 94px;
     left: 100px;
-    top: 535px;
+    top: 935px;
 
     /* font-family: "Roboto"; */
     font-style: normal;
@@ -98,7 +138,7 @@ ul {
     width: 1257px;
     height: 0px;
     left: 94px;
-    top: 610px;
+    top: 1010px;
     border: 1px solid rgba(19, 18, 18, 0.26);
 }
 
@@ -107,7 +147,7 @@ ul {
     width: 206px;
     height: 94px;
     left: 655px;
-    top: 780px;
+    top: 1180px;
 
     /* font-family: Roboto; */
     font-style: normal;
@@ -142,9 +182,10 @@ ul {
 
 #event {
     position: absolute;
+    width: auto;
     height: 55px;
     left: 120px;
-    top: 590px;
+    top: 990px;
     font-style: normal;
     font-weight: bold;
     margin-bottom: 60px;
@@ -166,8 +207,25 @@ a:hover #event-name {
 
 }
 
+.event-description-box {
+    display: absolute;
+    text-align: start;
+    padding-left: 100px;
+
+}
+
+.pic-box {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 50px 0px 30px 30px;
+}
+
+.pic-box img {
+    border-radius: 15px;
+    box-shadow: 3px 3px lightgray;
+}
+
 #event-description {
-    width: 1200px;
     left: 165px;
     font-size: 20px;
     color: gray;
@@ -180,4 +238,16 @@ a:hover #event-name {
     width: 1200px;
     /* line-height: 100px; */
     border: 1px solid rgba(19, 18, 18, 0.26);
+}
+
+
+@keyframes TextUp {
+    0% {
+        padding-top: 9em;
+        opacity: 0;
+    }
+    100% {
+        padding-top: 7em;
+        opacity: 1;
+    }
 }

@@ -96,8 +96,9 @@ ul {
 }
 
 .row {
-    display: grid;
+    display: flex;
     justify-content: center;
+    padding-top: 5em;
 }
 
 .line {
@@ -121,3 +122,20 @@ ul {
     letter-spacing: 0.03em;
     color: #000000;
 } 
+
+.event-image img {
+    flex-direction: row;
+    margin-left: 4em;
+    align-items: center;
+    box-shadow: 3px 4px lightgray;
+    border-radius: 20px;
+}
+
+.event-detail-box {
+    flex-wrap: wrap;
+    padding-left: 7em;
+    word-break: break-word;
+    padding-right: 7em;
+    /* box-shadow: 3px 3px gray;
+    border-radius: 30px; */
+}

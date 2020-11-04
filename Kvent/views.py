@@ -1,5 +1,6 @@
 from django.views import generic
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Event, Info, User
 from .forms import EventForm
@@ -29,9 +30,10 @@ def detail(request, event_id):
 
 def create_event(request):
     """ User creates the event """
-    form = EventForm(request.POST)
+    form = EventForm(request.POST, request.FILES)
     if request.method == 'POST' :
         if form.is_valid() :
+            photo = form.cleaned_data.get('photo') 
             event_name = form.data.get('event_name')
             location = form.data.get('location')
             short_description = form.data.get('short_description')
@@ -39,9 +41,9 @@ def create_event(request):
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
              short_description = short_description, long_description = long_description
-             , number_people = number_people,full=False)
+             , number_people = number_people,full=False, photo=photo)
             event.save()
-            return redirect('index')
+            return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def create_account(request):

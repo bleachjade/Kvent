@@ -57,9 +57,7 @@ def create_event(request):
     if request.method == 'POST' :
         if form.is_valid() :
             photo = form.cleaned_data.get('photo') 
-            print(photo)
             event_name = form.data.get('event_name')
-            print(event_name)
             location = form.data.get('location')
             short_description = form.data.get('short_description')
             long_description = form.data.get('long_description')

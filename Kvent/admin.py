@@ -1,12 +1,6 @@
 from django.contrib import admin
-from .models import Event
+from .models import *
 
-class EventAdmin(admin.ModelAdmin):
-    list_display = (
-        'event_name',
-        'location',
-        'short_description'
-    )
-
-
-admin.site.register(Event, EventAdmin)
+admin.site.register(Event)
+admin.site.register(User)
+admin.site.register(Info)

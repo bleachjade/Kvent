@@ -52,7 +52,6 @@ def create_event(request):
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
@@ -63,8 +62,6 @@ def signup(request):
             # user.set_password(user.password)
             user = authenticate(email=email,username=username, password=raw_password)
             form.save()
-            if username is not None:
-                login(request, user)
             return redirect(reverse('login'))
     else:
         form = SignUpForm()

@@ -3,13 +3,14 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Event, Info, User
-from .forms import EventForm
+from .forms import EventForm,SignUpForm
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import login, authenticate
-
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-  
+
+
 class IndexView(generic.ListView):
     """Show index view which is a list of all events."""
 
@@ -50,23 +51,26 @@ def create_event(request):
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
+
+
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(data=request.POST)
         if form.is_valid():
+            email = form.data.get('email')
+            username = form.data.get('username')
+            raw_password = form.data.get('raw_password')
+            # user.set_password(user.password)
+            user = authenticate(email=email,username=username, password=raw_password)
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('login')
+            if username is not None:
+                login(request, user)
+            return redirect(reverse('login'))
     else:
-        form = UserCreationForm()
-    return render(request, 'registration/createaccount.html', {'form': form})
+        form = SignUpForm()
+    return render(request,'registration/createaccount.html', {'form': form})
 
 def delete_event(request, event_id):
     event = Event.objects.get( pk=event_id)
     event.delete()
     return redirect('index')
-
-

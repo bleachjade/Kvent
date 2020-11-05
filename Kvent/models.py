@@ -2,13 +2,16 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.contrib.auth.models import AbstractBaseUser
 
-class User(models.Model):
+class User(AbstractBaseUser):
+
     """User's model"""
-    email = models.EmailField(max_length=254)
-    username = models.CharField(max_length=254)
-    password = models.CharField(max_length=254)
+    email = models.EmailField("E-mail", max_length=254)
+    username = models.CharField("Username", max_length=254)
+    raw_password = models.CharField("Password", max_length=254)
 
+    USERNAME_FIELD = 'email'
 
 class Info(models.Model):
     """User's model"""

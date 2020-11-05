@@ -5,9 +5,9 @@ from django.utils import timezone
 
 class User(models.Model):
     """User's model"""
-    email = models.EmailField(max_length=254)
-    username = models.CharField(max_length=254)
-    password = models.CharField(max_length=254)
+    email = models.EmailField("E-mail",max_length=254)
+    username = models.CharField("Username",max_length=254)
+    password = models.CharField("Password",max_length=254)
 
 
 class Info(models.Model):
@@ -63,8 +63,8 @@ class Event(models.Model):
     def get_number_people(self):
         return self.number_people
 
-    def get_participants(self):
-        return self.participants
+    # def get_participants(self):
+    #     return self.participants
     
     def get_full(self):
         return self.full
@@ -72,3 +72,18 @@ class Event(models.Model):
     def get_photo(self):
         return self.photo
 
+class Activity(models.Model):
+    """Create activity for the event."""
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    activity_name = models.TextField('Activity Name', default="", max_length=50)
+    description = models.TextField('Description', default="", max_length=255)
+    photo = models.ImageField(upload_to='upload/', default='upload/images/no-img.jpg', null=True)
+
+    def get_activity_name(self):
+        return self.activity_name
+
+    def get_description(self):
+        return self.description
+
+    def get_photo(self):
+        return self.photo

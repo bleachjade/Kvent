@@ -57,8 +57,12 @@
             <div id="event">
                 {% if all_event %}
                 {% for event in all_event %}
-                <div class="pic-box">
-                {% if not event.get_photo.url == '/media/upload/images/no-img.jpg' %}<img src="{{ event.get_photo.url }}" width="auto" height="300px" />{% endif %}
+                <div class="each-event">
+                {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+                    <img src="{{ event.get_photo.url }}" width="350px" height="auto" />
+                {% else %}
+                    <img src="media/upload/no_img.png" width="350px" height="auto" />
+                {% endif %}
                 <div class="event-description-box">
                 <a href= "{% url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
                 <h3 id="event-description">
@@ -70,8 +74,9 @@
                 </div>
                 <hr class="line-break">
                 {% endfor %}
-                <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
-
+                <div class="create-event">
+                    <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
+                </div>
                 {% endif %}
             </div>
         </div>

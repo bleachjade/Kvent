@@ -9,7 +9,7 @@
     height: 1em;
     font-size: 1.8em;
     background-color: #003366;
-    padding: 1em 1em 1em 1em;
+    padding: 1em 1.5em 1em 1em;
     display: flex;
     justify-content: space-between;
 }
@@ -25,6 +25,9 @@
 }
 .nav-bar ul {
     display: flex;
+}
+.nav-bar a:hover {
+    color: red;
 }
 /*banner part*/
 .banner-container {
@@ -54,6 +57,9 @@
     margin-bottom: 0;
     animation: TextUp 0.9s ease;
 }
+.text-banner ul {
+    line-height: 2.3em;
+}
 
 section .event-section {
     width: 100%;
@@ -63,7 +69,7 @@ section .event-section {
     padding: 2em 5em 2em 5em;
     margin: 1em 1em 1em 1em;
 }
-
+/*event title and search*/
 .event-container .event-title {
     display: flex;
     justify-content: space-between;
@@ -74,16 +80,124 @@ section .event-section {
 }
 .event-container .event-title input {
     height: 2.8em;
-    width: 75%;
+    width: 18em;
+    /* width: 75%; */
 }
 .event-container .event-title button {
     height: 2.8em;
-    width: 25%;
+    width: 3em;
+    /* width: 25%; */
 }
 
+/*each event photo and detail*/
+.event-container #event {
+    padding: 0 0 4em 0;
+}
+.event-container .each-event {
+    padding: 2em 0 2em 0;
+    display: flex;
+    justify-content: space-between;
+}
+.event-container .each-event img {
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 3px 3px lightgray;
+}
+.event-container .each-event .event-description-box {
+    font-size: 1.5em;
+    width: 60%;
+    padding-top: 1.9em;
+    line-height: 1.5em;
+}
+.event-container .each-event .event-description-box a {
+    text-decoration: none;
+    font-size: larger;
+    color: brown;
+}
+.event-container .each-event .event-description-box a:hover {
+    color: red;
+}
+/*create event button*/
+.event-container .create-event {
+    display: flex;
+    justify-content: center;
+}
+#create-more-event {
+    width: 10em;
+    height: 4em;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 4em;
+    margin-bottom: 4em;
+    font-size: 1.3em;
+}
+
+/*multiplatform device size*/
+@media screen and (max-width: 1024px) {
+    .nav-bar {
+        height: 0.8em;
+        font-size: 1.6em;
+    }
+    .event-container .event-title {
+        font-size: 1.3em;
+    }
+    .event-container .each-event img {
+        width: 25%;
+    }
+    .event-container .each-event .event-description-box {
+        font-size: 1em;
+        padding-top: 0.7em;
+        line-height: 1.5em;
+    }
+    #create-more-event {
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 778px) {
+    .nav-bar {
+        height: 0.7em;
+        font-size: 1.3em;
+    }
+    .event-container .event-title {
+        font-size: 1.1em;
+    }
+    .event-container .event-title input {
+        height: 2.2em;
+        width: 14em;
+    }
+    .event-container .event-title button {
+        height: 2.2em;
+        width: 3em;
+    }
+    .event-container .each-event {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .event-container .each-event img {
+        width: 100%;
+        display: block;
+    }
+    .event-container .each-event .event-description-box {
+        font-size: 1em;
+        padding-top: 0.7em;
+        line-height: 1.5em;
+    }
+    #create-more-event {
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 540px) {
+    .nav-bar {
+        height: 0.6em;
+        font-size: 1.1em;
+    }
+    .event-container .event-title {
+        flex-direction: column;
+        font-size: 0.8em;
+    }
 
 
-
+/*app info text animation*/
 @keyframes TextUp {
     0% {
         padding-top: 9em;

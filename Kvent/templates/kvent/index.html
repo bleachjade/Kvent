@@ -49,9 +49,10 @@
             <div id="no-event">
 
                 {% if not all_event %}
-                <label> No Events </label>
-                <a href="{% url 'create-event' %}"><button id="create-event" type="submit"> CREATE EVENT </button></a>
-
+                <h2> No Events </h2>
+                <div class="create-event">
+                    <a href="{% url 'create-event' %}"><button id="create-more-event" type="submit"> CREATE EVENT </button></a>
+                </div>
                 {% endif %}
             </div>
             <div id="event">

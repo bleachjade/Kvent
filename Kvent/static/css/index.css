@@ -31,7 +31,6 @@
 }
 /*banner part*/
 .banner-container {
-    /* display: flex; */
     overflow: hidden;
     position: relative;
     justify-content: center;
@@ -41,6 +40,7 @@
 .banner {
     position: absolute;
     display: block;
+    opacity: 0.8;
 }
 .banner img {
     max-width: 100%;
@@ -68,6 +68,13 @@ section .event-section {
 .event-container {
     padding: 2em 5em 2em 5em;
     margin: 1em 1em 1em 1em;
+}
+/*if no event part*/
+#no-event h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    padding: 2em 0 0 0;
 }
 /*event title and search*/
 .event-container .event-title {
@@ -138,6 +145,9 @@ section .event-section {
         height: 0.8em;
         font-size: 1.6em;
     }
+    #no-event h2 {
+        font-size: 1.5em;
+    }
     .event-container .event-title {
         font-size: 1.3em;
     }
@@ -190,6 +200,10 @@ section .event-section {
     .nav-bar {
         height: 0.6em;
         font-size: 1.1em;
+    }
+    #no-event h2 {
+        font-size: 1.4em;
+        padding: 3em 0 0 0;
     }
     .event-container .event-title {
         flex-direction: column;

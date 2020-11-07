@@ -2,8 +2,8 @@ from django.views import generic
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from .models import Event, Info, User
-from .forms import EventForm
+from .models import Event, Info, User, Activity
+from .forms import EventForm, ActivityForm
 from django.contrib.auth.backends import ModelBackend
   
 class IndexView(generic.ListView):
@@ -32,7 +32,7 @@ def create_event(request):
     """ User creates the event """
     form = EventForm(request.POST, request.FILES)
     if request.method == 'POST' :
-        if form.is_valid() :
+        if form == EventForm(request.POST, request.FILES).is_valid():
             photo = form.cleaned_data.get('photo') 
             event_name = form.data.get('event_name')
             location = form.data.get('location')
@@ -46,11 +46,23 @@ def create_event(request):
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
+def create_activity(request):
+    activity_form = ActivityForm(request.POST, request.FILES)
+    if request.method == 'POST' :
+        if activity_form.is_valid() :
+            photo = activity_form.cleaned_data.get('photo') 
+            activity_name = activity_form.data.get('activity_name')
+            description = activity_form.data.get('description')
+            activity = Activity(activity_name = activity_name, description = description, photo=photo)
+            activity.save()
+            return HttpResponseRedirect(reverse('index'))
+    return render(request, 'Kvent/create-event-page.html', {'activity_form': activity_form})
+
 def create_account(request):
     return render(request, 'registration/createaccount.html')
 
 def delete_event(request, event_id):
-    event = Event.objects.get( pk=event_id)
+    event = Event.objects.get(pk=event_id)
     event.delete()
     return redirect('index')
 

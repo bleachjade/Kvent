@@ -7,6 +7,10 @@ class EventAdmin(admin.ModelAdmin):
         'location',
         'short_description'
     )
-
+class ActivityAdmin(admin.ModelAdmin):
+    list_display = (
+        'activity_name'
+        'description'
+    )
 
 admin.site.register(Event, EventAdmin)

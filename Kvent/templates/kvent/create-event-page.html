@@ -35,12 +35,22 @@
                 {{ form.long_description }}
                 <br><br> Location <br>
                 {{ form.location}}
+                <p>
+                {% csrf_token %}
+                <p>
+                Activity Photo
+                {{ activity_form.photo }}
+                </p>
+                Activity Name <br>
+                {{ activity_form.activity_name }}
+                <br> Description <br>
+                {{ activity_form.description }}
                 <br><br> Number of people <br>
                 {{ form.number_people }}
+                <p>
                 <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
             </form>
         </div>
     </div>
 </body>
-
 </html>

@@ -34,7 +34,7 @@ class EventForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
-
+    """ Form for create a new account """
     class Meta(UserCreationForm.Meta):
         model = User
         fields = UserCreationForm.Meta.fields + ( 'email','username', 'password1')
@@ -45,18 +45,3 @@ class SignUpForm(UserCreationForm):
             'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
         }
-# class SignUpForm(UserCreationForm):
-
-#     email = forms.EmailField(max_length=255)
-#     username = forms.CharField(max_length=32)
-    
-#     class Meta(UserCreationForm.Meta):
-#         model = User
-#         fields = UserCreationForm.Meta.fields + ( 'email','username', 'password')
-
-#         widgets = {
-#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-#             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
-#             'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
-#             'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
-#         }

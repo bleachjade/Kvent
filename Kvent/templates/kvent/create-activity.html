@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title> Kvent </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/create-event.css' %}">
+
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}">Kvent</a></li>
+            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <div id="create">
+            Create Event
+            <hr class="line">
+        </div>
+        <div id="content">
+            <form method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>
+                Activity Photo
+                {{ activity_form.photo }}
+                </p>
+                Activity Name <br>
+                {{ activity_form.activity_name }}
+                <br> Description <br>
+                {{ activity_form.description }}
+                <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

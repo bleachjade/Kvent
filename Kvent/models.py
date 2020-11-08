@@ -42,7 +42,8 @@ class Event(models.Model):
     photo = models.ImageField(upload_to='upload/', default='upload/images/no_img.png', null=True)
     participants = models.ManyToManyField(Info)
     full = models.BooleanField(default=False)
-    host = models.User.username
+    user = models.ForeignKey(User, null=True, blank=True, 
+                  on_delete=models.CASCADE, default=0)
 
     def get_event_name(self):
         return self.event_name
@@ -71,5 +72,5 @@ class Event(models.Model):
     def get_photo(self):
         return self.photo
 
-    def get_host(self):
-        return self.host 
+    # def get_host(self):
+    #     return self.host 

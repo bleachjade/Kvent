@@ -1,4 +1,4 @@
-<html lang="en">
+{% comment %} <html lang="en">
 
 <head>
     {% load static %}
@@ -19,13 +19,13 @@
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Sign in</title>
   {% comment %} <b>Kvent</b> {% endcomment %}
-</head>
+{% comment %} </head>
 
 <body>
   
   <div class="main2" >
     {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    <form class="form1" method="POST">
+    {% comment %} <form class="form1" method="POST">
       {% csrf_token %}
       <td colspan="2">
       <input name="email" class="email " type="text" align="center" placeholder="Email">
@@ -40,4 +40,23 @@
      
 </body>
 
-</html>
+</html>  {% endcomment %}
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}

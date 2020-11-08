@@ -13,7 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class IndexView(generic.ListView):
-    """Show index view which is a list of all events."""
+    """Show index view which is a list of all events and render index page."""
 
     template_name = 'kvent/index.html'
     context_object_name = 'all_event'
@@ -26,17 +26,21 @@ class IndexView(generic.ListView):
             return Event.objects.all().order_by('-date_time')
 
 def profile(request):
-    """User's profile"""
+    """Function for render user's profile page."""
     user = Info.objects.all()
     return render(request, 'kvent/profile.html',{user:'user'})
 
 def detail(request, event_id):
+    """Function for render event detail page."""
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'kvent/event-detail.html', {'event': event})
 
 @login_required(login_url='login/')
 def create_event(request):
-    """ User creates the event """
+    """ 
+    Function for create event with form and only logged in user can create the event 
+    and render create event page.
+    """
     form = EventForm(request.POST, request.FILES)
     if request.method == 'POST' :
         if form.is_valid() :
@@ -55,6 +59,7 @@ def create_event(request):
 
 
 def signup(request):
+    """Function for let user who doesn't have an account to create an account and render signup page"""
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
         if form.is_valid():
@@ -71,6 +76,7 @@ def signup(request):
 
 @login_required(login_url='/login/')
 def delete_event(request, event_id):
+    """Function for delete event and only logged in user can delete event"""
     event = Event.objects.get( pk=event_id)
     event.delete()
     return redirect('index')

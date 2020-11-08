@@ -4,13 +4,13 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    """User's model"""
+    """Model for put the user account to databasel"""
     email = models.EmailField("E-mail", max_length=254)
     # username = models.CharField("Username", max_length=254)
     # raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
-    """User's model"""
+    """Model for put the user's infomation to databasel"""
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, default=None)
     phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     email = models.EmailField('E-mail', max_length=254)
@@ -33,7 +33,7 @@ myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
 class Event(models.Model):
-    """ Create the event """
+    """ Model for put the infomation of event to database """
     event_name = models.TextField('Event Name', default="", max_length=50)
     location = models.TextField('Location', default="", max_length=80)
     short_description = models.TextField('Short Description', default="", max_length=100)

@@ -59,7 +59,7 @@ def create_event(request):
 
 
 def signup(request):
-    """Function for let user who doesn't have an account to create an account and render signup page"""
+    """Function for let user who doesn't have an account to create an account and render signup page."""
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
         if form.is_valid():
@@ -76,7 +76,7 @@ def signup(request):
 
 @login_required(login_url='/login/')
 def delete_event(request, event_id):
-    """Function for delete event and only logged in user can delete event"""
+    """Function for delete event and only logged in user can delete event."""
     event = Event.objects.get( pk=event_id)
     event.delete()
     return redirect('index')

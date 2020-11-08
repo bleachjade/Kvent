@@ -11,11 +11,13 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:event_id>/', views.detail, name='event-detail'),
     path('accounts/profile/', views.profile, name='profile'),
-    path('create',views.create_event, name='create-event'),
-    path('delete/<int:event_id>', views.delete_event, name='delete-event'),
+    path('create/',views.create_event, name='create-event'),
+    path('delete/<int:event_id>/', views.delete_event, name='delete-event'),
     path('signup/', views.signup, name='signup'),
     path('', include('django.contrib.auth.urls')),
+    path('<int:event_id>/join/', views.join_event, name='join-event'),
 ] 
+
 if settings.DEBUG:
      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

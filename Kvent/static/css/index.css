@@ -185,7 +185,6 @@ section .event-section {
     }
     .event-container .each-event {
         flex-direction: column;
-        padding-left: 15%;
     }
     .event-container .each-event img {
         width: 80%;

@@ -69,6 +69,10 @@ section .event-section {
     padding: 2em 5em 2em 5em;
     margin: 1em 1em 1em 1em;
 }
+/*start-line*/
+#start-line {
+    margin: 1.5em 0 0 0;
+}
 /*if no event part*/
 #no-event h2 {
     display: flex;
@@ -104,17 +108,17 @@ section .event-section {
     padding: 2em 0 2em 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .event-container .each-event img {
-    width: 30%;
+    width: 25%;
     border-radius: 15px;
     box-shadow: 3px 3px lightgray;
 }
 .event-container .each-event .event-description-box {
     font-size: 1.5em;
     width: 60%;
-    padding-top: 1.9em;
-    line-height: 1.5em;
+    line-height: 2em;
 }
 .event-container .each-event .event-description-box a {
     text-decoration: none;
@@ -181,11 +185,10 @@ section .event-section {
     }
     .event-container .each-event {
         flex-direction: column;
-        justify-content: center;
+        padding-left: 15%;
     }
     .event-container .each-event img {
-        width: 100%;
-        display: block;
+        width: 80%;
     }
     .event-container .each-event .event-description-box {
         font-size: 1em;
@@ -208,6 +211,9 @@ section .event-section {
     .event-container .event-title {
         flex-direction: column;
         font-size: 0.8em;
+    }
+    .event-container .each-event .event-description-box {
+        font-size: 0.7em;
     }
 
 

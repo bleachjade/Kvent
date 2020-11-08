@@ -46,7 +46,8 @@ def create_event(request):
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
-def create_activity(request):
+def create_activity(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
     activity_form = ActivityForm(request.POST, request.FILES)
     if request.method == 'POST' :
         if activity_form.is_valid() :
@@ -56,7 +57,7 @@ def create_activity(request):
             activity = Activity(activity_name = activity_name, description = description, photo=photo)
             activity.save()
             return HttpResponseRedirect(reverse('index'))
-    return render(request, 'Kvent/create-event-page.html', {'activity_form': activity_form})
+    return render(request, 'Kvent/create-activity.html', {'activity_form': activity_form})
 
 def create_account(request):
     return render(request, 'registration/createaccount.html')

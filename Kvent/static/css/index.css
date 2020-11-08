@@ -214,7 +214,7 @@ section .event-section {
     .event-container .each-event .event-description-box {
         font-size: 0.7em;
     }
-
+}
 
 /*app info text animation*/
 @keyframes TextUp {

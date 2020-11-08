@@ -18,7 +18,11 @@
     <div class="row">
         <hr class="line">
         <div class="event-image">
+        {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
             <img src="{{ event.get_photo.url }}" alt="sad" width="300px" height="auto" />
+        {% else %}
+            <img src="/media/upload/no_img.png" width="300px" height="auto" />
+        {% endif %}
         </div>
         <div class="event-detail-box">
         <h4 id="event-name"> {{ event.get_event_name }} </h4>

@@ -29,9 +29,16 @@
         <h3>{{ event.get_long_description }}</h3>
         <h3>Will be held at {{ event.get_location }} </h3>
         <h3>Capacity : {{ event.get_number_people}} </h3>
-        <a class="button-delete" href="{% url 'delete-event' event.id%}" > Delete </button>
-        </div>
 
+        <h3>Host: {{ event.get_host }} </h3>
+        <h3> ชื่อคนมา : {{ user.username }} </h3>
+
+        {% if user.username == object.host%}
+        <a class="button-delete" href="{% url 'delete-event' event.id%}" > Delete </button>
+        {% else%}
+        <a class="button-delete" href="{% url 'delete-event' event.id%}" > Join </button>
+        {% endif%}
+        </div>
     </div>
 
 </body>

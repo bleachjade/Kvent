@@ -32,7 +32,8 @@ def profile(request):
 
 def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    return render(request, 'kvent/event-detail.html', {'event': event})
+    user_exist = Event.objects.filter(id=event_id, user_id=request.user.id).exists()
+    return render(request, 'kvent/event-detail.html', {'event': event, 'user_exist':user_exist})
 
 @login_required(login_url='login')
 def create_event(request):
@@ -48,7 +49,7 @@ def create_event(request):
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
              short_description = short_description, long_description = long_description
-             , number_people = number_people,full=False, photo=photo)
+             , number_people = number_people,full=False, photo=photo, user=request.user)
             event.save()
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
@@ -82,5 +83,7 @@ def join_event(request, event_id):
         return redirect('index')
     else:
         if event.objects.filter(event_id=event_id, user_id=request.user.id).exists():
+            print(event.participants)
             event.participants.add(user)
+            print(event.participants)
     return redirect('index')

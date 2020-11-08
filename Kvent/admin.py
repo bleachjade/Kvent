@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event
+from .models import Event, Activity
 
 class EventAdmin(admin.ModelAdmin):
     list_display = (

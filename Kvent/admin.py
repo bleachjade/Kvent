@@ -14,3 +14,4 @@ class ActivityAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Event, EventAdmin)
+admin.site.register(Activity, ActivityAdmin)

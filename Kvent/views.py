@@ -2,6 +2,7 @@ from django.views import generic
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .models import Event, Info, User
 from .forms import EventForm,SignUpForm
 from django.contrib.auth.backends import ModelBackend
@@ -33,6 +34,7 @@ def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'kvent/event-detail.html', {'event': event})
 
+@login_required(login_url='login/')
 def create_event(request):
     """ User creates the event """
     form = EventForm(request.POST, request.FILES)
@@ -67,6 +69,7 @@ def signup(request):
         form = SignUpForm()
     return render(request,'registration/createaccount.html', {'form': form})
 
+@login_required(login_url='/login/')
 def delete_event(request, event_id):
     event = Event.objects.get( pk=event_id)
     event.delete()

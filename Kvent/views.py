@@ -11,7 +11,6 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
-
 class IndexView(generic.ListView):
     """Show index view which is a list of all events."""
 
@@ -25,6 +24,7 @@ class IndexView(generic.ListView):
         else:
             return Event.objects.all().order_by('-date_time')
 
+@login_required(login_url='login/')
 def profile(request):
     """User's profile"""
     user = Info.objects.all()
@@ -34,7 +34,7 @@ def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, 'kvent/event-detail.html', {'event': event})
 
-@login_required(login_url='login/')
+@login_required(login_url='login')
 def create_event(request):
     """ User creates the event """
     form = EventForm(request.POST, request.FILES)
@@ -53,7 +53,6 @@ def create_event(request):
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
@@ -61,7 +60,6 @@ def signup(request):
             email = form.data.get('email')
             username = form.data.get('username')
             raw_password = form.data.get('raw_password')
-            # user.set_password(user.password)
             user = authenticate(email=email,username=username, password=raw_password)
             form.save()
             return redirect(reverse('login'))
@@ -73,4 +71,16 @@ def signup(request):
 def delete_event(request, event_id):
     event = Event.objects.get( pk=event_id)
     event.delete()
+    return redirect('index')
+
+@login_required
+def join_event(request, event_id):
+    user = request.user.id
+    try:
+        event = get_object_or_404(Event, pk=event_id)
+    except (KeyError, Event.DoesNotExist):
+        return redirect('index')
+    else:
+        if event.objects.filter(event_id=event_id, user_id=request.user.id).exists():
+            event.participants.add(user)
     return redirect('index')

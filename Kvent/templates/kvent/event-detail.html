@@ -32,12 +32,14 @@
 
         {% comment %} <h3>Host: {{ event.get_host }} </h3> {% endcomment %}
         {% comment %} <h3> ชื่อคนมา : {{ user.username }} </h3> {% endcomment %}
-        <h3>Host: {{ event.user }}</h3>
+        <h3>Host: {{ event.user }}</h3>        
+        <h3>User: {{ request.user.username }}</h3>
+        <h3>Participants : {{ event.get_participants }}</h3>
 
-        {% if user_exist %}
+        {% if event.user == request.user.username %}
         <a class="button-delete" href="{% url 'delete-event' event.id%}" > Delete </button>
         {% else%}
-        <a class="button-delete" href="{% url 'delete-event' event.id%}" > Join </button>
+        <a class="button-delete" href="{% url 'join-event' event.id%}" > Join </button>
         {% endif%}
         </div>
     </div>

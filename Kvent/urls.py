@@ -16,6 +16,8 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('', include('django.contrib.auth.urls')),
     path('join/<int:event_id>/', views.join_event, name='join-event'),
+    path('leave/<int:event_id>/', views.leave_event, name='leave-event'),
+
 ] 
 
 if settings.DEBUG:

@@ -32,8 +32,8 @@ def profile(request):
 
 def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    user_exist = Event.objects.filter(id=event_id, user_id=request.user.id).exists()
-    return render(request, 'kvent/event-detail.html', {'event': event, 'user_exist':user_exist})
+    user = request.user
+    return render(request, 'kvent/event-detail.html', {'event': event, 'user': user})
 
 @login_required(login_url='login')
 def create_event(request):
@@ -82,8 +82,16 @@ def join_event(request, event_id):
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
-        if event.objects.filter(event_id=event_id, user_id=request.user.id).exists():
-            print(event.participants)
-            event.participants.add(user)
-            print(event.participants)
+        event.participants.add(user)
+    return redirect('index')
+
+@login_required
+def leave_event(request, event_id):
+    user = request.user.id
+    try:
+        event = get_object_or_404(Event, pk=event_id)
+    except (KeyError, Event.DoesNotExist):
+        return redirect('index')
+    else:
+        event.participants.remove(user)
     return redirect('index')

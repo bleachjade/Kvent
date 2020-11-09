@@ -7,7 +7,7 @@ class User(AbstractUser):
     """User's model"""
     email = models.EmailField("E-mail", max_length=254)
     username = models.CharField("Username", max_length=254)
-    # raw_password = models.CharField("Password", max_length=254)
+    raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
     """User's model"""
@@ -43,8 +43,6 @@ class Event(models.Model):
     participants = models.ManyToManyField(User,null=True, blank=True, 
                 default=0)
     full = models.BooleanField(default=False)
-    # user = models.ForeignKey(User, null=True, blank=True, 
-    #               on_delete=models.CASCADE, default=0)
     user = models.CharField("Host's Name", default="", max_length=30)
 
     def get_event_name(self):
@@ -73,6 +71,3 @@ class Event(models.Model):
 
     def get_photo(self):
         return self.photo
-
-    # def get_host(self):
-    #     return self.host 

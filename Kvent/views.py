@@ -37,6 +37,17 @@ def detail(request, event_id):
     return render(request, 'kvent/event-detail.html', {'event': event, 'user': user})
 
 @login_required(login_url='login')
+def event_history(request, username):
+    user = request.user
+    event_host = Event.objects.filter(user=user)
+    event_participant = Event.objects.filter(participants=user)
+    return render(request, 'kvent/event-history.html', {
+        'user': user, 
+        'event_host': event_host,
+        'event_participant': event_participant
+        })
+
+@login_required(login_url='login')
 def create_event(request):
     """ 
     Function for create event with form and only logged in user can create the event 

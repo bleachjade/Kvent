@@ -7,7 +7,7 @@ class User(AbstractUser):
     """User's model"""
     email = models.EmailField("E-mail", max_length=254)
     username = models.CharField("Username", max_length=254)
-    raw_password = models.CharField("Password", max_length=254)
+    # raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
     """User's model"""
@@ -71,3 +71,6 @@ class Event(models.Model):
 
     def get_photo(self):
         return self.photo
+    
+    def get_vacant(self):
+        return len(self.participants.all()) < self.number_people

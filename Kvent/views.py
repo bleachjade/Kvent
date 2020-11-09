@@ -74,7 +74,7 @@ def delete_event(request, event_id):
     event.delete()
     return redirect('index')
 
-@login_required
+@login_required(login_url='/login/')
 def join_event(request, event_id):
     user = request.user.id
     try:
@@ -85,7 +85,7 @@ def join_event(request, event_id):
         event.participants.add(user)
     return redirect('index')
 
-@login_required
+@login_required(login_url='/login/')
 def leave_event(request, event_id):
     user = request.user.id
     try:

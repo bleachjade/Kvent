@@ -40,8 +40,8 @@ class Event(models.Model):
     number_people = models.IntegerField("Number of people", default=2)
     date_time = models.DateTimeField('Date and Time', default=timezone.now)
     photo = models.ImageField(upload_to='upload/', default='upload/images/no_img.png', null=True)
-    participants = models.ManyToManyField(User,null=True, blank=True, 
-                default=0)
+    participants = models.ManyToManyField(User,null=True, blank=True, default=0)
+    arrange_time = models.DateTimeField('Arrangement Date and Time', default='%Y-%m-%d %H:%M:%S')
     full = models.BooleanField(default=False)
     user = models.CharField("Host's Name", default="", max_length=30)
 

@@ -31,6 +31,7 @@
             <h3>Capacity : {{ event.get_number_people}} </h3>
 
             <h3>Host: {{ event.user }}</h3>
+        
             
             {% if user not in event.participants.all %}
                 {% if event.user == request.user.username %}
@@ -38,6 +39,7 @@
                 {% elif event.user != request.user.username %}
                     {% if event.get_vacant %}
                     <h3> Status : Vacant </h3>
+                    <h3> Available : {{ event.get_available_capacity }} </h3>
                     <a class="button-delete" href="{% url 'join-event' event.id%}"> Join </button>
                     {% elif  not event.get_vacant%}
                         <h3> Status : Full </h3>

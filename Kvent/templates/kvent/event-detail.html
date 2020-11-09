@@ -36,7 +36,12 @@
                 {% if event.user == request.user.username %}
                     <a class="button-delete" href="{% url 'delete-event' event.id%}"> Delete </button>
                 {% elif event.user != request.user.username %}
+                    {% if event.get_vacant %}
+                    <h3> Status : Vacant </h3>
                     <a class="button-delete" href="{% url 'join-event' event.id%}"> Join </button>
+                    {% elif  not event.get_vacant%}
+                        <h3> Status : Full </h3>
+                    {% endif %}
                 {% endif %}
             {% endif%}
 

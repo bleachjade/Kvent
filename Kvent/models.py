@@ -6,8 +6,8 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     """Model for put the user account to database."""
     email = models.EmailField("E-mail", max_length=254)
-    # username = models.CharField("Username", max_length=254)
-    # raw_password = models.CharField("Password", max_length=254)
+    username = models.CharField("Username", max_length=254)
+    raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
     """Model for put the user's infomation to database."""
@@ -15,7 +15,6 @@ class Info(models.Model):
     phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     email = models.EmailField('E-mail', max_length=254)
     address = models.CharField("Address", max_length=125, default="NOT SET")
-
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
@@ -41,8 +40,10 @@ class Event(models.Model):
     number_people = models.IntegerField("Number of people", default=2)
     date_time = models.DateTimeField('Date and Time', default=timezone.now)
     photo = models.ImageField(upload_to='upload/', default='upload/images/no_img.png', null=True)
-    # participants = models.ManyToManyField(Info)
+    participants = models.ManyToManyField(User,null=True, blank=True, 
+                default=0)
     full = models.BooleanField(default=False)
+    user = models.CharField("Host's Name", default="", max_length=30)
 
     def get_event_name(self):
         return self.event_name
@@ -70,4 +71,3 @@ class Event(models.Model):
 
     def get_photo(self):
         return self.photo
-

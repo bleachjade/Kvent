@@ -19,6 +19,9 @@
         <ul>
             <li><a href="{% url 'index' %}">Kvent</a></li>
             <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'login' %}" id="event-logo">Logout</a></li>
+            {% else %}
         </ul>
     </nav>
 

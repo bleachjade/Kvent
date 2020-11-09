@@ -17,7 +17,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('join/<int:event_id>/', views.join_event, name='join-event'),
     path('leave/<int:event_id>/', views.leave_event, name='leave-event'),
-
+    path('<str:username>/history/', views.event_history, name='event-history')
 ] 
 
 if settings.DEBUG:

@@ -74,3 +74,6 @@ class Event(models.Model):
     
     def get_vacant(self):
         return len(self.participants.all()) < self.number_people
+
+    def get_available_capacity(self):
+        return self.number_people - len(self.participants.all())

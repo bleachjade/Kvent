@@ -16,10 +16,12 @@
 
 <body>
     <nav class="nav-bar">
-        <ul>
-            <li><a href="{% url 'index' %}">Kvent</a></li>
-            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
-        </ul>
+        <a href="{% url 'index' %}">Kvent</a>
+    <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+        {% endif%}
+    </ul>
     </nav>
 
     <div class="row">

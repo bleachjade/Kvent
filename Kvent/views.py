@@ -71,7 +71,11 @@ def signup(request):
 @login_required(login_url='/login/')
 def delete_event(request, event_id):
     event = Event.objects.get( pk=event_id)
-    event.delete()
+    if str(request.user) == event.user: 
+        event.delete()
+    else:
+        messages.warning(request, "You can only delete your event.")
+        return redirect('index')
     return redirect('index')
 
 @login_required(login_url='/login/')

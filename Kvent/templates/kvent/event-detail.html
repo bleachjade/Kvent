@@ -18,20 +18,34 @@
     <div class="row">
         <hr class="line">
         <div class="event-image">
-        {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+            {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
             <img src="{{ event.get_photo.url }}" alt="sad" width="300px" height="auto" />
-        {% else %}
+            {% else %}
             <img src="/media/upload/no_img.png" width="300px" height="auto" />
-        {% endif %}
+            {% endif %}
         </div>
         <div class="event-detail-box">
-        <h4 id="event-name"> {{ event.get_event_name }} </h4>
-        <h3>{{ event.get_long_description }}</h3>
-        <h3>Will be held at {{ event.get_location }} </h3>
-        <h3>Capacity : {{ event.get_number_people}} </h3>
-        <a class="button-delete" href="{% url 'delete-event' event.id%}" > Delete </button>
-        </div>
+            <h4 id="event-name"> {{ event.get_event_name }} </h4>
+            <h3>{{ event.get_long_description }}</h3>
+            <h3>Will be held at {{ event.get_location }} </h3>
+            <h3>Capacity : {{ event.get_number_people}} </h3>
 
+            <h3>Host: {{ event.user }}</h3>
+            
+            {% if user not in event.participants.all %}
+                {% if event.user == request.user.username %}
+                    <a class="button-delete" href="{% url 'delete-event' event.id%}"> Delete </button>
+                {% elif event.user != request.user.username %}
+                    <a class="button-delete" href="{% url 'join-event' event.id%}"> Join </button>
+                {% endif %}
+            {% endif%}
+
+            {% for user in event.participants.all %}
+            {% if request.user.username == user.username %}
+            <a class="button-delete" href="{% url 'leave-event' event.id%}"> Leave </button>
+            {% endif%}
+            {% endfor %}
+        </div>
     </div>
 
 </body>

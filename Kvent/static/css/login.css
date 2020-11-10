@@ -37,6 +37,21 @@ body {
     background-color: white;
     padding: 173px 55px 55px;
 }
+.wrap-signup {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+.wrap-signup .signup-form {
+    width: 560px;
+    min-height: 100vh;
+    display: block;
+    background-color: white;
+    padding: 100px 55px 55px;
+}
 
 .login-title {
     font-size: 3em;
@@ -61,8 +76,8 @@ form .input input {
 
 form .input button {
     color: white;
-    background-color: lightskyblue;
-    border: 1px solid #003366;
+    background-color: #003366;
+    border: 1px solid lightblue;
     border-radius: 2em;
     cursor: pointer;
     font-size: 1em;
@@ -71,8 +86,12 @@ form .input button {
     transition: all 0.2s ease-in-out;
 }
 button:hover {
-    box-shadow: 1px 1px#003366, 2px 2px #003366, 3px 3px#003366;
+    box-shadow: 1px 1px lightblue, 2px 2px lightblue, 3px 3px lightblue;
     transform: translateX(-3px);
+}
+
+.error-red {
+    line-height: 2em;
 }
 .login-image {
     width: calc(100% - 560px);
@@ -84,6 +103,7 @@ button:hover {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+    opacity: 0.8;
 }
 a {
     text-decoration: none;
@@ -103,6 +123,9 @@ a:hover {
 
 @media screen and (max-width: 888px) {
     .wrap-login .login-form {
+        width: 100%;
+    }
+    .wrap-signup .signup-form {
         width: 100%;
     }
 }

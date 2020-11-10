@@ -29,14 +29,12 @@ available and book the ticket before you go.
 
 
 ## Prerequisite
----
 - [Python](https://www.python.org/downloads/) 3.7 or newer 
 - [Django](https://www.djangoproject.com/download/) 3.1 or newer
 - Python add-on modules as in [requirements.txt](requirements.txt)
 
 
 ### Getting Started
----
 1. Clone the repository.
 ```
   $ git clone https://github.com/bleachjade/Kvent.git

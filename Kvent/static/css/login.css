@@ -1,259 +1,108 @@
-body{
-    background: linear-gradient(to right, #001224, #083766,#1c5085);
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.topic{
-    font-family: "Sofia";
-    font-size: 22px;
-
-}
-
-
-
-.main { 
-    position: relative;
-    width: 300px;
-    height: 400px;
-    margin-top: 0px;
-    top: 0px;
-    bottom: 0;
-    margin-left:850px;
-
-}
-
-.main1 { 
-    margin-left: 120px;
-    padding-left: 20%;
-    padding-top: 250;
-    position: relative;
-    width: 100px;
-    height: 30px;
-
-}
-
-.main2 { 
-    width: 300px;
-    height: 400px;
-    margin: auto;
-    margin-top: 150;
-
-}
-.sign {
-    padding-top: 40px;
-    color: #08437F;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
-    font-size: 23px;
-    
-}
-
-
-h1 {
-    overflow: hidden;
-    text-align: center;
-    font-size: 15px;
-    margin-top: 25px;
-}
-
-h1:before,
-h1:after {
-    background-color: #000;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-  }
-  
-h1:before {
-    right: 0.5em;
-    margin-left: -50%;
-}
-  
-h1:after {
-    left: 0.5em;
-    margin-right: -50%;
-}
-
-.email {
-    width: 70%;
-    height: 30;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 18px;
-    margin-left: 46px;
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-
-}
-.un {
-width: 70%;
-height: 30;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 18px;
-margin-left: 46px;
-text-align: center;
-font-family: 'Ubuntu', sans-serif;
 }
 
-form.form1 {
-    padding-top: 40px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
 }
 
-.pass {
-width: 70%;
-height: 30;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 26px;
-font-family: 'Ubuntu', sans-serif;
+.main {
+    width: 100%;
 }
 
-.un:focus, .pass:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;
-    
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.submit {
+.wrap-login {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+.wrap-login .login-form {
+    width: 560px;
+    min-height: 100vh;
+    display: block;
+    background-color: white;
+    padding: 173px 55px 55px;
+}
+
+.login-title {
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    text-shadow: 4px 2px 3px lightgray;
+}
+
+form .input {
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 4px 2px 3px lightgray;
+}
+form .input input {
+    font-size: 1em;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+form .input button {
+    color: white;
+    background-color: lightskyblue;
+    border: 1px solid #003366;
+    border-radius: 2em;
     cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
-    background: #002f5e;
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 31%;
-    font-size: 13px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    
+    font-size: 1em;
+    margin: 1em 4em 2em;
+    padding: 0.4em 0 0.4em 0;
+    transition: all 0.2s ease-in-out;
 }
-
-.facebook{
-    border-radius: 5em;
-    background: #2476c9;
-    border: none;
-    color: white;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 7px;
-    padding-top: 7px;
-    display: inline-block;
-    font-size: 14px;
-    margin-left: 40px;
-    margin-top: 10px;
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: white;
+button:hover {
+    box-shadow: 1px 1px#003366, 2px 2px #003366, 3px 3px#003366;
+    transform: translateX(-3px);
+}
+.login-image {
+    width: calc(100% - 560px);
+}
+.login-image img {
+    overflow: hidden;
+    position: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+a {
     text-decoration: none;
-    font-family:'sans-serif';
-    font-size :13px;
-
 }
-.google{
-    border-radius: 5em;
-    background: #cf3f35;
-    border: none;
-    color: white;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 7px;
-    padding-top: 7px;
-    display: inline-block;
-    font-size: 14px;
-    margin-right: 10px ;
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: white;
-    text-decoration: none;
-    font-family:'sans-serif';
-    font-size :13px;
-
-
+a:hover {
+    color: red;
+}
+.create-account {
+    display: flex;
+    justify-content: center;
 }
 
-
-.forgot {
-    float: left;
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
-    padding-top: 40px;
-    padding-left: 55px;
+:focus {
+    outline: none;
+    background-color: lightgray;
 }
 
-.forgot1 {
-    float: right;
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
-    padding-right:60px;
-    padding-top: 40px;
-}
-
-a{
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: white;
-    text-decoration: none;
-    font-family:'sans-serif';
-    font-size :13px;
-}
-/* 
-b {
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: white;
-    text-decoration: none;
-    font-family:'Ubuntu';
-    font-size :100%;
-
-} */
-
-
-b {
-    color: #ffffff;
-    font-family: 'Rouge Script', cursive;
-    font-size: 60px;
-    font-weight: normal;
-    /* line-height: 100px; */
-    /* margin: 0 0 50px; */
-    /* text-align: center; */
-    /* text-shadow: 1px 1px 2px #082b34; */
-    margin-block-end: 100px;
-
-}
-/* @media (max-width: 600px) {
-    .main {
-        border-radius: 0px;
+@media screen and (max-width: 888px) {
+    .wrap-login .login-form {
+        width: 100%;
     }
-} */
+}

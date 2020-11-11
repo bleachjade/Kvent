@@ -142,6 +142,9 @@ form .input button:focus {
     form textarea{
         font-size: 0.7em;
     }
+    .wrap-container .create-form {
+        padding: 5em 10em 5em 10em;
+    }
 }
 @media screen and (max-width: 778px) {
     .nav-bar {
@@ -158,6 +161,9 @@ form .input button:focus {
     form textarea{
         font-size: 0.6em;
     }
+    .wrap-container .create-form {
+        padding: 4em 8em 4em 8em;
+    }
 }
 @media screen and (max-width: 540px) {
     .nav-bar {
@@ -167,9 +173,15 @@ form .input button:focus {
     .text-title {
         font-size: 0.8em;
     }
+    .wrap-container .create-form {
+        padding: 3.5em 6em 3.5em 6em;
+    }
 }
 @media screen and (max-width: 376px) {
     .nav-bar {
         font-size: 1em;
+    }
+    .wrap-container .create-form {
+        padding: 3.5em 2.5em 3.5em 2.5em;
     }
 }

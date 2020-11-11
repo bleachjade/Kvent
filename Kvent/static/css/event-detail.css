@@ -44,8 +44,8 @@
 }
 .row .event-image img {
     border-radius: 1.2em;
-    width: auto;
-    height: 80vh;
+    width: 26em;
+    box-shadow: 3px 3px lightgray;
 }
 
 .row .event-detail-box {
@@ -107,16 +107,27 @@ a button {
 }
 
 /*multiplatform device size*/
+@media screen and (max-width: 1440px) {
+    .row .event-image img {
+        width: 22em;
+    }
+}
 @media screen and (max-width: 1024px) {
     .nav-bar {
         height: 0.8em;
         font-size: 1.6em;
+    }
+    .event-detail-box #event-name {
+        font-size: 1.8em;
     }
 }
 @media screen and (max-width: 778px) {
     .nav-bar {
         height: 0.7em;
         font-size: 1.3em;
+    }
+    .row .event-image img {
+        width: 20em;
     }
 }
 @media screen and (max-width: 540px) {
@@ -128,5 +139,14 @@ a button {
 @media screen and (max-width: 376px) {
     .nav-bar {
         font-size: 1em;
+    }
+    .row .event-image img {
+        width: 16em;
+    }
+    .event-detail-box #event-name {
+        font-size: 1.6em;
+    }
+    .row .event-detail-box {
+        font-size: 0.9em;
     }
 }

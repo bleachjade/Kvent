@@ -24,8 +24,8 @@ available and book the ticket before you go.
 - ***[Project Proposal](https://docs.google.com/document/d/1kKmqQyxYT80sFmmCRFkBxXxryh4iwUrwxve9PMhY3_w/edit?usp=sharing)***
 - ***[Mockups Design](https://www.figma.com/file/EhMc6OpqAQH1RkHAkma8Lq/Kvent?node-id=0%3A1)***
 - ***[Jira Board](https://kvent-kasetsart.atlassian.net/jira/software/projects/KVEN/boards/1)***
-- ***[Code Review Checklist](../wiki/Code%20Review%20Checklist)***
-- ***[Code Review Script](../wiki/Code%20Review%20Script)***
+- ***[Code Review Checklist](../../wiki/Code%20Review%20Checklist)***
+- ***[Code Review Script](../../wiki/Code%20Review%20Script)***
 
 
 ## Prerequisite

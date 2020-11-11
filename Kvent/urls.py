@@ -18,13 +18,7 @@ urlpatterns = [
     path('join/<int:event_id>/', views.join_event, name='join-event'),
     path('leave/<int:event_id>/', views.leave_event, name='leave-event'),
     path('', include('social_django.urls', namespace='social')),
-    path(
-        'logout/',
-        LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
-        name='logout'
-    ),
-    path('manage/', views.manage, name='manage'),
-
+    path('logout/',views.logout,name='logout'),
 ] 
 
 if settings.DEBUG:

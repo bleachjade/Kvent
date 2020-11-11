@@ -88,7 +88,11 @@ def signup(request):
 def delete_event(request, event_id):
     """Function for delete event and only logged in user can delete event."""
     event = Event.objects.get( pk=event_id)
-    event.delete()
+    if str(request.user) == event.user: 
+        event.delete()
+    else:
+        messages.warning(request, "You can only delete your event.")
+        return redirect('index')
     return redirect('index')
 
 @login_required(login_url='/login/')

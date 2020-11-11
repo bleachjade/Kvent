@@ -1,4 +1,5 @@
-"""mysite URL Configuration
+"""api URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -13,20 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-from Kvent import views
-from django.contrib.auth.views import LogoutView
-
+from django.urls import path
 
 urlpatterns = [
-    path('', include('Kvent.urls')),
     path('admin/', admin.site.urls),
-    # path(
-    #     'logout/',
-    #     LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
-    #     name='logout'
-    # ),
-    # path('manage/', views.manage, name='manage'),
-    # path('', include('social_django.urls', namespace='social')),
-    # path('accounts/', include('django.contrib.auth.urls')),
 ]

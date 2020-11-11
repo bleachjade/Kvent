@@ -38,11 +38,20 @@
       <input name="password" class="pass" type="password" align="center" placeholder="Password"> -->
       <button type="submit" value="{{ next }}" >Login</button>
     </form>
+     <p class="forgot" align="center"><a>Don't have any account? </p>
+    <br>
+    <p class="forgot1" align="center" ><a href="{% url 'signup' %}"> Create one </a></p> 
+    </form>
+    
+     <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Login
+     </a>
+   
     <!-- <input  type="hidden" name="next" value="{{next}}"/> -->
     <!-- <input class="submit" type="submit" align="center" value="Log In">       -->
     <!-- <h1>or</h1> -->
     <!-- <p1 class="facebook"href="#">Facebook</p1>
-      <p1 class="google" href="#">Google+</p1> -->
+    <p1 class="google" href="#">Google+</p1>
     <p class="forgot" align="center"><a>Don't have any account? </p>
     <br>
     <p class="forgot1" align="center" ><a href="{% url 'signup' %}"> Create one </a></p> 

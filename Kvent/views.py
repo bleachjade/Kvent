@@ -95,3 +95,6 @@ def leave_event(request, event_id):
     else:
         event.participants.remove(user)
     return redirect('index')
+
+def manage(request):
+    return render(request, 'kvent/index.html')

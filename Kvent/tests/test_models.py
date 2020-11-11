@@ -24,6 +24,7 @@ class EventTest(TestCase):
                     location="Kasetsart University",
                     short_description="Art with Motions is the best event in town.",
                     long_description="Art with Motions is the best event in town and the only event that we have available for the next day.",
+                    arrange_time="2020-12-30 18:00:00",
                     number_people=200,
                     full=False)
         self.assertEqual(event.get_event_name(), "Art with Motions")
@@ -32,4 +33,5 @@ class EventTest(TestCase):
         self.assertEqual(event.get_long_description(), "Art with Motions is the best event in town and the only event that we have available for the next day.")
         self.assertEqual(event.get_number_people(), 200)
         self.assertFalse(event.get_full(), False)
+        self.assertEqual(event.arrange_time, "2020-12-30 18:00:00")
         self.assertTrue(isinstance(event, Event))

@@ -46,7 +46,6 @@
 
 .create-container .wrap-container {
     width: 100%;
-    display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     flex-direction: row-reverse;
@@ -72,6 +71,7 @@ form textarea{
     overflow: hidden;
     border-bottom: solid 2px #474544;
     box-sizing: border-box;
+    font: 200 Arial;
 }
 input[type="number" i] {
     padding: 1px 2px;
@@ -82,4 +82,94 @@ input[type="number" i] {
     border: none;
     border-bottom: solid 2px #474544;
     background-color:white;
+}
+form .input .photo {
+    display: block;
+}
+
+form .input {
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 1em;
+    margin: 1em;
+    letter-spacing: 0.03em;
+    line-height: 2.8em;
+}
+form .input textarea {
+    font-size: 1em;
+    padding: 1em;
+    margin: 1em;
+    height: 3em;
+}
+
+form .input button {
+    color: white;
+    display: flex;
+    justify-content: center;
+    background-color: #003366;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    margin: 3em 4em;
+    padding: 0.4em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    background-position: center;
+    transition: background 0.8s;
+}
+form .input button:active {
+    box-shadow: 3px 3px 0 lightskyblue;
+    top: 3px;
+}
+form .input button:focus {
+    outline: none;
+}
+
+/*multiplatform device size*/
+@media screen and (max-width: 1024px) {
+    .nav-bar {
+        height: 0.8em;
+        font-size: 1.6em;
+    }
+    .text-title {
+        font-size: 1.4em;
+    }
+    form .input {
+        font-size: 1em;
+        line-height: 2.3em;
+    }
+    form textarea{
+        font-size: 0.7em;
+    }
+}
+@media screen and (max-width: 778px) {
+    .nav-bar {
+        height: 0.7em;
+        font-size: 1.3em;
+    }
+    .text-title {
+        font-size: 1.1em;
+    }
+    form .input {
+        font-size: 0.8em;
+        line-height: 2em;
+    }
+    form textarea{
+        font-size: 0.6em;
+    }
+}
+@media screen and (max-width: 540px) {
+    .nav-bar {
+        height: 0.6em;
+        font-size: 1.1em;
+    }
+    .text-title {
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 376px) {
+    .nav-bar {
+        font-size: 1em;
+    }
 }

@@ -20,12 +20,13 @@
           <div class="input">
           Username: {{ form.username }}
           Password: {{ form.password }}
-          <button type="submit" value="{{ next }}">Login</button>
+          <button type="submit">Login</button>
           </div>
           <div class="create-account">
           <p class="forgot">Don't have any account?</p>
           <p class="forgot1"><a href="{% url 'signup' %}">&nbspCreate one </a></p>
           </div>
+          <input type="hidden" name="next" value="{{next}}" />
         </form>
         <div class="login-image">
           <img src="{% static '/images/banner.jpg' %}" width="auto" height="1000px" />

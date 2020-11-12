@@ -1,62 +1,42 @@
-{% comment %} <html lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
 <head>
     {% load static %}
-    {% block css %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign in</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
-    {% endblock %}
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
 </head>
-
-<html>
-
-<head>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <title>Sign in</title>
-  {% comment %} <b>Kvent</b> {% endcomment %}
-{% comment %} </head>
-
 <body>
-  
-  <div class="main2" >
-    {% comment %} <p class="sign" align="center">Sign in</p> {% endcomment %}
-    {% comment %} <form class="form1" method="POST">
-      {% csrf_token %}
-      <td colspan="2">
-      <input name="email" class="email " type="text" align="center" placeholder="Email">
-      <input name="username" class="un" type="text" align="center" placeholder="Username">
-      <input name="password" class="pass" type="password" align="center" placeholder="Password">   
-      <input class="submit" type="submit" align="center" value="Sign Up">      
-      <h1>or</h1>
-      <p1 class="facebook"href="#">Facebook</p1>
-      <p1 class="google" href="#">Google+</p1>
-    </form>        
+  <div class="main">
+    <div class="login-container">
+      <div class="wrap-signup">
+        <form class="signup-form" method="post">
+          {% csrf_token %}
+          <span class="login-title">Sign up</span>
+          <div class="input">
+          {% for field in form %}
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.error %}
+                <p style="color: grey">{{ field.help_text }}</p>
+              {% endif %}
+              {% for error in field.errors %}
+                <p class="error-red"style="color: red">{{ error }}</p>
+              {% endfor %}
+          {% endfor %}
+          <button type="submit">Sign up</button>
+          </div>
+        </form>
+        <div class="login-image">
+          <img src="{% static '/images/banner.jpg' %}" width="auto" height="1000px" />
+        </div>
+      </div>
+    </div>
   </div>
-     
 </body>
-
-</html>  {% endcomment %}
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
-  </form>
 {% endblock %}
+</html>

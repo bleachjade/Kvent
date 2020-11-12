@@ -27,7 +27,7 @@
         <div class="event-container">
             <div id="event">
                 <h2 class="event-history-title">HOSTING EVENTS</h2>
-                {% if not request.user.username == event.user %}
+                {% if event_host %}
                     {% for event in event_host %}
                         <div class="each-event">
                         {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
@@ -48,11 +48,11 @@
                     {% endfor %}
                 {% else %}
                         <div id="no-event">
-                            <h2> No Events </h2>
+                            <h2> ----- No Events ----- </h2>
                         </div>
                 {% endif %}
                 <h2 class="event-history-title">ATTENDING EVENTS</h2>
-                    {% if request.user.username == user.username %}
+                    {% if event_participant %}
                         {% for event in event_participant %}
                             <div class="each-event">
                             {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
@@ -73,7 +73,7 @@
                         {% endfor %}
                     {% else %}
                         <div id="no-event">
-                            <h2> No Events </h2>
+                            <h2> ----- No Events ----- </h2>
                         </div>
                     {% endif %}
             </div>

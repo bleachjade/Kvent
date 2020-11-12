@@ -1,141 +1,152 @@
-body {
-    margin: auto;
-    font-family: Arial;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*nav-bar part*/
+.nav-bar {
+    max-width: 100%;
+    height: 1em;
+    font-size: 1.8em;
+    background-color: #003366;
+    padding: 1em 1.5em 1em 1em;
+    display: flex;
+    justify-content: space-between;
 }
 
-.nav-bar {
-    overflow: hidden;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    height: 80.03px;
-    background: #003366;
-    mix-blend-mode: multiply;
+.nav-bar li {
+    list-style-type: none;
+    padding: 0 0.5em 0 0.5em;
 }
 
 .nav-bar a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 25px 16px;
-    padding-left: 3rem;
+    padding: 0 0 0 1em;
     text-decoration: none;
-    font-size: 25px;
+    color: white;
 }
-
+.nav-bar ul {
+    display: flex;
+}
 .nav-bar a:hover {
     color: red;
 }
 
-#event-name {
-    margin-top: 70px;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-#event-description {
-    width: 1200px;
-    left: 165px;
-    font-size: 20px;
-    color: gray;
-    line-height: 50px;
-
-}
-
-#info {
-    position: absolute;
-    width: 1440px;
-    height: 400px;
-    left: 0px;
-    top: 80px;
-    background: rgba(196, 196, 196, 0.35);
-}
-
-#search {
-    position: absolute;
-    width: 359px;
-    height: 45px;
-    left: 900px;
-    /* background:white; */
-    border-color: #f2f2f2;
-}
-
-#submit {
-    cursor: pointer;
-    position: absolute;
-    width: 50px;
-    height: 45px;
-    left: 1209px;
-    background-color: white;
-
-}
-
-#event-title {
-    position: absolute;
-    width: 206px;
-    height: 94px;
-    left: 100px;
-    top: 535px;
-
-    /* font-family: "Roboto"; */
-    font-style: normal;
-    font-weight: bold;
-    font-size: 35px;
-    line-height: 47px;
-    letter-spacing: 0.03em;
-
-    color: #000000;
-
-}
-
 .row {
+    width: 100%;
+    height: 100%;
+}
+
+.row .event-image {
+    margin: 3em 1em 1em 1em;
     display: flex;
     justify-content: center;
-    padding-top: 5em;
+    
+}
+.row .event-image img {
+    border-radius: 1.2em;
+    width: 26em;
+    box-shadow: 3px 3px lightgray;
 }
 
-.line {
-    position: absolute;
-    width: 1257px;
-    height: 0px;
-    left: 94px;
-    top: 610px;
-    border: 1px solid rgba(19, 18, 18, 0.26);
+.row .event-detail-box {
+    margin: 3em 1em 5em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 2em;
+}
+.event-detail-box #event-name {
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
 }
 
-#event {
-    position: absolute;
-    width: 410px;
-    height: 55px;
-    left: 120px;
-    top: 590px;
-    font-style: normal;
-    font-weight: bold;
-    margin-bottom: 60px;
-    letter-spacing: 0.03em;
-    color: #000000;
-} 
-
-.event-image img {
-    flex-direction: row;
-    margin-left: 4em;
+/*button*/
+button {
+    background-color: lightgreen;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 0.8em 2em 0.8em 2em;
+    margin: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 4px #999;
+    background-position: center;
+    transition: background 0.3s;
+}
+button:hover {
+    background: darkgreen radial-gradient(circle, transparent 1%,  darkgreen 1%) center/15000%;
+    color: white;
+}
+button:active{
+    background-color:#292d3e;
+    background-size: 100%;
+    transition: background 0s;
+}
+a button {
+    text-decoration: none;
+    color: white;
     align-items: center;
-    box-shadow: 3px 4px lightgray;
-    border-radius: 20px;
+    font-size: 1.3em;
+    text-transform: uppercase;
 }
 
-.event-detail-box {
-    flex-wrap: wrap;
-    padding-left: 7em;
-    word-break: break-word;
-    padding-right: 7em;
-    /* box-shadow: 3px 3px gray;
-    border-radius: 30px; */
+.leave-button button {
+    background-color: lightcoral;
+    transition: background 0.3s;
+}
+.leave-button button:hover {
+    background: red radial-gradient(circle, transparent 1%,  red 1%) center/15000%;
+}
+.delete-button button {
+    background-color: red;
+    transition: background 0.3s;
+}
+.delete-button button:hover {
+    background: darkred radial-gradient(circle, transparent 1%,  darkred 1%) center/15000%;
+}
+
+/*multiplatform device size*/
+@media screen and (max-width: 1440px) {
+    .row .event-image img {
+        width: 22em;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .nav-bar {
+        height: 0.8em;
+        font-size: 1.6em;
+    }
+    .event-detail-box #event-name {
+        font-size: 1.8em;
+    }
+}
+@media screen and (max-width: 778px) {
+    .nav-bar {
+        height: 0.7em;
+        font-size: 1.3em;
+    }
+    .row .event-image img {
+        width: 20em;
+    }
+}
+@media screen and (max-width: 540px) {
+    .nav-bar {
+        height: 0.6em;
+        font-size: 1.1em;
+    }
+}
+@media screen and (max-width: 376px) {
+    .nav-bar {
+        font-size: 1em;
+    }
+    .row .event-image img {
+        width: 16em;
+    }
+    .event-detail-box #event-name {
+        font-size: 1.6em;
+    }
+    .row .event-detail-box {
+        font-size: 0.9em;
+    }
 }

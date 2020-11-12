@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
+</head>
+<body>
+  <div class="main">
+    <div class="login-container">
+      <div class="wrap-login">
+        <form class="login-form" method="POST">
+          {% csrf_token %}
+          <span class="login-title">Login</span>
+          <div class="input">
+          Username: {{ form.username }}
+          Password: {{ form.password }}
+          <button type="submit">Login</button>
+          </div>
+          <div class="create-account">
+          <p class="forgot">Don't have any account?</p>
+          <p class="forgot1"><a href="{% url 'signup' %}">&nbspCreate one </a></p>
+          </div>
+          <input type="hidden" name="next" value="{{next}}" />
+        </form>
+        <div class="login-image">
+          <img src="{% static '/images/banner.jpg' %}" width="auto" height="1000px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

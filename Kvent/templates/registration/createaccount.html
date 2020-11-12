@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<head>
+    {% load static %}
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
+</head>
+<body>
+  <div class="main">
+    <div class="login-container">
+      <div class="wrap-signup">
+        <form class="signup-form" method="post">
+          {% csrf_token %}
+          <span class="login-title">Sign up</span>
+          <div class="input">
+          {% for field in form %}
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.error %}
+                <p style="color: grey">{{ field.help_text }}</p>
+              {% endif %}
+              {% for error in field.errors %}
+                <p class="error-red"style="color: red">{{ error }}</p>
+              {% endfor %}
+          {% endfor %}
+          <button type="submit">Sign up</button>
+          </div>
+        </form>
+        <div class="login-image">
+          <img src="{% static '/images/banner.jpg' %}" width="auto" height="1000px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
+</html>

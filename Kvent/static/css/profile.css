@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    font-family: Arial;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-bar {
+    overflow: hidden;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    height: 80.03px;
+    background: #003366;
+    mix-blend-mode: multiply;
+}
+
+.nav-bar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 16px;
+    padding-left: 3rem;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+
+.nav-bar a:hover {
+    color: red;
+}
+
+.row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+.column {
+    flex: auto;
+    padding: 10px;
+}
+
+
+#h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+#h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#profile-img {
+    position: absolute;
+    width: 264px;
+    height: 264px;
+    left: 200px;
+    top: 207px;
+}
+#info {
+    position: inherit;
+    padding-top: 100px;
+    top: 207px;
+}

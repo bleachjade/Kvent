@@ -39,21 +39,31 @@
             <h3>Capacity : {{ event.get_number_people}} </h3>
 
             <h3>Host: {{ event.user }}</h3>
-            
+        
             {% if user not in event.participants.all %}
                 {% if event.user == request.user.username %}
                     <a class="delete-button" href="{% url 'delete-event' event.id%}"><button> Delete </button></a>
                 {% elif event.user != request.user.username %}
+                    {% if event.get_vacant %}
+                    <h3> Status : Vacant </h3>
+                    <h3> Available : {{ event.get_available_capacity }} </h3>
                     <a class="join-button" href="{% url 'join-event' event.id%}"><button> Join </button></a>
+                    {% elif  not event.get_vacant%}
+                        <h3> Status : Full </h3>
+                    {% endif %}
                 {% endif %}
             {% endif%}
 
             {% for user in event.participants.all %}
-                {% if request.user.username == user.username %}
-                    <a class="leave-button" href="{% url 'leave-event' event.id%}"><button> Leave </button></a>
-                {% endif%}
+            {% if request.user.username == user.username %}
+              <a class="leave-button" href="{% url 'leave-event' event.id%}"><button> Leave </button></a>
+            {% endif%}
             {% endfor %}
-            
+
+
+            {% for user in event.participants.all %}
+                <h3> Participants :  {{ user.username }} </h3>
+            {% endfor %}
         </div>
     </div>
 

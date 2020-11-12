@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=develop)](https://travis-ci.org/bleachjade/Kvent)
+[![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=master)](https://travis-ci.org/bleachjade/Kvent)
 [![codecov](https://codecov.io/gh/bleachjade/Kvent/branch/develop/graph/badge.svg?token=JLOHNQNY5P)](https://codecov.io/gh/bleachjade/Kvent)
 
 # Kvent
@@ -8,9 +8,6 @@ finding an exhibition or event that you are interested in. It's a great way to g
 available and book the ticket before you go.
 
 ## Contributors
-<a href="https://github.com/bleachjade/Kvent/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=bleachjade/Kvent" />
-</a>
 
 | Name | Roles | GitHub |
 |---------------------------|--------------------------|-------------------------------------------------------|

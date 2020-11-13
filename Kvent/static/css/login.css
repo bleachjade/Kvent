@@ -124,8 +124,10 @@ a:hover {
 @media screen and (max-width: 888px) {
     .wrap-login .login-form {
         width: 100%;
+        padding: 113px 55px 55px;
     }
     .wrap-signup .signup-form {
         width: 100%;
+        padding: 60px 55px 55px;
     }
 }

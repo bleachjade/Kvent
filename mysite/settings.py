@@ -11,8 +11,6 @@ from pathlib import Path
 from decouple import config
 import os
 
-import django_heroku
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -138,4 +136,6 @@ AUTH_USER_MODEL = 'Kvent.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-django_heroku.settings(locals())
+if 'HOME' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())

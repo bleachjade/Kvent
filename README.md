@@ -8,6 +8,9 @@ finding an exhibition or event that you are interested in. It's a great way to g
 available and book the ticket before you go.
 
 ## Contributors
+<a href="https://github.com/bleachjade/Kvent/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=bleachjade/Kvent" />
+</a>
 
 | Name | Roles | GitHub |
 |---------------------------|--------------------------|-------------------------------------------------------|

@@ -45,6 +45,7 @@
 .row .event-image img {
     border-radius: 1.2em;
     width: 26em;
+    height: auto;
     box-shadow: 3px 3px lightgray;
 }
 
@@ -142,6 +143,7 @@ a button {
     }
     .row .event-image img {
         width: 16em;
+        height: 100%;
     }
     .event-detail-box #event-name {
         font-size: 1.6em;

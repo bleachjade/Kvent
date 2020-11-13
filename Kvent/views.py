@@ -67,7 +67,7 @@ def create_event(request):
              , number_people = number_people,full=False, photo=photo, user=request.user)
             event.save()
             return HttpResponseRedirect(reverse('index'))
-    return render(request, 'Kvent/create-event-page.html', {'form': form})
+    return render(request, 'kvent/create-event-page.html', {'form': form})
 
 def signup(request):
     """Function for let user who doesn't have an account to create an account and render signup page."""

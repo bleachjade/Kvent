@@ -136,6 +136,7 @@ AUTH_USER_MODEL = 'Kvent.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-if 'HOME' in os.environ:
+if 'I_AM_HEROKU' in os.environ:
+    # Configure Django App for Heroku.
     import django_heroku
     django_heroku.settings(locals())

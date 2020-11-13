@@ -7,7 +7,7 @@ class User(AbstractUser):
     """Model for put the user account to database."""
     email = models.EmailField("E-mail", max_length=254)
     username = models.CharField("Username", max_length=254)
-    # raw_password = models.CharField("Password", max_length=254)
+    raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
     """Model for put the user's infomation to database."""

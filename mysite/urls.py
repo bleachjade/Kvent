@@ -21,12 +21,4 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('', include('Kvent.urls')),
     path('admin/', admin.site.urls),
-    # path(
-    #     'logout/',
-    #     LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
-    #     name='logout'
-    # ),
-    # path('manage/', views.manage, name='manage'),
-    # path('', include('social_django.urls', namespace='social')),
-    # path('accounts/', include('django.contrib.auth.urls')),
 ]

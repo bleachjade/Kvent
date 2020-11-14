@@ -16,12 +16,16 @@
     <ul>
         <li><a href="{% url 'index' %}">Kvent</a></li>
         <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
+        {% if user.is_authenticated %}
+               <li> <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
     </ul>
         {% if user.is_authenticated %}
         <a href="{% url 'profile' %}" id="event-logo">Profile</a>
         {% else %}
         <a href="{% url 'login' %}" id="event-logo">Login</a>
         {% endif%}
+        
     </nav>
 
     

@@ -129,25 +129,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Kvent/static'), )
-# STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", 'staticfiles')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
 AUTH_USER_MODEL = 'Kvent.User'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-if 'HELLO_HEROKU' in os.environ:
-    # Configure Django App for Heroku.
-    import django_heroku
-    django_heroku.settings(locals())
 
 if 'HELLO_HEROKU' in os.environ:
     # Configure Django App for Heroku.

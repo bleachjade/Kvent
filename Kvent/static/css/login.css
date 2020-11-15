@@ -139,4 +139,5 @@ a:hover {
     margin: 1em 4em 2em;
     padding: 0.4em 0 0.4em 0;
     transition: all 0.2s ease-in-out;
+    text-align: center;
 }

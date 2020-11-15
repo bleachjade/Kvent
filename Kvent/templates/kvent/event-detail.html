@@ -18,6 +18,7 @@
         {% if user.is_authenticated %}
         <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
         <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+        <li> <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
         {% else %}
         <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
         {% endif%}
@@ -36,6 +37,7 @@
             <h4 id="event-name"> {{ event.get_event_name }} </h4>
             <h3>{{ event.get_long_description }}</h3>
             <h3>Will be held at {{ event.get_location }} </h3>
+            <h3>Arrangement date: {{event.arrange_time}}</h3>
             <h3>Capacity : {{ event.get_number_people}} </h3>
 
             <h3>Host: {{ event.user }}</h3>

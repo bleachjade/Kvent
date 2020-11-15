@@ -8,7 +8,7 @@ class EventForm(forms.ModelForm):
     """ Form for inputing a new event """
     class Meta:
         model = Event
-        fields = ['event_name','location', 'short_description', 'long_description', 'number_people', 'photo']
+        fields = ['event_name','location', 'short_description', 'long_description', 'arrange_time', 'number_people', 'photo']
         event_name = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'name-input'}
@@ -25,6 +25,10 @@ class EventForm(forms.ModelForm):
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'long-description-input'}
             ))
+        arrange_time = forms.DateTimeField(
+            input_formats=['YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]'],
+            widget=forms.DateTimeInput(attrs={'type':'input', 'id': 'arrange-time'}
+            ))
         number_people = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'number-people'}
@@ -37,11 +41,12 @@ class SignUpForm(UserCreationForm):
     """ Form for create a new account """
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = UserCreationForm.Meta.fields + ( 'email','username', 'password1')
+        fields = UserCreationForm.Meta.fields + ( 'email','username','first_name','last_name','phone_num','address','password1' )
 
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
-            'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
-            'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
+            # 'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
+            # 'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
+            # 'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
+            
         }

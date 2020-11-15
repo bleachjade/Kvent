@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, Info, User
 from .forms import EventForm,SignUpForm
 from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -61,9 +61,10 @@ def create_event(request):
             location = form.data.get('location')
             short_description = form.data.get('short_description')
             long_description = form.data.get('long_description')
+            arrange_time = form.data.get('arrange_time')
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
-             short_description = short_description, long_description = long_description
+             short_description = short_description, long_description = long_description,arrange_time = arrange_time
              , number_people = number_people,full=False, photo=photo, user=request.user)
             event.save()
             return HttpResponseRedirect(reverse('index'))
@@ -113,11 +114,16 @@ def join_event(request, event_id):
 def leave_event(request, event_id):
     DANGER = 50
     user = request.user.id
-    try:
+    try: 
         event = get_object_or_404(Event, pk=event_id)
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
         messages.add_message(request, DANGER, f"You've left the {event.event_name} event.", extra_tags='danger')
         event.participants.remove(user)
+    return redirect('index')
+
+@login_required(login_url='login')
+def logout(request):
+    logout(request)
     return redirect('index')

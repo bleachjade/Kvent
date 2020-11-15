@@ -18,6 +18,7 @@
         {% if user.is_authenticated %}
         <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
         <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+        <li> <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
         {% else %}
         <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
         {% endif%}
@@ -44,6 +45,8 @@
                     {{ form.long_description }}
                     Location
                     {{ form.location}}
+                    Arrangement Date and Time (format YYYY-MM-DD 00:00:00)
+                    {{ form.arrange_time}}
                     Number of people
                     {{ form.number_people }}
                     <button id="submit-button" type="submit" value="POST"> SUBMIT </button>

@@ -51,7 +51,6 @@ def create_event(request):
             short_description = form.data.get('short_description')
             long_description = form.data.get('long_description')
             arrange_time = form.data.get('arrange_time')
-            print(arrange_time)
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
              short_description = short_description, long_description = long_description,arrange_time = arrange_time

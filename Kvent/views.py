@@ -90,7 +90,7 @@ def delete_event(request, event_id):
     DANGER = 50
     event = Event.objects.get( pk=event_id)
     if str(request.user) == event.user:
-        messages.add_message(request, DANGER, f"You've delete the {event.event_name} event.", extra_tags='danger')
+        messages.add_message(request, DANGER, f"You've deleted the {event.event_name} event.", extra_tags='danger')
         event.delete()
     else:
         messages.warning(request, "You can only delete your event.")
@@ -105,7 +105,7 @@ def join_event(request, event_id):
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
-        messages.success(request, f"You've join the {event.event_name} event!")
+        messages.success(request, f"You've joined the {event.event_name} event!")
         event.participants.add(user)
     return redirect('index')
 

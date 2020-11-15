@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=develop)](https://travis-ci.org/bleachjade/Kvent)
+[![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=master)](https://travis-ci.org/bleachjade/Kvent)
 [![codecov](https://codecov.io/gh/bleachjade/Kvent/branch/develop/graph/badge.svg?token=JLOHNQNY5P)](https://codecov.io/gh/bleachjade/Kvent)
 
 # Kvent

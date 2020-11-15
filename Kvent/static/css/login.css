@@ -35,8 +35,21 @@ body {
     min-height: 100vh;
     display: block;
     background-color: white;
+}
+.google{
+    color: white;
+    background-color: #a51603;
+    border: 1px solid lightblue;
+    border-radius: 2em;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 1em 4em 2em;
+    padding: 0.4em 0 0.4em 0;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
     padding: 173px 55px 55px;
 }
+
 .wrap-signup {
     width: 100%;
     display: flex;

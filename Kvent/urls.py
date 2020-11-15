@@ -4,7 +4,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
-
+from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
@@ -17,6 +17,8 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('join/<int:event_id>/', views.join_event, name='join-event'),
     path('leave/<int:event_id>/', views.leave_event, name='leave-event'),
+    path('', include('social_django.urls', namespace='social')),
+    path('logout/',views.logout,name='logout'),
     path('<str:username>/history/', views.event_history, name='event-history')
 ] 
 

@@ -20,16 +20,15 @@
     <ul>
         {% if user.is_authenticated %}
         <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
         {% endif%}
     </ul>
     </nav>
-
-    <div class="row">
+ <div class="row">
         <div class="column">
             <ul>
                 <li><img id="profile-img" src="{% static 'images/profile.png' %}"></li>
             </ul>
-
         </div>
         <div class="column" id="info">
             <ul>
@@ -43,11 +42,11 @@
                 <br>
                 <li id="h2">Contact Infomation:</li>
                 <br>
-                <li>{{ user.first_name}} {{ user.last_name }}</li>
+                <li>Name: {{ user.first_name}} {{ user.last_name }}</li>
                 <br>
-                <li>{{ user.phone_num }}</li>
+                <li>Phone number: {{ user.phone_num }}</li>
                 <br>
-                <li>{{ user.address }}</li>
+                <li>Address: {{ user.address }}</li>
                 <br>
                 <br>
                 <li id="h2">Event History:</li>

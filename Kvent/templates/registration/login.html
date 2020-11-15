@@ -21,6 +21,7 @@
           Username: {{ form.username }}
           Password: {{ form.password }}
           <button type="submit">Login</button>
+          <a class="google" href="{% url 'social:begin' 'google-oauth2' %}">Google+</a>
           </div>
           <div class="create-account">
           <p class="forgot">Don't have any account?</p>

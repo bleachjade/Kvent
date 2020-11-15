@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, Info, User
 from .forms import EventForm,SignUpForm
 from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -110,10 +110,15 @@ def join_event(request, event_id):
 @login_required(login_url='/login/')
 def leave_event(request, event_id):
     user = request.user.id
-    try:
+    try: 
         event = get_object_or_404(Event, pk=event_id)
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
         event.participants.remove(user)
+    return redirect('index')
+
+@login_required(login_url='login')
+def logout(request):
+    logout(request)
     return redirect('index')

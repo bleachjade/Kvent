@@ -6,7 +6,11 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     """Model for put the user account to database."""
     email = models.EmailField("E-mail", max_length=254)
-    username = models.CharField("Username", max_length=254)
+    username = models.CharField("Username", max_length=254)  
+    first_name = models.CharField("First Name", max_length=254)
+    last_name = models.CharField("Last Name", max_length=254)
+    phone_num = models.CharField('Phone Number', max_length=10)
+    address = models.CharField("Address", max_length=125)
     # raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):

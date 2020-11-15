@@ -61,9 +61,10 @@ def create_event(request):
             location = form.data.get('location')
             short_description = form.data.get('short_description')
             long_description = form.data.get('long_description')
+            arrange_time = form.data.get('arrange_time')
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
-             short_description = short_description, long_description = long_description
+             short_description = short_description, long_description = long_description,arrange_time = arrange_time
              , number_people = number_people,full=False, photo=photo, user=request.user)
             event.save()
             return HttpResponseRedirect(reverse('index'))

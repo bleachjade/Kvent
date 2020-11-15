@@ -19,6 +19,7 @@ urlpatterns = [
     path('leave/<int:event_id>/', views.leave_event, name='leave-event'),
     path('', include('social_django.urls', namespace='social')),
     path('logout/',views.logout,name='logout'),
+    path('<str:username>/history/', views.event_history, name='event-history')
 ] 
 
 if settings.DEBUG:

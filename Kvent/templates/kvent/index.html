@@ -13,22 +13,17 @@
 
 <body>
     <nav class="nav-bar">
+        <a href="{% url 'index' %}">Kvent</a>
     <ul>
-        <li><a href="{% url 'index' %}">Kvent</a></li>
-        <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
         {% if user.is_authenticated %}
-               <li> <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
-        {% endif %}
-    </ul>
-        {% if user.is_authenticated %}
-        <a href="{% url 'profile' %}" id="event-logo">Profile</a>
+        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+        <li> <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
         {% else %}
-        <a href="{% url 'login' %}" id="event-logo">Login</a>
+        <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
         {% endif%}
-        
+    </ul>
     </nav>
-
-    
     <div class="banner-container">
         <div class="banner">
             <img src="{% static '/images/banner.jpg' %}" />

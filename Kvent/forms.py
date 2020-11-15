@@ -8,7 +8,7 @@ class EventForm(forms.ModelForm):
     """ Form for inputing a new event """
     class Meta:
         model = Event
-        fields = ['event_name','location', 'short_description', 'long_description', 'number_people', 'photo']
+        fields = ['event_name','location', 'short_description', 'long_description', 'arrange_time', 'number_people', 'photo']
         event_name = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'name-input'}
@@ -24,6 +24,10 @@ class EventForm(forms.ModelForm):
         long_description = forms.CharField(
             widget=forms.TextInput(
             attrs={'type':'input', 'id':'long-description-input'}
+            ))
+        arrange_time = forms.DateTimeField(
+            input_formats=['YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]'],
+            widget=forms.DateTimeInput(attrs={'type':'input', 'id': 'arrange-time'}
             ))
         number_people = forms.CharField(
             widget=forms.TextInput(

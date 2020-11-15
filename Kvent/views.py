@@ -12,7 +12,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 class IndexView(generic.ListView):
-    """Show index view which is a list of all events."""
+    """Show index view which is a list of all events and render index page."""
 
     template_name = 'kvent/index.html'
     context_object_name = 'all_event'
@@ -26,18 +26,33 @@ class IndexView(generic.ListView):
 
 @login_required(login_url='login/')
 def profile(request):
-    """User's profile"""
+    """Function for render user's profile page."""
     user = Info.objects.all()
     return render(request, 'kvent/profile.html',{user:'user'})
 
 def detail(request, event_id):
+    """Function for render event detail page."""
     event = get_object_or_404(Event, pk=event_id)
     user = request.user
     return render(request, 'kvent/event-detail.html', {'event': event, 'user': user})
 
 @login_required(login_url='login')
+def event_history(request, username):
+    user = request.user
+    event_host = Event.objects.filter(user=user)
+    event_participant = Event.objects.filter(participants=user)
+    return render(request, 'kvent/event-history.html', {
+        'user': user, 
+        'event_host': event_host,
+        'event_participant': event_participant
+        })
+
+@login_required(login_url='login')
 def create_event(request):
-    """ User creates the event """
+    """ 
+    Function for create event with form and only logged in user can create the event 
+    and render create event page.
+    """
     form = EventForm(request.POST, request.FILES)
     if request.method == 'POST' :
         if form.is_valid() :
@@ -46,15 +61,17 @@ def create_event(request):
             location = form.data.get('location')
             short_description = form.data.get('short_description')
             long_description = form.data.get('long_description')
+            arrange_time = form.data.get('arrange_time')
             number_people = form.data.get('number_people')
             event = Event(event_name = event_name, location=location,
-             short_description = short_description, long_description = long_description
+             short_description = short_description, long_description = long_description,arrange_time = arrange_time
              , number_people = number_people,full=False, photo=photo, user=request.user)
             event.save()
             return HttpResponseRedirect(reverse('index'))
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):
+    """Function for let user who doesn't have an account to create an account and render signup page."""
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
         if form.is_valid():
@@ -70,11 +87,16 @@ def signup(request):
 
 @login_required(login_url='/login/')
 def delete_event(request, event_id):
+    """Function for delete event and only logged in user can delete event."""
     event = Event.objects.get( pk=event_id)
-    event.delete()
+    if str(request.user) == event.user: 
+        event.delete()
+    else:
+        messages.warning(request, "You can only delete your event.")
+        return redirect('index')
     return redirect('index')
 
-@login_required
+@login_required(login_url='/login/')
 def join_event(request, event_id):
     user = request.user.id
     try:
@@ -85,7 +107,7 @@ def join_event(request, event_id):
         event.participants.add(user)
     return redirect('index')
 
-@login_required
+@login_required(login_url='/login/')
 def leave_event(request, event_id):
     user = request.user.id
     try: 

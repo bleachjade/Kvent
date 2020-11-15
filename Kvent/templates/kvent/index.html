@@ -12,6 +12,15 @@
 </head>
 
 <body>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <div>
+                <h5>{{ message }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
     <nav class="nav-bar">
         <a href="{% url 'index' %}">Kvent</a>
     <ul>

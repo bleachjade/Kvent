@@ -87,8 +87,10 @@ def signup(request):
 @login_required(login_url='/login/')
 def delete_event(request, event_id):
     """Function for delete event and only logged in user can delete event."""
+    DANGER = 50
     event = Event.objects.get( pk=event_id)
-    if str(request.user) == event.user: 
+    if str(request.user) == event.user:
+        messages.add_message(request, DANGER, f"You've delete the {event.event_name} event.", extra_tags='danger')
         event.delete()
     else:
         messages.warning(request, "You can only delete your event.")
@@ -103,16 +105,19 @@ def join_event(request, event_id):
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
+        messages.success(request, f"You've join the {event.event_name} event!")
         event.participants.add(user)
     return redirect('index')
 
 @login_required(login_url='/login/')
 def leave_event(request, event_id):
+    DANGER = 50
     user = request.user.id
     try:
         event = get_object_or_404(Event, pk=event_id)
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
+        messages.add_message(request, DANGER, f"You've left the {event.event_name} event.", extra_tags='danger')
         event.participants.remove(user)
     return redirect('index')

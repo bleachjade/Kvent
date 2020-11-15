@@ -12,6 +12,8 @@ from decouple import config
 
 import os
 
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY', default='secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['kventeventapplication.herokuapp.com']
 
 
 # Application definition
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,6 +95,9 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
 
@@ -129,15 +135,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
 AUTH_USER_MODEL = 'Kvent.User'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
@@ -153,7 +152,16 @@ try:
 except ImportError:
     pass
  
-if 'I_AM_HEROKU' in os.environ:
+if 'HELLO_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Kvent/static'), )
+    STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
     django_heroku.settings(locals())
+
+else:
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Kvent/static'), )
+    STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -16,8 +16,8 @@
         <a href="{% url 'index' %}">Kvent</a>
     <ul>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
         <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+        <li><a href="{% url 'logout' %}" id="event-logo">Logout</a></li>
         {% else %}
         <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
         {% endif%}

@@ -258,7 +258,7 @@ h5 {
         font-size: 1.1rem;
     }
     #no-event h2 {
-        font-size: 1.4em;
+        font-size: 1.3em;
         padding: 3em 0 0 0;
     }
     .event-container .event-title {
@@ -279,8 +279,17 @@ h5 {
     h5 {
         font-size: 1rem;
     }
+    .event-container .each-event img {
+        width: 100%;
+    }
     .event-history-title {
         font-size: 0.9em;
+    }
+    #no-event h2 {
+        font-size: 1.1em;
+    }
+    #create-more-event {
+        font-size: 0.7em;
     }
 }
 

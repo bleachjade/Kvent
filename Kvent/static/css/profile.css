@@ -1,66 +1,111 @@
-body{
-    margin: 0;
-    font-family: Arial;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
 }
+/*nav-bar part*/
 .nav-bar {
-    overflow: hidden;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    height: 80.03px;
-    background: #003366;
-    mix-blend-mode: multiply;
+    max-width: 100%;
+    height: 1em;
+    font-size: 1.8em;
+    background-color: #003366;
+    padding: 1em 1.5em 1em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bar li {
+    list-style-type: none;
+    padding: 0 0.5em 0 0.5em;
 }
 
 .nav-bar a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 25px 16px;
-    padding-left: 3rem;
+    padding: 0 0 0 1em;
     text-decoration: none;
-    font-size: 25px;
+    color: white;
 }
-
-
+.nav-bar ul {
+    display: flex;
+}
 .nav-bar a:hover {
     color: red;
 }
 
-.row {
+section .main-profile {
+    width: 100%;
     display: flex;
-  }
-  
-  /* Create two equal columns that sits next to each other */
-.column {
-    flex: auto;
-    padding: 10px;
 }
 
+.profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 5em 4em 4em 4em;
+}
 
-#h1 {
-    font-size: 2em;
-    font-weight: bold;
+.wrap-profile {
+    width: 100%;
+    display: flex;
 }
-#h2 {
-    font-size: 1.5em;
-    font-weight: bold;
+
+.img-container {
+    width: 40%;
+    text-align: center;
 }
-#profile-img {
-    position: absolute;
-    width: 264px;
-    height: 264px;
-    left: 200px;
-    top: 207px;
+.img-container img {
+    width: 15em;
+    height: auto;
 }
-#info {
-    position: inherit;
-    padding-top: 100px;
-    top: 207px;
+
+.profile-desc {
+    width: 60%;
+    display: flex;
+}
+.profile-desc ul {
+    line-height: 3em;
+}
+
+/*multiplatform device size*/
+@media screen and (max-width: 1024px) {
+    .nav-bar {
+        height: 0.8em;
+        font-size: 1.6em;
+    }
+}
+@media screen and (max-width: 778px) {
+    .nav-bar {
+        height: 0.7em;
+        font-size: 1.3em;
+    }
+    .profile-container {
+        text-align: center;
+    }
+    .wrap-profile {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .img-container {
+        width: 100%;
+        text-align: center;
+    }
+    .profile-desc {
+        width: 100%;
+        justify-content: center;
+        padding: 2em 0 0 0;
+    }
+}
+@media screen and (max-width: 540px) {
+    .nav-bar {
+        height: 0.6em;
+        font-size: 1.1em;
+    }
+}
+@media screen and (max-width: 376px) {
+    .nav-bar {
+        font-size: 1em;
+    }
+    .img-container img {
+        width: 13em;
+    }
 }

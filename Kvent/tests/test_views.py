@@ -31,12 +31,6 @@ class EventDetailViewTest(TestCase):
         url = reverse('event-detail', args=(event.id,))
         response = self.client.get(url)
         self.assertContains(response, event.long_description)
-    
-    # def test_arrange_time(self):
-    #     event = create_event()
-    #     url = reverse('event-detail', args=(event.id,))
-    #     response = self.client.get(url)
-    #     self.assertContains(response, "Dec. 12, 2020, 6 p.m.")
 
     def test_number_people(self):
         event = create_event()

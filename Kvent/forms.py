@@ -26,7 +26,7 @@ class EventForm(forms.ModelForm):
             attrs={'type':'input', 'id':'long-description-input'}
             ))
         arrange_time = forms.DateTimeField(
-            input_formats=['%y-%m-%d %H:%M:%s'],
+            input_formats=['YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]'],
             widget=forms.DateTimeInput(attrs={'type':'input', 'id': 'arrange-time'}
             ))
         number_people = forms.CharField(

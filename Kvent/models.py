@@ -11,7 +11,7 @@ class User(AbstractUser):
     last_name = models.CharField("Last Name", max_length=254)
     phone_num = models.CharField('Phone Number', max_length=10)
     address = models.CharField("Address", max_length=125)
-    # raw_password = models.CharField("Password", max_length=254)
+    raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
     """Model for put the user's infomation to database."""

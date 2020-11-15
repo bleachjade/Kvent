@@ -44,9 +44,5 @@ class SignUpForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + ( 'email','username','first_name','last_name','phone_num','address','password1' )
 
         widgets = {
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            # 'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
-            # 'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
-            # 'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
-            
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),            
         }

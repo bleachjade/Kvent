@@ -57,7 +57,6 @@ MIDDLEWARE = [
 AUTHENTICATION_BACKENDS = (
      # username/password authentication
     'social_core.backends.google.GoogleOAuth2',
-    # 'social_auth.backends.google.GoogleBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 

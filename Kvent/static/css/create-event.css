@@ -73,6 +73,18 @@ form textarea{
     box-sizing: border-box;
     font: 200 Arial;
 }
+form input[name="arrange_time"]{
+    width: 100%;
+    font-size: 1em;
+    padding: 1em;
+    margin: 1em;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    border-bottom: solid 2px #474544;
+    box-sizing: border-box;
+    font: 200 Arial;
+}
 input[type="number" i] {
     padding: 1px 2px;
     text-align: center;

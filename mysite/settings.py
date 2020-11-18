@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+
 import os
 import django_heroku
 
@@ -22,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='secret-key')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['kventeventapplication.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,9 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djando_dropbox_storage',
+    'social_django',
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,8 +58,10 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = (
      # username/password authentication
-    'django.contrib.auth.backends.ModelBackend',  
- )
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -84,6 +87,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,11 +100,13 @@ DROPBOX_CONSUMER_KEY = config('DROPBOX_CONSUMER_KEY', default='dropbox_consumer_
 DROPBOX_CONSUMER_SECRET = config('DROPBOX_CONSUMER_SECRET', default='dropbox_consumer_secret')
 
 
+
 # import dj_database_url
 # db_from_env = dj_database_url.config()
 # DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -119,6 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -140,9 +147,19 @@ USE_TZ = True
 DROPBOX_ROOT_FOLDER = '/media'
 AUTH_USER_MODEL = 'Kvent.User'
 
+LOGIN_URL = '/auth/login/google-oauth2/'
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+ 
 if 'HELLO_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku

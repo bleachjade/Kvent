@@ -7,7 +7,11 @@ from django_dropbox_storage import DropboxStorage
 class User(AbstractUser):
     """Model for put the user account to database."""
     email = models.EmailField("E-mail", max_length=254)
-    username = models.CharField("Username", max_length=254)
+    username = models.CharField("Username", max_length=254)  
+    first_name = models.CharField("First Name", max_length=254)
+    last_name = models.CharField("Last Name", max_length=254)
+    phone_num = models.CharField('Phone Number', max_length=10)
+    address = models.CharField("Address", max_length=125)
     raw_password = models.CharField("Password", max_length=254)
 
 class Info(models.Model):
@@ -42,8 +46,8 @@ class Event(models.Model):
     number_people = models.IntegerField("Number of people", default=2)
     date_time = models.DateTimeField('Date and Time', default=timezone.now)
     photo = models.ImageField(upload_to='upload/', default='upload/images/no_img.png', null=True, storage=DROPBOX_STORAGE)
-    participants = models.ManyToManyField(User,null=True, blank=True, 
-                default=0)
+    participants = models.ManyToManyField(User,null=True, blank=True, default=0)
+    arrange_time = models.DateTimeField('Arrangement Date and Time', default='YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]')
     full = models.BooleanField(default=False)
     user = models.CharField("Host's Name", default="", max_length=30)
 

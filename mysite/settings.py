@@ -12,7 +12,8 @@ from decouple import config
 
 import os
 import django_heroku
-import django_dropbox_storage
+# import django_dropbox_storage.storage
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_dropbox_storage',
     'social_django',
 ]
 
@@ -89,22 +89,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
+    }
+}
 
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-DROPBOX_CONSUMER_KEY = config('DROPBOX_CONSUMER_KEY', default='dropbox_consumer_key')
-DROPBOX_CONSUMER_SECRET = config('DROPBOX_CONSUMER_SECRET', default='dropbox_consumer_secret')
+# DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
+# DROPBOX_CONSUMER_KEY = config('DROPBOX_CONSUMER_KEY', default='dropbox_consumer_key')
+# DROPBOX_CONSUMER_SECRET = config('DROPBOX_CONSUMER_SECRET', default='dropbox_consumer_secret')
 
 
 
-# import dj_database_url
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
 
@@ -142,10 +142,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
 
-DROPBOX_ROOT_FOLDER = '/media'
+# DROPBOX_ROOT_FOLDER = '/media'
 AUTH_USER_MODEL = 'Kvent.User'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
@@ -155,7 +155,13 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
- 
+
+# try:
+#     from StringIO import StringIO 
+# except ImportError:
+#     from io import BytesIO
+
+
 if 'HELLO_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku

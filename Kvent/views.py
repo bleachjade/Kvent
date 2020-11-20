@@ -77,10 +77,14 @@ def signup(request):
         if form.is_valid():
             email = form.data.get('email')
             username = form.data.get('username')
-            raw_password = form.data.get('raw_password')
-            user = authenticate(email=email,username=username, password=raw_password)
-            form.save()
-            return redirect(reverse('login'))
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Your username is already taken!")
+                form = SignUpForm()
+            else:
+                raw_password = form.data.get('raw_password')
+                user = authenticate(email=email,username=username, password=raw_password)
+                form.save()
+                return redirect(reverse('login'))
     else:
         form = SignUpForm()
     return render(request,'registration/createaccount.html', {'form': form})

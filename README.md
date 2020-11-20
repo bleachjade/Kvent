@@ -39,7 +39,10 @@ available and book the ticket before you go.
 ```
   $ git clone https://github.com/bleachjade/Kvent.git
 ```
-2. Change directory to `manage.py` directory.
+2. Change directory to the directory that contain `manage.py` directory.
+```
+  $ cd Kvent/
+```
 3. Create virtualenv in the directory and activate virtualenv.    
 ```
   $ virtualenv venv
@@ -68,7 +71,7 @@ available and book the ticket before you go.
   (venv) python manage.py makemigrations
   (venv) python manage.py migrate
 ```
-5. Running the tests.
+5. Run the server.
 
 ##### On MacOS and Linux:
 ```
@@ -78,4 +81,8 @@ available and book the ticket before you go.
 ##### On Windows:
 ```
   (venv) python manage.py runserver
+```
+#### Don't forget to exit the virtualenv after you finish testing.
+```
+  (venv) deactivate
 ```

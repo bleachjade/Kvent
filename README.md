@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=master)](https://travis-ci.org/bleachjade/Kvent)
 [![codecov](https://codecov.io/gh/bleachjade/Kvent/branch/develop/graph/badge.svg?token=JLOHNQNY5P)](https://codecov.io/gh/bleachjade/Kvent)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2c2d5aefb36a8455cdf5/maintainability)](https://codeclimate.com/github/bleachjade/Kvent/maintainability)
 
 # Kvent
 ![Kvent](Kvent/static/images/kvent.png)

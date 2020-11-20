@@ -39,7 +39,10 @@ available and book the ticket before you go.
 ```
   $ git clone https://github.com/bleachjade/Kvent.git
 ```
-2. Change directory to `manage.py` directory.
+2. Change directory to the directory that contain `manage.py` directory.
+```
+  $ cd Kvent/
+```
 3. Create virtualenv in the directory and activate virtualenv.    
 ```
   $ virtualenv venv

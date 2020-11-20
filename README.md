@@ -71,7 +71,7 @@ available and book the ticket before you go.
   (venv) python manage.py makemigrations
   (venv) python manage.py migrate
 ```
-5. Running the tests.
+5. Run the server.
 
 ##### On MacOS and Linux:
 ```
@@ -81,4 +81,8 @@ available and book the ticket before you go.
 ##### On Windows:
 ```
   (venv) python manage.py runserver
+```
+#### Don't forget to exit the virtualenv after you finish testing.
+```
+  (venv) deactivate
 ```

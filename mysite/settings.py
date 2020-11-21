@@ -135,6 +135,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
@@ -155,16 +157,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', de
 #     from io import BytesIO
 
 
-if 'HELLO_HEROKU' in os.environ:
+if 'I_AM_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Kvent/static'), )
-    STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    STATIC_URL = '/static/'
     django_heroku.settings(locals())
-
-else:
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'Kvent/static'), )
-    STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

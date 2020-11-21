@@ -39,19 +39,22 @@ def detail(request, event_id):
 def create_event(request):
     """ User creates the event """
     form = EventForm(request.POST, request.FILES)
+    number_people = form.data.get('number_people')
     if request.method == 'POST' :
-        if form.is_valid() :
-            photo = form.cleaned_data.get('photo') 
-            event_name = form.data.get('event_name')
-            location = form.data.get('location')
-            short_description = form.data.get('short_description')
-            long_description = form.data.get('long_description')
-            number_people = form.data.get('number_people')
-            event = Event(event_name = event_name, location=location,
-             short_description = short_description, long_description = long_description
-             , number_people = number_people,full=False, photo=photo, user=request.user)
-            event.save()
-            return HttpResponseRedirect(reverse('index'))
+        if form.is_valid():   
+            if int(number_people) >= 10:
+                photo = form.cleaned_data.get('photo') 
+                event_name = form.data.get('event_name')
+                location = form.data.get('location')
+                short_description = form.data.get('short_description')
+                long_description = form.data.get('long_description')
+                event = Event(event_name = event_name, location=location,short_description = short_description, 
+                long_description = long_description
+                , number_people = number_people,full=False, photo=photo, user=request.user)
+                event.save()
+                return HttpResponseRedirect(reverse('index'))
+            else :
+                messages.warning(request, "Number of paricipants must more than 10")
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):

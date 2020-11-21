@@ -34,6 +34,15 @@ ul {
     color: red;
 }
 
+.alert {
+    width: 100%;
+    background-color:#f4e07c ;
+    /* border-color: #f4cb00; */
+    font-size: 1.4rem;
+    line-height: 2.5;
+    text-align: center;
+}
+
 #create {
     position: absolute;
     height: 80px;

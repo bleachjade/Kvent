@@ -44,7 +44,16 @@ available and book the ticket before you go.
 ```
   $ cd Kvent/
 ```
-3. Create virtualenv in the directory and activate virtualenv.    
+3. Create `.env` for your local app environment settings
+```
+SECRET_KEY='YOUR-SECRET-KEY'
+DEBUG=True
+TIME_ZONE=Asia/Bangkok
+DATABASE_URL=sqlite:///db.sqlite3
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=175809729145-m240g50lhbae9lc972knk67qh5irqjur.apps.googleusercontent.com
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='YOUR-SECRET'
+```
+4. Create virtualenv in the directory and activate virtualenv.    
 ```
   $ virtualenv venv
 ```
@@ -58,7 +67,7 @@ available and book the ticket before you go.
   $ venv\Scripts\activate
 ```
 
-4. Install all required packages and then run database migrations.
+5. Install all required packages and then run database migrations.
 ##### On MacOS and Linux:
 ```
   (venv) pip3 install -r requirements.txt
@@ -72,7 +81,7 @@ available and book the ticket before you go.
   (venv) python manage.py makemigrations
   (venv) python manage.py migrate
 ```
-5. Run the server.
+6. Run the server.
 
 ##### On MacOS and Linux:
 ```

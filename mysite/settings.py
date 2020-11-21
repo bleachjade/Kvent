@@ -148,7 +148,13 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
- 
+
+# try:
+#     from StringIO import StringIO 
+# except ImportError:
+#     from io import BytesIO
+
+
 if 'HELLO_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku

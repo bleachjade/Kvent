@@ -12,7 +12,6 @@ from decouple import config
 
 import os
 import django_heroku
-import django_dropbox_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djando_dropbox_storage',
     'social_django',
 ]
 
@@ -89,16 +87,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
-#     }
-# }
-
-DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
-DROPBOX_CONSUMER_KEY = config('DROPBOX_CONSUMER_KEY', default='dropbox_consumer_key')
-DROPBOX_CONSUMER_SECRET = config('DROPBOX_CONSUMER_SECRET', default='dropbox_consumer_secret')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
+    }
+}
 
 
 
@@ -142,10 +136,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
 
-DROPBOX_ROOT_FOLDER = '/media'
 AUTH_USER_MODEL = 'Kvent.User'
 
 LOGIN_URL = '/auth/login/google-oauth2/'

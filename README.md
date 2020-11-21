@@ -74,6 +74,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='YOUR-SECRET'
   (venv) python3 manage.py makemigrations
   (venv) python3 manage.py migrate
 ```
+On MacOS, If you can't install psycopg2, try this and install again.
+```
+env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" pip install psycopg2
+```
 
 ##### On Windows:
 ```

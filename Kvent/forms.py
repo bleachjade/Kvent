@@ -26,8 +26,8 @@ class EventForm(forms.ModelForm):
             attrs={'type':'input', 'id':'long-description-input'}
             ))
         number_people = forms.CharField(
-            widget=forms.TextInput(
-            attrs={'type':'input', 'id':'number-people'}
+            widget=forms.NumberInput(
+            attrs={'type':'number', 'id':'number-people'}
             ))
         photo = forms.ImageField()
 

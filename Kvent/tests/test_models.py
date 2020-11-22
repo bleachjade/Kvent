@@ -39,4 +39,14 @@ class EventTest(TestCase):
 class UserTest(TestCase):
     """Test for user's model"""
     def test_user(self):
-        pass
+        user = User(email="jirawadee.sa@ku.th", 
+                    username="Jirawadee2",
+                    first_name="Jirawadee",
+                    last_name="Sampusri",
+                    phone_num="0982344562",
+                    address= "NOT SET",
+                    raw_password="Jirawadeesampusri22")
+        self.assertEqual(user.phone_num, "0982344562")
+        self.assertEqual(user.email, "jirawadee.sa@ku.th")
+        self.assertEqual(user.address, "NOT SET")
+       

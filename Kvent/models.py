@@ -13,6 +13,7 @@ class User(AbstractUser):
     address = models.CharField("Address", max_length=125)
     raw_password = models.CharField("Password", max_length=254)
 
+
 class Info(models.Model):
     """Model for put the user's infomation to database."""
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, default=None)

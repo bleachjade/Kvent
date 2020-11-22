@@ -36,10 +36,22 @@ ul {
 
 .alert {
     width: 100%;
-    background-color:#f4e07c ;
-    /* border-color: #f4cb00; */
-    font-size: 1.4rem;
-    line-height: 2.5;
+    display: flex;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.16);
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-top-color: #d5d5d5;
+}
+div.alert.alert-warning {
+    border-color: #f4cb00;
+}
+.alert div {
+    margin: 16px 0px 15px 0px;
+    flex: auto;
+    overflow: hidden;
     text-align: center;
 }
 

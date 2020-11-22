@@ -29,6 +29,21 @@
 .nav-bar a:hover {
     color: red;
 }
+.alert {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-top-width: 4px;
+    border-top-style: solid;
+    text-align: center;
+    line-height: 41px;
+
+}
+div.alert.alert-success {
+    border-color: lightgreen;
+}
+
+
 /*banner part*/
 .banner-container {
     overflow: hidden;

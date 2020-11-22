@@ -46,7 +46,13 @@ class UserTest(TestCase):
                     phone_num="0982344562",
                     address= "NOT SET",
                     raw_password="Jirawadeesampusri22")
+        self.assertEqual(user.email,"jirawadee.sa@ku.th")
+        self.assertEqual(user.username,"Jirawadee2")
+        self.assertEqual(user.raw_password,"Jirawadeesampusri22")
         self.assertEqual(user.phone_num, "0982344562")
-        self.assertEqual(user.email, "jirawadee.sa@ku.th")
         self.assertEqual(user.address, "NOT SET")
+        self.assertIsInstance(user.first_name, str)
+        self.assertIsInstance(user.last_name, str)
+
+
        

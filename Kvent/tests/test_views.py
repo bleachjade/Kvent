@@ -1,6 +1,6 @@
 from django.test import TestCase
 from Kvent.views import detail
-from Kvent.models import Event
+from Kvent.models import Event, User
 from django.urls import reverse
 
 
@@ -37,3 +37,6 @@ class EventDetailViewTest(TestCase):
         url = reverse('event-detail', args=(event.id,))
         response = self.client.get(url)
         self.assertContains(response, event.number_people)
+    
+
+

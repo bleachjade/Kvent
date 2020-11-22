@@ -78,7 +78,7 @@ class IndexViewTest(TestCase):
         response = self.client.get(reverse('index'))
         self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>'])
 
-    def test_location_of_event(self):
+    def test_have_two_events(self):
         create_event(event_name="Event Test", 
                     location="KU",
                     short_description="The short test for this event.",

@@ -52,6 +52,7 @@ def create_event(request):
                 long_description = long_description
                 , number_people = number_people,full=False, photo=photo, user=request.user)
                 event.save()
+                messages.success(request, f"You've created the {event_name} event!")
                 return HttpResponseRedirect(reverse('index'))
             else :
                 messages.warning(request, "Number of paricipants must more than 10")

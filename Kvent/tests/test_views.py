@@ -4,36 +4,58 @@ from Kvent.models import Event, User
 from django.urls import reverse
 
 
-def create_event():
-    return Event.objects.create(event_name="Event Test", 
+def create_event(event_name, location, short_description, long_description, arrange_time, number_people, full):
+    return Event.objects.create(event_name=event_name, 
+                    location=location,
+                    short_description=short_description,
+                    long_description=long_description,
+                    arrange_time=arrange_time,
+                    number_people=full,
+                    full=full)
+
+
+class EventDetailViewTest(TestCase):
+    def test_name(self):
+        event = create_event(event_name="Event Test", 
                     location="KU",
                     short_description="The short test for this event.",
                     long_description="Test for the long description for the event.",
                     arrange_time="2020-12-20 18:00:00",
                     number_people=20,
                     full=False)
-
-class EventDetailViewTest(TestCase):
-    def test_name(self):
-        event = create_event()
-        url = reverse('event-detail', args=(event.id,))
-        response = self.client.get(url)
+        response = self.client.get(reverse('event-detail', args=(event.id,)))
         self.assertContains(response, event.event_name)
     
     def test_location(self):
-        event = create_event()
-        url = reverse('event-detail', args=(event.id,))
-        response = self.client.get(url)
+        event = create_event(event_name="Event Test", 
+                    location="KU",
+                    short_description="The short test for this event.",
+                    long_description="Test for the long description for the event.",
+                    arrange_time="2020-12-20 18:00:00",
+                    number_people=20,
+                    full=False)
+        response = self.client.get(reverse('event-detail', args=(event.id,)))
         self.assertContains(response, event.location)
     
     def test_long_description(self):
-        event = create_event()
-        url = reverse('event-detail', args=(event.id,))
-        response = self.client.get(url)
+        event = create_event(event_name="Event Test", 
+                    location="KU",
+                    short_description="The short test for this event.",
+                    long_description="Test for the long description for the event.",
+                    arrange_time="2020-12-20 18:00:00",
+                    number_people=20,
+                    full=False)
+        response = self.client.get(reverse('event-detail', args=(event.id,)))
         self.assertContains(response, event.long_description)
 
     def test_number_people(self):
-        event = create_event()
+        event = create_event(event_name="Event Test", 
+                    location="KU",
+                    short_description="The short test for this event.",
+                    long_description="Test for the long description for the event.",
+                    arrange_time="2020-12-20 18:00:00",
+                    number_people=20,
+                    full=False)
         url = reverse('event-detail', args=(event.id,))
         response = self.client.get(url)
         self.assertContains(response, event.number_people)
@@ -46,17 +68,29 @@ class IndexViewTest(TestCase):
         self.assertQuerysetEqual(response.context['all_event'], [])
     
     def test_have_one_event(self):
-        create_event()
-        response = self.client.get(reverse('index'))
-        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>'])
-
-    def test_location_of_event(self):
-        create_event()
-        Event.objects.create(event_name="Event Test2", 
+        create_event(event_name="Event Test", 
                     location="KU",
                     short_description="The short test for this event.",
                     long_description="Test for the long description for the event.",
                     arrange_time="2020-12-20 18:00:00",
+                    number_people=20,
+                    full=False)
+        response = self.client.get(reverse('index'))
+        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>'])
+
+    def test_location_of_event(self):
+        create_event(event_name="Event Test", 
+                    location="KU",
+                    short_description="The short test for this event.",
+                    long_description="Test for the long description for the event.",
+                    arrange_time="2020-12-20 18:00:00",
+                    number_people=20,
+                    full=False)
+        create_event(event_name="Event Test2", 
+                    location="KU",
+                    short_description="The short test for this event.",
+                    long_description="Test for the long description for the event.",
+                    arrange_time="2020-12-20 19:00:00",
                     number_people=20,
                     full=False)
         response = self.client.get(reverse('index'))

@@ -63,9 +63,8 @@ def create_event(request):
                 location = form.data.get('location')
                 short_description = form.data.get('short_description')
                 long_description = form.data.get('long_description')
-                event = Event(event_name = event_name, location=location,short_description = short_description, 
-                long_description = long_description
-                , number_people = number_people,full=False, photo=photo, user=request.user)
+                arrange_time = form.data.get('arrange_time')
+                event = Event(event_name = event_name, location=location, short_description = short_description, long_description = long_description, arrange_time = arrange_time, number_people = number_people,full=False, photo=photo, user=request.user)
                 event.save()
                 messages.success(request, f"You've created the {event_name} event!")
                 return HttpResponseRedirect(reverse('index'))

@@ -56,8 +56,7 @@ class EventDetailViewTest(TestCase):
                     arrange_time="2020-12-20 18:00:00",
                     number_people=20,
                     full=False)
-        url = reverse('event-detail', args=(event.id,))
-        response = self.client.get(url)
+        response = self.client.get(reverse('event-detail', args=(event.id,)))
         self.assertContains(response, event.number_people)
 
 class IndexViewTest(TestCase):

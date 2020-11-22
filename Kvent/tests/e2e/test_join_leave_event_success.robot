@@ -19,7 +19,7 @@ Test user login succeed via Django auth, join and leave the existing event.
     Login to application
     Display Kvent index page
     Select the existing event
-
+    Check attending event
 
 *** Keywords ***
 Login to application
@@ -40,8 +40,12 @@ Select the existing event
     Page Should Contain    Date:
     Page Should Contain    Capacity:
     Page Should Contain    Host:
+    Page Should Contain    Status :
+    Page Should Contain    Available :
+    Set Selenium Timeout    15
     Click Element    xpath:/html/body/div/div[2]/a/button
+    Wait Until Page Contains Element    class:alert alert-success
     Page Should Contain    You've joined
 
-
-
+Check attending event
+    Click Element    xpath:/html/body/nav/ul/li[1]/a

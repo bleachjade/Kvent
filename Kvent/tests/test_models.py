@@ -35,3 +35,8 @@ class EventTest(TestCase):
         self.assertFalse(event.get_full(), False)
         self.assertEqual(event.arrange_time, "2020-12-30 18:00:00")
         self.assertTrue(isinstance(event, Event))
+
+class UserTest(TestCase):
+    """Test for user's model"""
+    def test_user(self):
+        pass

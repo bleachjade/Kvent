@@ -50,6 +50,9 @@ class Event(models.Model):
     full = models.BooleanField(default=False)
     user = models.CharField("Host's Name", default="", max_length=30)
 
+    def __str__(self):
+        return self.event_name
+
     def get_event_name(self):
         return self.event_name
 

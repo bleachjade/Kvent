@@ -3,9 +3,9 @@
 <head>
     {% load static %}
     {% block css %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/profile.css' %}">
     {% endblock %}
@@ -16,43 +16,35 @@
 
 <body>
     <nav class="nav-bar">
-        <ul>
-            <li><a href="{% url 'index' %}">Kvent</a></li>
-            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
-        </ul>
+        <a href="{% url 'index' %}">Kvent</a>
+    <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+        <li><a href="{% url 'logout' %}" id="event-logo">Logout</a></li>
+        {% endif%}
+    </ul>
     </nav>
 
-    <div class="row">
-        <div class="column">
-            <ul>
-                <li><img id="profile-img" src="{% static 'images/profile.png' %}"></li>
-            </ul>
-
+    <section class="main-profile">
+        <div class="profile-container">
+            <div class="wrap-profile">
+                <div class="img-container">
+                    <img id="profile-img" src="{% static 'images/profile.png' %}" />
+                </div>
+                <div class="profile-desc" id="info">
+                    <ul>
+                        <li><h1>Account Infomation</h1></li>
+                        <li><h2>E-mail Address:</h2></li>
+                        <li>{{ user.email }}</li>
+                        <li><h2>Contact Infomation:</h2></li>
+                        <li>{{ user.first_name}} {{ user.last_name }}</li>
+                        <li>{{ user.phone_num }}</li>
+                        <li>{{ user.address }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="column" id="info">
-            <ul>
-                <li id="h1">Account Infomation</li>
-                <br>
-                <br>
-                <li id="h2">E-mail Address:</li>
-                <br>
-                <li>{{ user.email }}</li>
-                <br>
-                <br>
-                <li id="h2">Contact Infomation:</li>
-                <br>
-                <li>{{ user.first_name}} {{ user.last_name }}</li>
-                <br>
-                <li>{{ user.phone_num }}</li>
-                <br>
-                <li>{{ user.address }}</li>
-                <br>
-                <br>
-                <li id="h2">Event History:</li>
-                <br>
-            </ul>
-        </div>
-    </div>
+    </section>
 </body>
 
 {% endblock content %}

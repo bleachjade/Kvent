@@ -5,6 +5,9 @@
     {% load static %}
     <title> Kvent </title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/create-event.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
 
 </head>
 
@@ -20,35 +23,45 @@
     {% endif %}
     
     <nav class="nav-bar">
-        <ul>
-            <li><a href="{% url 'index' %}">Kvent</a></li>
-            <li><a href="{% url 'index' %}" id="event-logo">Events</a></li>
-        </ul>
+        <a href="{% url 'index' %}">Kvent</a>
+    <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+        <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
+        {% endif%}
+    </ul>
     </nav>
-    <div class="row">
-        <div id="create">
-            Create Event 
-            <hr class="line">
-        </div>
-        <div id="content">
-            <form method="POST"  enctype="multipart/form-data">
-                {% csrf_token %}
-                <p>
-                Event Photo
-                {{ form.photo }}
-                </p>
-                Event Name <br>
-                {{ form.event_name }}
-                <br>Short Description <br>
-                {{ form.short_description}}
-                <br>Long Description <br>
-                {{ form.long_description }}
-                <br><br> Location <br>
-                {{ form.location}}
-                <br><br> Number of people <br> 
-                {{ form.number_people }} <h5>The number of people must be more than 10 </h5>
-                <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
-            </form>
+    <div class="main">
+        <div class="create-container">
+            <div class="wrap-container">
+                <form class="create-form" method="POST"  enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <span class="text-title">Create Event</span>
+                    <hr class="line">
+                    <div class="input">
+                    <div class="photo">
+                    Event Photo
+                    {{ form.photo }}
+                    </div>
+                    <br>
+                    Event Name
+                    {{ form.event_name }}
+                    Short Description
+                    {{ form.short_description}}
+                    Long Description
+                    {{ form.long_description }}
+                    Location
+                    {{ form.location}}
+                    Arrangement Date and Time (format YYYY-MM-DD 00:00:00)
+                    {{ form.arrange_time }}
+                    Number of people
+                    {{ form.number_people }} <h5>The number of people must be more than 10 </h5>
+                    <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>

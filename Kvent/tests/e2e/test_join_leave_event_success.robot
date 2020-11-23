@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Test Teardown    Close Browser
-Suite Teardown    Close Browser
+# Test Teardown    Close Browser
+# Suite Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
@@ -42,8 +42,11 @@ Select the existing event
     Page Should Contain    Host:
     Page Should Contain    Status :
     Page Should Contain    Available :
-    Click Element    xpath:/html/body/div/div[2]/a/button
-    Page Should Contain    You've joined
+    Sleep    2s
+    Click Link    xpath:/html/body/div/div[2]/a
+    Sleep    2s
+    Wait Until Page Contains    You've joined
+    Capture Page Screenshot
 
 Check attending event
     Click Element    xpath:/html/body/nav/ul/li[1]/a

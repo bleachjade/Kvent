@@ -42,9 +42,7 @@ Select the existing event
     Page Should Contain    Host:
     Page Should Contain    Status :
     Page Should Contain    Available :
-    Set Selenium Timeout    15
     Click Element    xpath:/html/body/div/div[2]/a/button
-    Wait Until Page Contains Element    class:alert alert-success
     Page Should Contain    You've joined
 
 Check attending event

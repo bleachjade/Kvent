@@ -51,7 +51,7 @@ DEBUG=True
 TIME_ZONE=Asia/Bangkok
 DATABASE_URL=sqlite:///db.sqlite3
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=175809729145-m240g50lhbae9lc972knk67qh5irqjur.apps.googleusercontent.com
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='YOUR-SECRET'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=RfxNZ861IKTYhsqqnSe3-unM
 ```
 4. Create virtualenv in the directory and activate virtualenv.    
 ```

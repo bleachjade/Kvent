@@ -2,6 +2,8 @@
 dj-database-url==0.5.0
 django_heroku==0.3.1
 gunicorn==20.0.4
+gcloud==0.18.3
+protobuf==3.14.0
 psycopg2==2.8.6
 python-decouple==3.3
 Pillow==8.0.1

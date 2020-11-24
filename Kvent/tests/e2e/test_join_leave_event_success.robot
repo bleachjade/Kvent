@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-# Test Teardown    Close Browser
-# Suite Teardown    Close Browser
+Test Teardown    Close Browser
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome

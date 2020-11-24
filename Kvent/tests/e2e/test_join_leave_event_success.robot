@@ -18,8 +18,9 @@ ${ADDRESS}    99/10 A Street California USA
 Test user login succeed via Django auth, join and leave the existing event.
     Login to application
     Display Kvent index page
-    Select the existing event
+    Select and join the existing event
     Check attending event
+    Leave the event
 
 *** Keywords ***
 Login to application
@@ -34,8 +35,8 @@ Display Kvent index page
     Page Should Contain    KVENT
     Page Should Contain    an online booking and appointment web-application.
     Capture Page Screenshot
-Select the existing event
-    Click Element    id:event-name
+Select and join the existing event
+    Click Element    xpath:/html/body/section/div/div[3]/div[1]/div/a
     Wait Until Page Contains Element    id:event-name
     Page Should Contain    Date:
     Page Should Contain    Capacity:
@@ -50,3 +51,16 @@ Select the existing event
 
 Check attending event
     Click Element    xpath:/html/body/nav/ul/li[1]/a
+    Page Should Contain Element    xpath:/html/body/section/div/div/div[3]/div/a/h4
+    Sleep   2s
+    Click Element    xpath:/html/body/section/div/div/div[3]/div/a/h4
+
+Leave the event
+    Sleep   2s
+    Wait Until Page Contains Element    id:event-name
+    Page Should Contain    Date:
+    Page Should Contain    Capacity:
+    Page Should Contain    Host:
+    Click Link    xpath:/html/body/div/div[2]/a
+    Sleep    2s
+    Wait Until Page Contains    You've left

@@ -95,9 +95,9 @@ DATABASES = {
     }
 }
 
-# import dj_database_url
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
 
@@ -124,8 +124,38 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+TIME_ZONE = config('TIME_ZONE', default='UTC')
+
+AUTH_USER_MODEL = 'Kvent.User'
+
+LOGIN_URL = '/auth/login/google-oauth2/'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
+
+if 'COMPUTERNAME' in os.environ:
+    LANGUAGE_CODE = 'en-us'
+
+    USE_I18N = True
+
+    USE_L10N = True
+
+    USE_TZ = True
+
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
+
 if 'HELLO_HEROKU' in os.environ:
-    # Configure Django App for Heroku.    
+    # Configure Django App for Heroku.
+    import django_heroku
+    django_heroku.settings(locals())
+    
     DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
 
     GS_PROJECT_ID = config('GS-PROJECT-ID')
@@ -138,30 +168,4 @@ if 'HELLO_HEROKU' in os.environ:
 
     MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
     MEDIA_ROOT = "media/"
-
-LANGUAGE_CODE = 'en-us'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
-
-TIME_ZONE = config('TIME_ZONE', default='UTC')
-
-AUTH_USER_MODEL = 'Kvent.User'
-
-LOGIN_URL = '/auth/login/google-oauth2/'
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
     

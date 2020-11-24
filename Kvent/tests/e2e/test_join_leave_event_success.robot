@@ -8,11 +8,6 @@ ${BROWSER}    chrome
 ${URL}    https://kventeventapplication.herokuapp.com/
 ${USERNAME}    testRobot
 ${PASSWORD}    KventTestPass12345
-${EMAIL}    admin@gmail.com
-${FIRSTNAME}    MR. Robert
-${LASTNAME}    FERGUSON
-${TEL}    0991234567
-${ADDRESS}    99/10 A Street California USA
 
 *** Test Cases ***
 Test user login succeed via Django auth, join and leave the existing event.

@@ -126,39 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-if 'I_AM_HEROKU' in os.environ:
-    # Configure Django App for Heroku.
-    DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
-
-    GS_PROJECT_ID = config('GS-PROJECT-ID')
-    # storage
-    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-        os.path.join(BASE_DIR, 'kvent-ede3935fae7d.json')
-    )
-    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    GS_BUCKET_NAME = config('GS-BUCKET-NAME')
-
-    MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
-    MEDIA_ROOT = "media/"
-    
-    import django_heroku
-    django_heroku.settings(locals())
-
-LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = config('TIME_ZONE', default='UTC')
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
 
 AUTH_USER_MODEL = 'Kvent.User'
 
@@ -169,3 +137,37 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
+
+if 'COMPUTERNAME' in os.environ:
+    LANGUAGE_CODE = 'en-us'
+
+    USE_I18N = True
+
+    USE_L10N = True
+
+    USE_TZ = True
+
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", 'media')
+
+if 'I_AM_HEROKU' in os.environ:
+    # Configure Django App for Heroku.
+    import django_heroku
+    django_heroku.settings(locals())
+    
+    DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
+
+    GS_PROJECT_ID = config('GS-PROJECT-ID')
+    # storage
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+        os.path.join(BASE_DIR, 'kvent-ede3935fae7d.json')
+    )
+    # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    GS_BUCKET_NAME = config('GS-BUCKET-NAME')
+
+    MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+    MEDIA_ROOT = "media/"
+    

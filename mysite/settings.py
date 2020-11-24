@@ -140,6 +140,9 @@ if 'I_AM_HEROKU' in os.environ:
 
     MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
     MEDIA_ROOT = "media/"
+    
+    import django_heroku
+    django_heroku.settings(locals())
 
 LANGUAGE_CODE = 'en-us'
 

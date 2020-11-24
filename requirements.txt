@@ -1,4 +1,5 @@
 ﻿django==3.1.2
+dj-database-url==0.5.0
 django_heroku==0.3.1
 gunicorn==20.0.4
 psycopg2==2.8.6

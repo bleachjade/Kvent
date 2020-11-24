@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from google.oauth2 import service_account
 
 import os
 import django_heroku
@@ -125,6 +126,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+if 'I_AM_HEROKU' in os.environ:
+    # Configure Django App for Heroku.
+    DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
+
+    GS_PROJECT_ID = config('GS-PROJECT-ID')
+    # storage
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+        os.path.join(BASE_DIR, 'kvent-ede3935fae7d.json')
+    )
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    GS_BUCKET_NAME = config('GS-BUCKET-NAME')
+
+    MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+    MEDIA_ROOT = "media/"
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = config('TIME_ZONE', default='UTC')
@@ -150,14 +166,3 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
-
-# try:
-#     from StringIO import StringIO 
-# except ImportError:
-#     from io import BytesIO
-
-
-if 'I_AM_HEROKU' in os.environ:
-    # Configure Django App for Heroku.
-    import django_heroku
-    django_heroku.settings(locals())

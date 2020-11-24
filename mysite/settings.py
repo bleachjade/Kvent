@@ -156,7 +156,7 @@ if 'HELLO_HEROKU' in os.environ:
     import django_heroku
     django_heroku.settings(locals())
     
-    DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
     GS_PROJECT_ID = config('GS-PROJECT-ID')
     # storage

@@ -16,7 +16,7 @@ ${DATE}    2020-12-12 12:12:12
 ${NUMBER-OF-PEOPLE}    100
 
 *** Test Cases ***
-Test user login succeed via Django auth, join and leave the existing event.
+Test user login succeed via Django auth and create the event.
     Login to application
     Display Kvent index page
     Create the event

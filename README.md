@@ -44,7 +44,7 @@ available and book the ticket before you go.
 ```
   $ cd Kvent/
 ```
-3. Create `.env` for your local app environment settings
+3. Create `.env` for your local app environment settings, if you want to use Google oauth.
 ```
 SECRET_KEY='YOUR-SECRET-KEY'
 DEBUG=True

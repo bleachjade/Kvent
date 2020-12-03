@@ -55,7 +55,7 @@
                     {% if event_participant %}
                         {% for event in event_participant %}
                             <div class="each-event">
-                            {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+                            {% if not event.get_photo.url == 'https://storage.googleapis.com/kvent_bucket/upload/no_img.png' %}
                                 <img src="{{ event.get_photo.url }}" width="350px" height="auto" />
                             {% else %}
                                 <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="350px" height="auto" />

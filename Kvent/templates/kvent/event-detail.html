@@ -26,7 +26,7 @@
     <div class="row">
         <hr class="line">
         <div class="event-image">
-            {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+            {% if not event.get_photo.url == 'https://storage.googleapis.com/kvent_bucket/upload/no_img.png' %}
             <img src="{{ event.get_photo.url }}" alt="sad" width="300px" height="auto" />
             {% else %}
             <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="300px" height="auto" />

@@ -43,7 +43,7 @@
         
             {% if user not in event.participants.all %}
                 {% if event.user == request.user.username %}
-                    <a class="delete-button" href="{% url 'delete-event' event.id%}"><button> Delete </button></a>
+                    <a class="delete-button" href="{% url 'delete-event' event.id%}"><button onclick="return confirm('Are you sure you want to delete this event?');"> Delete </button></a>
                 {% elif event.user != request.user.username %}
                     {% if event.get_vacant %}
                     <h3> Status : Vacant </h3>
@@ -67,6 +67,15 @@
             {% endfor %}
         </div>
     </div>
+
+    {% comment %} <script>
+        function myFunction() {
+            var choice = confirm("Are you sure you want to permanently delete this event?");
+            if (choice == true) {
+                {{ views.delete }}
+            }
+        }
+    </script> {% endcomment %}
 
 </body>
 

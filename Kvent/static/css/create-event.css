@@ -4,12 +4,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*alert messages*/
 .alert {
     width: 100%;
-    background-color:#f4e07c ;
-    /* border-color: #f4cb00; */
-    font-size: 1.4rem;
-    line-height: 2.5;
     display: flex;
     box-sizing: border-box;
     background: #fff;
@@ -22,11 +19,23 @@
 div.alert.alert-warning {
     border-color: #f4cb00;
 }
+div.alert.alert-success {
+    border-color: lightgreen;
+}
+div.alert.alert-danger {
+    border-color: red;
+}
 .alert div {
-    margin: 16px 0px 15px 0px;
+    margin: 17px 0px 18px 0px;
     flex: auto;
     overflow: hidden;
     text-align: center;
+}
+h5 {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #303030;
 }
 
 /*nav-bar part*/

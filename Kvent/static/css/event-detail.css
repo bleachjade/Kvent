@@ -56,6 +56,7 @@
     justify-content: center;
     text-align: center;
     line-height: 2em;
+    word-wrap: break-word;
 }
 .event-detail-box #event-name {
     font-size: 2em;

@@ -72,11 +72,6 @@
                 {% else %}
                     <img src="{{ event.get_photo.url }}" width="350px" height="auto" />
                 {% endif %}
-                {% comment %} {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
-                    <img src="{{ event.get_photo.url }}" width="350px" height="auto" /> {{ event.get_photo.url }}
-                {% else %}
-                    <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="350px" height="auto" />
-                {% endif %} {% endcomment %}
                 <div class="event-description-box">
                 <h4 id="event-name"> {{ event.get_event_name }} </h4>
                 <h3 id="event-description">

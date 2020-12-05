@@ -111,10 +111,16 @@ section .event-section {
     padding: 0 0 4em 0;
 }
 .event-container .each-event {
-    padding: 2em 0 2em 0;
+    padding: 2em 1em 2em 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: box-shadow .3s;
+    border-radius: 1em;
+    margin: 1.7em;
+}
+.each-event:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 .event-container .each-event img {
     width: 25%;

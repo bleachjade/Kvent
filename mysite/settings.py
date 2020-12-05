@@ -26,9 +26,9 @@ SECRET_KEY = config('SECRET_KEY', default='secret-key')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True)
+DEBUG = config('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['kventeventapplication.herokuapp.com']
 
 
 # Application definition

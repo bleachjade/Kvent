@@ -10,7 +10,7 @@ def create_event(event_name, location, short_description, long_description, arra
                     short_description=short_description,
                     long_description=long_description,
                     arrange_time=arrange_time,
-                    number_people=full,
+                    number_people=number_people,
                     full=full)
 
 
@@ -93,4 +93,4 @@ class IndexViewTest(TestCase):
                     number_people=20,
                     full=False)
         response = self.client.get(reverse('index'))
-        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test2>', '<Event: Event Test>'])
+        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>', '<Event: Event Test2>'])

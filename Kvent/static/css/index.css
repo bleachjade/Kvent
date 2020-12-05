@@ -102,6 +102,11 @@ section .event-section {
 }
 
 /*each event photo and detail*/
+#event a {
+    text-decoration: none;
+    color: black;
+}
+
 .event-container #event {
     padding: 0 0 4em 0;
 }
@@ -120,6 +125,7 @@ section .event-section {
     font-size: 1.5em;
     width: 60%;
     line-height: 2em;
+    word-wrap: break-word;
 }
 .event-container .each-event .event-description-box a {
     text-decoration: none;

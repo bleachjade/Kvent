@@ -65,14 +65,20 @@
             <div id="event">
                 {% if all_event %}
                 {% for event in all_event %}
+                <a href= "{% url 'event-detail' event.id %}">
                 <div class="each-event">
-                {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+                {% if event.get_photo.url == '/media/https%3A/storage.googleapis.com/kvent_bucket/upload/no_img.png' %}
+                    <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="350px" height="auto" />
+                {% else %}
                     <img src="{{ event.get_photo.url }}" width="350px" height="auto" />
+                {% endif %}
+                {% comment %} {% if not event.get_photo.url == '/media/upload/images/no_img.png' %}
+                    <img src="{{ event.get_photo.url }}" width="350px" height="auto" /> {{ event.get_photo.url }}
                 {% else %}
                     <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="350px" height="auto" />
-                {% endif %}
+                {% endif %} {% endcomment %}
                 <div class="event-description-box">
-                <a href= "{% url 'event-detail' event.id %}"><h4 id="event-name"> {{ event.get_event_name }} </h4></a>
+                <h4 id="event-name"> {{ event.get_event_name }} </h4>
                 <h3 id="event-description">
                     {{ event.get_short_description }} <br>
                     At {{ event.get_location }} <br>
@@ -80,6 +86,7 @@
                 </h3>
                 </div>
                 </div>
+                </a>
                 <hr class="line-break">
                 {% endfor %}
                 <div class="create-event">

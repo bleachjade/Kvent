@@ -13,6 +13,7 @@ class User(AbstractUser):
     address = models.CharField("Address", max_length=125)
     raw_password = models.CharField("Password", max_length=254)
 
+
 class Info(models.Model):
     """Model for put the user's infomation to database."""
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, default=None)
@@ -48,6 +49,9 @@ class Event(models.Model):
     arrange_time = models.DateTimeField('Arrangement Date and Time', default='YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]')
     full = models.BooleanField(default=False)
     user = models.CharField("Host's Name", default="", max_length=30)
+
+    def __str__(self):
+        return self.event_name
 
     def get_event_name(self):
         return self.event_name

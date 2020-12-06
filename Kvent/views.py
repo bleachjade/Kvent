@@ -10,6 +10,8 @@ from django.contrib.auth import login, authenticate,logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.utils import timezone
+import datetime
 
 class IndexView(generic.ListView):
     """Show index view which is a list of all events and render index page."""
@@ -55,21 +57,24 @@ def create_event(request):
     """
     form = EventForm(request.POST, request.FILES)
     number_people = form.data.get('number_people')
-    if request.method == 'POST' :
-        if form.is_valid():   
+    arrange_time = form.data.get('arrange_time')
+    if request.method == 'POST':
+        if form.is_valid():
             if int(number_people) >= 10:
-                photo = form.cleaned_data.get('photo') 
-                event_name = form.data.get('event_name')
-                location = form.data.get('location')
-                short_description = form.data.get('short_description')
-                long_description = form.data.get('long_description')
-                arrange_time = form.data.get('arrange_time')
-                event = Event(event_name = event_name, location=location, short_description = short_description, long_description = long_description, arrange_time = arrange_time, number_people = number_people,full=False, photo=photo, user=request.user)
-                event.save()
-                messages.success(request, f"You've created the {event_name} event!")
-                return HttpResponseRedirect(reverse('index'))
+                if datetime.datetime.strptime(arrange_time,'%Y-%m-%d %H:%M').date() > timezone.now().date():
+                    photo = form.cleaned_data.get('photo') 
+                    event_name = form.data.get('event_name')
+                    location = form.data.get('location')
+                    short_description = form.data.get('short_description')
+                    long_description = form.data.get('long_description')
+                    event = Event(event_name = event_name, location=location, short_description = short_description, long_description = long_description, arrange_time = arrange_time, number_people = number_people,full=False, photo=photo, user=request.user)
+                    event.save()
+                    messages.success(request, f"You've created the {event_name} event!")
+                    return HttpResponseRedirect(reverse('index'))
+                else:
+                    messages.warning(request, "Arrangement date must not be today or before")
             else :
-                messages.warning(request, "Number of paricipants must more than 10")
+                messages.warning(request, "Number of paricipants must more than 10 or equal")
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):

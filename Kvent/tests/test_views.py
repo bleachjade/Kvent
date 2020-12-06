@@ -93,4 +93,4 @@ class IndexViewTest(TestCase):
                     number_people=20,
                     full=False)
         response = self.client.get(reverse('index'))
-        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>', '<Event: Event Test2>'])
+        self.assertQuerysetEqual(response.context['all_event'], ['<Event: Event Test>', '<Event: Event Test2>'], ordered=False)

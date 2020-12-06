@@ -112,8 +112,12 @@ def join_event(request, event_id):
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
-        messages.success(request, f"You've joined the {event.event_name} event!")
-        event.participants.add(user)
+        if str(request.user) == event.user:
+            messages.warning(request, f"You can't join your own event!")
+            return redirect('index')
+        else:
+            messages.success(request, f"You've joined the {event.event_name} event!")
+            event.participants.add(user)
     return redirect('index')
 
 @login_required(login_url='/login/')

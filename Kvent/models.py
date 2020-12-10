@@ -43,7 +43,7 @@ class Event(models.Model):
     short_description = models.TextField('Short Description', default="", max_length=100)
     long_description = models.TextField('Long Description', default="", max_length=255)
     number_people = models.IntegerField("Number of people", default=2)
-    date_time = models.DateTimeField('Date and Time', default=timezone.now)
+    date_time = models.DateTimeField('Date and Time', default=timezone.now())
     photo = models.ImageField(upload_to='upload/', default='https://storage.googleapis.com/kvent_bucket/upload/no_img.png')
     participants = models.ManyToManyField(User,null=True, blank=True, default=0)
     arrange_time = models.DateTimeField('Arrangement Date and Time', default='YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]')

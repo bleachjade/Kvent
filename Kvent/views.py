@@ -79,6 +79,8 @@ def create_event(request):
                     return render(request, 'Kvent/create-event-page.html', {'form': form})
             else :
                 messages.warning(request, "Number of paricipants must more than 10 or equal")
+        else:
+            messages.warning(request, f"You should input the date and time as format!")
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):

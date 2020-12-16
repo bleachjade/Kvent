@@ -14,68 +14,74 @@
 <body>
     <nav class="nav-bar">
         <a href="{% url 'index' %}">Kvent</a>
-    <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
-        <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
-        {% endif%}
-    </ul>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'event-history' username=request.user.username %}" id="event-logo">Your events</a></li>
+            <li><a href="{% url 'profile' %}" id="event-logo">Profile</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" id="event-logo">Login</a></li>
+            {% endif%}
+        </ul>
     </nav>
     <div class="row">
-        <hr class="line">
         <div class="event-image">
             {% if 'no_img.png' in event.get_photo.url %}
                 <img src="https://storage.googleapis.com/kvent_bucket/upload/no_img.png" width="350px" height="auto" />
             {% else %}
                 <img src="{{ event.get_photo.url }}" width="350px" height="auto" />
             {% endif %}
-        </div>
-        <div class="event-detail-box">
-            <h4 id="event-name"> {{ event.get_event_name }} </h4>
-            <h3>{{ event.get_long_description }}</h3>
-            <h3>Will be held at {{ event.get_location }} </h3>
-            <h3>Date: {{event.arrange_time}}</h3>
-            <h3>Capacity: {{ event.get_number_people}} </h3>
+            <div class="event-title">
+                <h4 id="event-name"> {{ event.get_event_name }} </h4>
 
-            <h3>Host: {{ event.user }}</h3>
-        
-            {% if user not in event.participants.all %}
+                <h6 id="event-owner">By {{ event.user }}</h6>
+
+
+                {% for user in event.participants.all %}
+                    {% if request.user.username == user.username %}
+                        <a class="leave-button" href="{% url 'leave-event' event.id%}"><button> Leave </button></a>
+                    {% endif%}
+                {% endfor %} 
+
+                {% if user not in event.participants.all %}
                 {% if event.user == request.user.username %}
-                    <a class="delete-button" href="{% url 'delete-event' event.id%}"><button onclick="return confirm('Are you sure you want to delete this event?');"> Delete </button></a>
+                    <a class="delete-button" href="{% url 'delete-event' event.id%}"><button onclick="return confirm('Are you sure you want to delete this event?');"><span> Delete </span></button></a>
                 {% elif event.user != request.user.username %}
                     {% if event.get_vacant %}
-                    <h3> Status : Vacant </h3>
-                    <h3> Available : {{ event.get_available_capacity }} </h3>
-                    <a class="join-button" href="{% url 'join-event' event.id%}"><button> Join </button></a>
+                        <h5 class="vacant">  Vacant </h5>
+                        <a href="{% url 'join-event' event.id%}"><button class="join-button"> join </button></a>
                     {% elif  not event.get_vacant%}
-                        <h3> Status : Full </h3>
+                        <h5 class="full">  Full </h5>
                     {% endif %}
                 {% endif %}
             {% endif%}
+            </div>
+        </div>
 
-            {% for user in event.participants.all %}
-            {% if request.user.username == user.username %}
-              <a class="leave-button" href="{% url 'leave-event' event.id%}"><button> Leave </button></a>
+        <hr class="line">
+
+        <div class="event-detail-box">
+            <h4 id="head-style"> About this Event </h4> 
+            <h3 id="info-style">{{ event.get_long_description }}</h3>
+            <h4 id="head-style"> Date </h4>
+            <h3 id="info-style"> {{event.arrange_time}} </h3>
+            <h4 id="head-style"> Location </h4>
+            <h3 id="info-style"> {{event.get_location}} </h3>
+            <h4 id="head-style"> Number of Participants </h4>
+            <h3 id="info-style"> {{event.get_number_people}} </h3>
+            <h4 id="head-style"> Available </h4>
+            <h3 id="info-style"> {{event.get_available_capacity}} </h3>
+
+            <h4 id="head-style"> Participants </h4>
+            {% if event.participants.all   %}
+                {% for user in event.participants.all %}
+                    <h3 id="info-style"> {{ user.username }} </h3>
+                {% endfor %}
+            {%else%}
+                <h3 id="info-style"> No Participants </h3>
             {% endif%}
-            {% endfor %}
-
-
-            {% for user in event.participants.all %}
-                <h3> Participants :  {{ user.username }} </h3>
-            {% endfor %}
+        
         </div>
     </div>
-
-    {% comment %} <script>
-        function myFunction() {
-            var choice = confirm("Are you sure you want to permanently delete this event?");
-            if (choice == true) {
-                {{ views.delete }}
-            }
-        }
-    </script> {% endcomment %}
 
 </body>
 

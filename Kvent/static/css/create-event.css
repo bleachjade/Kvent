@@ -32,7 +32,7 @@ div.alert.alert-danger {
     text-align: center;
 }
 h5 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.5;
     font-weight: 600;
     color: #303030;
@@ -210,6 +210,12 @@ form .input button:focus {
     .wrap-container .create-form {
         padding: 4em 8em 4em 8em;
     }
+    h5 {
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #303030;
+    }
 }
 @media screen and (max-width: 540px) {
     .nav-bar {
@@ -222,6 +228,12 @@ form .input button:focus {
     .wrap-container .create-form {
         padding: 3.5em 6em 3.5em 6em;
     }
+    h5 {
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #303030;
+    }
 }
 @media screen and (max-width: 376px) {
     .nav-bar {
@@ -229,5 +241,11 @@ form .input button:focus {
     }
     .wrap-container .create-form {
         padding: 3.5em 2.5em 3.5em 2.5em;
+    }
+    h5 {
+        font-size: 1.0rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #303030;
     }
 }

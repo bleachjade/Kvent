@@ -3,6 +3,7 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 /*nav-bar part*/
 .nav-bar {
     max-width: 100%;
@@ -24,89 +25,236 @@
     text-decoration: none;
     color: white;
 }
+
 .nav-bar ul {
     display: flex;
 }
+
 .nav-bar a:hover {
     color: red;
 }
 
 .row {
-    width: 100%;
-    height: 100%;
+    margin-top: 5em;
+    margin-left: 10em;
+    width: 80%;
+    border-radius: 1.2em;
+    box-shadow: 3px 3px 3px 3px lightgray;
 }
 
 .row .event-image {
-    margin: 3em 1em 1em 1em;
+    margin: 4em 1em 1em 1em;
     display: flex;
-    justify-content: center;
-    
 }
+
 .row .event-image img {
+    margin-top: 5em;
+    margin-left: 10em;
     border-radius: 1.2em;
-    width: 26em;
+    width: 24em;
     height: auto;
     box-shadow: 3px 3px lightgray;
 }
 
-.row .event-detail-box {
-    margin: 3em 1em 5em 1em;
-    display: flex;
-    flex-direction: column;
+.event-title {
     justify-content: center;
-    text-align: center;
-    line-height: 2em;
+    line-height: 3em;
     word-wrap: break-word;
-}
-.event-detail-box #event-name {
     font-size: 2em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.10em;
+    padding: 2.5em 5em 0em 7em;
+    word-wrap: break-word;
+}
+
+.vacant {
+    /* width: 100%; */
+    letter-spacing: 0.05em;
+    line-height: 2.5em;
+    text-align: center;
+    color: rgb(46, 145, 46) ;
+    /* background-color:  rgb(46, 145, 46); */
+    padding: 1px 1px 1px 1px;
+    border-radius:15px;
+}
+
+.full {
+    /* width: 100%; */
+    letter-spacing: 0.05em;
+    line-height: 2.5em;
+    text-align: center;
+    color: red ;
+    /* background-color:  rgb(46, 145, 46); */
+    padding: 1px 1px 1px 1px;
+    border-radius:15px;
+}
+
+.line {
+    width: 70em;
+    margin: 4em 2em 2em 4em;
+    border-color: lightgray;
+}
+
+.event-detail-box{
+    padding: 1em 1em 1em 1em;
+    margin-bottom: 2em;
+    line-height: 2em;
+    word-wrap: break-word;
+    letter-spacing: 0.10em;
+}
+
+#head-style {
+    padding: .5em 0em 1em 2em;
+    font-size: 25px;
+}
+
+
+#info-style{
+    padding-left: 3.5em;
+    padding-bottom: 2em;
+    line-height: 3em;
 }
 
 /*button*/
 button {
-    background-color: lightgreen;
+    background-color: green;
     border: 1px solid white;
     border-radius: 4px;
-    padding: 0.8em 2em 0.8em 2em;
-    margin: 1em;
+    padding: 1.6em 4em 1.6em 4em;
+    margin: 1em; 
     cursor: pointer;
     box-shadow: 0 0 4px #999;
     background-position: center;
     transition: background 0.3s;
+    text-transform: uppercase;
+    color: white;
+    background-position: center;
+    font-size: .5em;
+    letter-spacing: 0.15em;
 }
+
+.leave-button button{
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 1.6em 4em 1.6em 4em;
+    margin: 1em; 
+    cursor: pointer;
+    box-shadow: 0 0 4px #999;
+    background-position: center;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    color: white;
+    background-position: center;
+    font-size: .5em;
+    letter-spacing: 0.15em;
+
+}
+
+
+
+/* .join-button:hover:before {
+    content:"Join"
+} */
+/*
 button:hover {
-    background: darkgreen radial-gradient(circle, transparent 1%,  darkgreen 1%) center/15000%;
+    background: darkgreen radial-gradient(circle, transparent 1%, darkgreen 1%) center/15000%;
     color: white;
 }
-button:active{
-    background-color:#292d3e;
+
+button:active {
+    background-color: #292d3e;
     background-size: 100%;
     transition: background 0s;
-}
-a button {
+} */
+
+/* .button:hover::after {
+    content: "Completed!";
+} */
+
+/* a button {
     text-decoration: none;
     color: white;
     align-items: center;
-    font-size: 1.3em;
-    text-transform: uppercase;
+    font-size: 0.9em;
+    /* text-transform: uppercase; */
+/* } 
+
+button:hover span {
+    display:none
 }
 
-.leave-button button {
-    background-color: lightcoral;
-    transition: background 0.3s;
+button:hover:before {
+    content:"Join"
 }
-.leave-button button:hover {
-    background: red radial-gradient(circle, transparent 1%,  red 1%) center/15000%;
-}
-.delete-button button {
+
+
+
+/* .delete-button button {
     background-color: red;
     transition: background 0.3s;
 }
-.delete-button button:hover {
-    background: darkred radial-gradient(circle, transparent 1%,  darkred 1%) center/15000%;
+*/
+.delete-button button{
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 1.6em 4em 1.6em 4em;
+    margin: 1em; 
+    cursor: pointer;
+    box-shadow: 0 0 4px #999;
+    background-position: center;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    color: white;
+    background-position: center;
+    font-size: .5em;
+    letter-spacing: 0.15em;
 }
+
+.delete-button button:hover {
+    background: darkred radial-gradient(circle, transparent 1%, darkred 1%) center/15000%;
+}
+
+/* .delete-button:hover::after { */
+    /* background-color: red; */
+    /* border: 1px solid white;
+    border-radius: 4px;
+    padding: 1.6em 4em 1.6em 4em;
+    margin: 1em; 
+    cursor: pointer;
+    box-shadow: 0 0 4px #999;
+    background-position: center;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    color: white;
+    background-position: center;
+    font-size: .5em;
+    content: "Completed!"; */
+
+
+
+/* a button span[disabled=disabled]{
+    cursor: not-allowed;
+    background-color: red;
+    transition: background 0.3s;
+
+    background-color: green;
+    border: 1px solid white;
+    border-radius: 4px; */
+    /* padding: 0.8em 2em 0.8em 2em; */
+    /* margin: 1em; */
+    /* cursor: pointer;
+    box-shadow: 0 0 4px #999;
+    background-position: center;
+    transition: background 0.3s;
+}
+
+/* .full-button button:hover:disabled {
+    background: darkred radial-gradient(circle, transparent 1%, darkred 1%) center/15000%;
+} */
+
+
 
 /*multiplatform device size*/
 @media screen and (max-width: 1440px) {
@@ -114,41 +262,50 @@ a button {
         width: 22em;
     }
 }
+
 @media screen and (max-width: 1024px) {
     .nav-bar {
         height: 0.8em;
         font-size: 1.6em;
     }
+
     .event-detail-box #event-name {
         font-size: 1.8em;
     }
 }
+
 @media screen and (max-width: 778px) {
     .nav-bar {
         height: 0.7em;
         font-size: 1.3em;
     }
+
     .row .event-image img {
         width: 20em;
     }
 }
+
 @media screen and (max-width: 540px) {
     .nav-bar {
         height: 0.6em;
         font-size: 1.1em;
     }
 }
+
 @media screen and (max-width: 376px) {
     .nav-bar {
         font-size: 1em;
     }
+
     .row .event-image img {
         width: 16em;
         height: 100%;
     }
+
     .event-detail-box #event-name {
         font-size: 1.6em;
     }
+
     .row .event-detail-box {
         font-size: 0.9em;
     }

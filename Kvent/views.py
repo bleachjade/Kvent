@@ -10,6 +10,8 @@ from django.contrib.auth import login, authenticate,logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.utils import timezone
+import datetime
 
 class IndexView(generic.ListView):
     """Show index view which is a list of all events and render index page."""
@@ -54,21 +56,30 @@ def create_event(request):
     and render create event page.
     """
     form = EventForm(request.POST, request.FILES)
-    if request.method == 'POST' :
-        if form.is_valid() :
-            photo = form.cleaned_data.get('photo') 
-            event_name = form.data.get('event_name')
-            location = form.data.get('location')
-            short_description = form.data.get('short_description')
-            long_description = form.data.get('long_description')
-            arrange_time = form.data.get('arrange_time')
-            number_people = form.data.get('number_people')
-            event = Event(event_name = event_name, location=location,
-             short_description = short_description, long_description = long_description,arrange_time = arrange_time
-             , number_people = number_people,full=False, photo=photo, user=request.user)
-            event.save()
-            return HttpResponseRedirect(reverse('index'))
-    return render(request, 'kvent/create-event-page.html', {'form': form})
+    number_people = form.data.get('number_people')
+    arrange_time = form.data.get('arrange_time')
+    if request.method == 'POST':
+        if form.is_valid():
+            if int(number_people) >= 10:
+                try:
+                    if datetime.datetime.strptime(arrange_time,'%Y-%m-%d %H:%M').date() > timezone.now().date():
+                        photo = form.cleaned_data.get('photo') 
+                        event_name = form.data.get('event_name')
+                        location = form.data.get('location')
+                        short_description = form.data.get('short_description')
+                        long_description = form.data.get('long_description')
+                        event = Event(event_name = event_name, location=location, short_description = short_description, long_description = long_description, arrange_time = arrange_time, number_people = number_people,full=False, photo=photo, user=request.user)
+                        event.save()
+                        messages.success(request, f"You've created the {event_name} event!")
+                        return HttpResponseRedirect(reverse('index'))
+                    else:
+                        messages.warning(request, "Arrangement date must be in the future!")
+                except:
+                    messages.warning(request, f"You should input the date and time as format!")
+                    return render(request, 'Kvent/create-event-page.html', {'form': form})
+            else :
+                messages.warning(request, "Number of paricipants must more than 10 or equal")
+    return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):
     """Function for let user who doesn't have an account to create an account and render signup page."""
@@ -110,8 +121,12 @@ def join_event(request, event_id):
     except (KeyError, Event.DoesNotExist):
         return redirect('index')
     else:
-        messages.success(request, f"You've joined the {event.event_name} event!")
-        event.participants.add(user)
+        if str(request.user) == event.user:
+            messages.warning(request, f"You can't join your own event!")
+            return redirect('index')
+        else:
+            messages.success(request, f"You've joined the {event.event_name} event!")
+            event.participants.add(user)
     return redirect('index')
 
 @login_required(login_url='/login/')

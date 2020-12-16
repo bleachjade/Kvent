@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/bleachjade/Kvent.svg?branch=master)](https://travis-ci.org/bleachjade/Kvent)
 [![codecov](https://codecov.io/gh/bleachjade/Kvent/branch/develop/graph/badge.svg?token=JLOHNQNY5P)](https://codecov.io/gh/bleachjade/Kvent)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2c2d5aefb36a8455cdf5/maintainability)](https://codeclimate.com/github/bleachjade/Kvent/maintainability)
 
 # Kvent
 ![Kvent](Kvent/static/images/kvent.png)
@@ -43,7 +44,16 @@ available and book the ticket before you go.
 ```
   $ cd Kvent/
 ```
-3. Create virtualenv in the directory and activate virtualenv.    
+3. Create `.env` for your local app environment settings, if you want to use Google oauth.
+```
+SECRET_KEY='YOUR-SECRET-KEY'
+DEBUG=True
+TIME_ZONE=Asia/Bangkok
+DATABASE_URL=sqlite:///db.sqlite3
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=175809729145-m240g50lhbae9lc972knk67qh5irqjur.apps.googleusercontent.com
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=RfxNZ861IKTYhsqqnSe3-unM
+```
+4. Create virtualenv in the directory and activate virtualenv.    
 ```
   $ virtualenv venv
 ```
@@ -57,12 +67,16 @@ available and book the ticket before you go.
   $ venv\Scripts\activate
 ```
 
-4. Install all required packages and then run database migrations.
+5. Install all required packages and then run database migrations.
 ##### On MacOS and Linux:
 ```
   (venv) pip3 install -r requirements.txt
   (venv) python3 manage.py makemigrations
   (venv) python3 manage.py migrate
+```
+On MacOS, If you can't install psycopg2, try this and install again.
+```
+env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" pip install psycopg2
 ```
 
 ##### On Windows:
@@ -71,7 +85,7 @@ available and book the ticket before you go.
   (venv) python manage.py makemigrations
   (venv) python manage.py migrate
 ```
-5. Run the server.
+6. Run the server.
 
 ##### On MacOS and Linux:
 ```

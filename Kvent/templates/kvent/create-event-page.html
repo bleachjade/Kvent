@@ -12,6 +12,16 @@
 </head>
 
 <body>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <div>
+                <h5>{{ message }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+    
     <nav class="nav-bar">
         <a href="{% url 'index' %}">Kvent</a>
     <ul>
@@ -44,10 +54,10 @@
                     {{ form.long_description }}
                     Location
                     {{ form.location}}
-                    Arrangement Date and Time (format YYYY-MM-DD 00:00:00)
+                    Arrangement Date and Time (format YYYY-MM-DD 00:00)
                     {{ form.arrange_time }}
                     Number of people
-                    {{ form.number_people }}
+                    {{ form.number_people }} <h5>The number of people must be more than 10 </h5>
                     <button id="submit-button" type="submit" value="POST"> SUBMIT </button>
                     </div>
                 </form>

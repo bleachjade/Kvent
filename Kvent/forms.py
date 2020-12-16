@@ -27,11 +27,12 @@ class EventForm(forms.ModelForm):
             ))
         arrange_time = forms.DateTimeField(
             input_formats=['YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]'],
-            widget=forms.DateTimeInput(attrs={'type':'input', 'id': 'arrange-time'}
+            widget=forms.DateTimeInput(
+                attrs={'type':'datetime', 'id': 'arrange-time'}
             ))
         number_people = forms.CharField(
-            widget=forms.TextInput(
-            attrs={'type':'input', 'id':'number-people'}
+            widget=forms.NumberInput(
+            attrs={'type':'number', 'id':'number-people'}
             ))
         photo = forms.ImageField()
 

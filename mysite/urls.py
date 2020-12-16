@@ -16,9 +16,11 @@ from django.contrib import admin
 from django.urls import include, path
 from Kvent import views
 from django.contrib.auth.views import LogoutView
+from django.conf.urls import handler404
 
 
 urlpatterns = [
     path('', include('Kvent.urls')),
     path('admin/', admin.site.urls),
 ]
+handler404 = views.view404

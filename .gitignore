@@ -37,6 +37,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# robot
+selenium-screenshot*
+log.html
+output.xml
+report.html
+
 # C extensions
 *.so
 

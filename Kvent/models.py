@@ -49,7 +49,7 @@ class Event(models.Model):
     arrange_time = models.DateTimeField('Arrangement Date and Time', default='YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]')
     full = models.BooleanField(default=False)
     user = models.CharField("Host's Name", default="", max_length=30)
-
+    
     def __str__(self):
         return self.event_name
 

@@ -80,6 +80,8 @@ def create_event(request):
                     return render(request, 'Kvent/create-event-page.html', {'form': form})
             else :
                 messages.warning(request, "Number of paricipants must more than 10 or equal")
+        else:
+            messages.warning(request, f"You should input the date and time as format!")
     return render(request, 'Kvent/create-event-page.html', {'form': form})
 
 def signup(request):
@@ -92,7 +94,7 @@ def signup(request):
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Your username is already taken!")
                 form = SignUpForm()
-            else:
+            else:  
                 raw_password = form.data.get('raw_password')
                 user = authenticate(email=email,username=username, password=raw_password)
                 form.save()

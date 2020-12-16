@@ -42,7 +42,7 @@ class SignUpForm(UserCreationForm):
     """ Form for create a new account """
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = UserCreationForm.Meta.fields + ( 'email','username','first_name','last_name','phone_num','address','password1' )
+        fields = UserCreationForm.Meta.fields + ( 'email','username','first_name','last_name','address','password1' )
 
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),            

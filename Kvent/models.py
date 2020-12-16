@@ -9,7 +9,6 @@ class User(AbstractUser):
     username = models.CharField("Username", max_length=254)  
     first_name = models.CharField("First Name", max_length=254)
     last_name = models.CharField("Last Name", max_length=254)
-    phone_num = models.CharField('Phone Number', max_length=10)
     address = models.CharField("Address", max_length=125)
     raw_password = models.CharField("Password", max_length=254)
 
@@ -17,15 +16,11 @@ class User(AbstractUser):
 class Info(models.Model):
     """Model for put the user's infomation to database."""
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, default=None)
-    phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     email = models.EmailField('E-mail', max_length=254)
     address = models.CharField("Address", max_length=125, default="NOT SET")
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
-
-    def get_number(self):
-        return self.phone_num
 
     def get_email(self):
         return self.email

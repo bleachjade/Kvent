@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 import datetime
+import sys
 
 class IndexView(generic.ListView):
     """Show index view which is a list of all events and render index page."""
@@ -146,3 +147,8 @@ def leave_event(request, event_id):
 def logout(request):
     logout(request)
     return redirect('index')
+
+def view404(request, exception):
+    res = render(request, 'Kvent/404.html')
+    res.status_code = 404
+    return res

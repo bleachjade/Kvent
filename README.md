@@ -73,6 +73,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=RfxNZ861IKTYhsqqnSe3-unM
   (venv) pip3 install -r requirements.txt
   (venv) python3 manage.py makemigrations
   (venv) python3 manage.py migrate
+  (venv) python manage.py collectstatic
 ```
 On MacOS, If you can't install psycopg2, try this and install again.
 ```
@@ -84,6 +85,7 @@ env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" pip 
   (venv) pip install -r requirements.txt
   (venv) python manage.py makemigrations
   (venv) python manage.py migrate
+  (venv) python manage.py collectstatic
 ```
 6. Run the server.
 

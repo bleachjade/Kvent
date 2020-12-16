@@ -58,33 +58,28 @@
 
 .event-title {
     justify-content: center;
-    line-height: 3em;
+    line-height: 2em;
     word-wrap: break-word;
     font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    padding: 2.5em 5em 0em 7em;
+    padding: 2.5em 3em 0em 3em;
     word-wrap: break-word;
 }
 
 .vacant {
-    /* width: 100%; */
     letter-spacing: 0.05em;
     line-height: 2.5em;
-    text-align: center;
-    color: rgb(46, 145, 46) ;
-    /* background-color:  rgb(46, 145, 46); */
-    padding: 1px 1px 1px 1px;
-    border-radius:15px;
+    color: rgb(46, 145, 46);
+    padding: 1em 1em 1em 2em;
+    border-radius: 15px;
 }
-
 .full {
     /* width: 100%; */
     letter-spacing: 0.05em;
     line-height: 2.5em;
     text-align: center;
     color: red ;
-    /* background-color:  rgb(46, 145, 46); */
     padding: 1px 1px 1px 1px;
     border-radius:15px;
 }
@@ -151,50 +146,6 @@ button {
 
 }
 
-
-
-/* .join-button:hover:before {
-    content:"Join"
-} */
-/*
-button:hover {
-    background: darkgreen radial-gradient(circle, transparent 1%, darkgreen 1%) center/15000%;
-    color: white;
-}
-
-button:active {
-    background-color: #292d3e;
-    background-size: 100%;
-    transition: background 0s;
-} */
-
-/* .button:hover::after {
-    content: "Completed!";
-} */
-
-/* a button {
-    text-decoration: none;
-    color: white;
-    align-items: center;
-    font-size: 0.9em;
-    /* text-transform: uppercase; */
-/* } 
-
-button:hover span {
-    display:none
-}
-
-button:hover:before {
-    content:"Join"
-}
-
-
-
-/* .delete-button button {
-    background-color: red;
-    transition: background 0.3s;
-}
-*/
 .delete-button button{
     background-color: red;
     border: 1px solid white;
@@ -216,97 +167,69 @@ button:hover:before {
     background: darkred radial-gradient(circle, transparent 1%, darkred 1%) center/15000%;
 }
 
-/* .delete-button:hover::after { */
-    /* background-color: red; */
-    /* border: 1px solid white;
-    border-radius: 4px;
-    padding: 1.6em 4em 1.6em 4em;
-    margin: 1em; 
-    cursor: pointer;
-    box-shadow: 0 0 4px #999;
-    background-position: center;
-    transition: background 0.3s;
-    text-transform: uppercase;
-    color: white;
-    background-position: center;
-    font-size: .5em;
-    content: "Completed!"; */
-
-
-
-/* a button span[disabled=disabled]{
-    cursor: not-allowed;
-    background-color: red;
-    transition: background 0.3s;
-
-    background-color: green;
-    border: 1px solid white;
-    border-radius: 4px; */
-    /* padding: 0.8em 2em 0.8em 2em; */
-    /* margin: 1em; */
-    /* cursor: pointer;
-    box-shadow: 0 0 4px #999;
-    background-position: center;
-    transition: background 0.3s;
-}
-
-/* .full-button button:hover:disabled {
-    background: darkred radial-gradient(circle, transparent 1%, darkred 1%) center/15000%;
-} */
-
 
 
 /*multiplatform device size*/
 @media screen and (max-width: 1440px) {
-    .row .event-image img {
-        width: 22em;
+    .row {
+        margin-left: 7em;
     }
-}
-
-@media screen and (max-width: 1024px) {
-    .nav-bar {
-        height: 0.8em;
-        font-size: 1.6em;
-    }
-
-    .event-detail-box #event-name {
-        font-size: 1.8em;
-    }
-}
-
-@media screen and (max-width: 778px) {
-    .nav-bar {
-        height: 0.7em;
-        font-size: 1.3em;
-    }
-
     .row .event-image img {
         width: 20em;
+        margin-left: 2em;
+    }
+    .event-title {
+        padding: 2.5em 2em 0em 2em;
     }
 }
 
-@media screen and (max-width: 540px) {
-    .nav-bar {
-        height: 0.6em;
-        font-size: 1.1em;
-    }
-}
+@media screen and (max-width: 1179px) {
 
-@media screen and (max-width: 376px) {
-    .nav-bar {
-        font-size: 1em;
+    .row {
+        margin-left: 4em;
     }
-
     .row .event-image img {
-        width: 16em;
-        height: 100%;
+        width: 20em;
+        margin-left: 5em;
+    }
+    .event-title {
+        font-size: 1.3em;
+
     }
 
-    .event-detail-box #event-name {
-        font-size: 1.6em;
+    #head-style {
+        padding: .5em 0em 1em 2em;
+        font-size: 20px;
     }
 
-    .row .event-detail-box {
-        font-size: 0.9em;
+    #info-style{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .row .event-image img {
+        width: 20em;
+        margin-left: 2em;
+    }
+    .event-title {
+        padding: 2.5em 0em 0em 2em;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .event-title {
+        margin-top: 4em;
+        font-size: 1em;
+
+    }
+
+    #head-style {
+        padding: .5em 0em 1em 2em;
+        font-size: 19px;
+    }
+
+    #info-style{
+        font-size: 17px;
     }
 }

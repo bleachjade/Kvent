@@ -54,7 +54,6 @@
                         </span></button></a>
                 {% elif event.user != request.user.username %}
                 {% if event.get_vacant %}
-                {% comment %} <h5 class="vacant"> Vacant </h5> {% endcomment %}
                 <a href="{% url 'join-event' event.id%}"><button class="join-button"> join </button></a>
                 {% elif  not event.get_vacant%} {% endif %}
                 {% endif %}
@@ -62,7 +61,7 @@
             </div>
         </div>
 
-        <hr class="line">
+        {% comment %} <hr class="line"> {% endcomment %}
 
         <div class="event-detail-box">
             <h4 id="head-style"> About this Event </h4>

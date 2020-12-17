@@ -11,7 +11,6 @@ ${PASSWORD}    1
 ${EMAIL}    a@a.com
 ${FIRSTNAME}    a
 ${LASTNAME}    a
-${TEL}    1
 ${ADDRESS}    1
 
 *** Test Cases ***
@@ -36,7 +35,6 @@ Input an error sign up information and sign up
     Input Text    id:id_email    ${EMAIL}
     Input Text    id:id_first_name    ${FIRSTNAME}
     Input Text    id:id_last_name    ${LASTNAME}
-    Input Text    id:id_phone_num    ${TEL}
     Input Text    id:id_address    ${ADDRESS}
     Input Text    id:id_password1    ${PASSWORD}
     Input Text    id:id_password2    ${PASSWORD}

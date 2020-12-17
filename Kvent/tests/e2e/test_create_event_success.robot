@@ -6,13 +6,13 @@ Suite Teardown    Close Browser
 *** Variables ***
 ${BROWSER}    chrome
 ${URL}    https://kventeventapplication.herokuapp.com/
-${USERNAME}    testRobot
+${USERNAME}    testAdmin9
 ${PASSWORD}    KventTestPass12345
 ${EVENT-NAME}    MOCA : Art Gallery     
 ${SHORT-DESCRIPTION}    Best art gallery in bangkok! 
 ${LONG-DESCRIPTION}    The Museum of Contemporary Art is an art museum in Bangkok, Thailand. It was opened in 2012
 ${LOCATION}    499 Vibhavadi Rangsit Rd. Ladyao, Chatuchak, Bangkok 10900
-${DATE}    2020-12-12 12:12:12
+${DATE}    2020-12-20 12:12
 ${NUMBER-OF-PEOPLE}    100
 
 *** Test Cases ***
@@ -37,7 +37,7 @@ Display Kvent index page
     Page Should Contain    an online booking and appointment web-application.
 Create the event
     Sleep    2s
-    Click Button    xpath:/html/body/section/div/div[3]/div[2]/a/button
+    Click Button    xpath://*[@id="create-more-event"]
     Sleep    2s
     Page Should Contain    Create Event
     Input Text    id:id_event_name    ${EVENT-NAME}

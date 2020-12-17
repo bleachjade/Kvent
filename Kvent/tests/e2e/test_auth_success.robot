@@ -7,14 +7,13 @@ Suite Teardown    Close Browser
 ${BROWSER}    chrome
 ${URL}    https://kventeventapplication.herokuapp.com/
 # you have to change the username everytime you tested because it already recorded in the database!
-${USERNAME}    testAdmin9
+${USERNAME}    testAdmin11
 ${PASSWORD}    KventTestPass12345
 ${EMAIL}    admin@gmail.com
 ${FIRSTNAME}    MR. Robert
 ${LASTNAME}    FERGUSON
-${TEL}    0991234567
 ${ADDRESS}    99/10 A Street California USA
-# gmail account to use in the tests
+# change this to your gmail to test the program
 ${GOOGLE_EMAIL}    test@gmail.com
 ${GOOGLE_PASSWORD}    password
 
@@ -49,7 +48,6 @@ Input information and sign up
     Input Text    id:id_email    ${EMAIL}
     Input Text    id:id_first_name    ${FIRSTNAME}
     Input Text    id:id_last_name    ${LASTNAME}
-    Input Text    id:id_phone_num    ${TEL}
     Input Text    id:id_address    ${ADDRESS}
     Input Text    id:id_password1    ${PASSWORD}
     Input Text    id:id_password2    ${PASSWORD}
@@ -74,7 +72,6 @@ Check information in profile page and it should matched
     Page Should Contain    ${FIRSTNAME}
     Page Should Contain    ${LASTNAME}
     Page Should Contain    ${ADDRESS}
-    Page Should Contain    ${TEL}
 
 # test case 2
 Display login page with a Google login button

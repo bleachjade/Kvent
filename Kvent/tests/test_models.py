@@ -7,10 +7,9 @@ class InfoTest(TestCase):
     def test_user_info(self):
         """Test user information attributes."""
         user1 = User(email="example@gmail.com")
-        info1 = Info(phone_num="0981322686", email="nattapol.boo@ku.th", address="NOT SET")
+        info1 = Info(email="nattapol.boo@ku.th", address="NOT SET")
         info1.user = user1
         # self.assertEqual(info1.get_name(), "Nattapol Boonyapornpong")
-        self.assertEqual(info1.get_number(), "0981322686")
         self.assertEqual(info1.get_email(), "nattapol.boo@ku.th")
         self.assertEqual(info1.get_address(), "NOT SET")
         self.assertTrue(isinstance(user1, User))
@@ -43,13 +42,11 @@ class UserTest(TestCase):
                     username="Jirawadee2",
                     first_name="Jirawadee",
                     last_name="Sampusri",
-                    phone_num="0982344562",
                     address= "NOT SET",
                     raw_password="Jirawadeesampusri22")
         self.assertEqual(user.email,"jirawadee.sa@ku.th")
         self.assertEqual(user.username,"Jirawadee2")
         self.assertEqual(user.raw_password,"Jirawadeesampusri22")
-        self.assertEqual(user.phone_num, "0982344562")
         self.assertEqual(user.address, "NOT SET")
         self.assertIsInstance(user.first_name, str)
         self.assertIsInstance(user.last_name, str)

@@ -7,10 +7,9 @@ class InfoTest(TestCase):
     def test_user_info(self):
         """Test user information attributes."""
         user1 = User(email="example@gmail.com")
-        info1 = Info(phone_num="0981322686", email="nattapol.boo@ku.th", address="NOT SET")
+        info1 = Info(email="nattapol.boo@ku.th", address="NOT SET")
         info1.user = user1
         # self.assertEqual(info1.get_name(), "Nattapol Boonyapornpong")
-        self.assertEqual(info1.get_number(), "0981322686")
         self.assertEqual(info1.get_email(), "nattapol.boo@ku.th")
         self.assertEqual(info1.get_address(), "NOT SET")
         self.assertTrue(isinstance(user1, User))

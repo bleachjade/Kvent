@@ -73,7 +73,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=RfxNZ861IKTYhsqqnSe3-unM
   (venv) pip3 install -r requirements.txt
   (venv) python3 manage.py makemigrations
   (venv) python3 manage.py migrate
-  (venv) python manage.py collectstatic
+  (venv) python3 manage.py collectstatic
 ```
 On MacOS, If you can't install psycopg2, try this and install again.
 ```
